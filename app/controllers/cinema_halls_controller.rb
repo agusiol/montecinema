@@ -1,7 +1,13 @@
 class CinemaHallsController < ApplicationController
     before_action :set_cinema_hall, only: [:show, :update, :destroy]
     def index
-        @cinema_halls = CinemaHall.all 
+        @cinema_halls = CinemaHall.all.map do |cinema_hall|
+            {
+                name: cinema_hall.name,
+                capacity: cinema_hall.capacity
+            }
+        end
+        
         render json: @cinema_halls
     end
 
