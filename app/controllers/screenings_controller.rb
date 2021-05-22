@@ -12,6 +12,7 @@ class ScreeningsController < ApplicationController
     def create
         @cinema_hall = CinemaHall.find(params[:cinema_hall_id])
         @screening = @cinema_hall.screening.create(screening_params)
+        #array with available seats. the idea is to mark them later with rows ex. A1, F5 etc.
         @screening.seats = (1..@cinema_hall.capacity).to_a  
         if @screening.save
             render json: @screening, status: :created
@@ -34,7 +35,7 @@ class ScreeningsController < ApplicationController
     end
 
     private
-    def set_cinema_screening
+    def set_screening
         @screening = Screening.find(params[:id])
     end
         
