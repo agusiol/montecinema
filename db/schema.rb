@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_153841) do
+ActiveRecord::Schema.define(version: 2021_05_22_200248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2021_05_22_153841) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.string "status"
+    t.datetime "valid_to"
+    t.bigint "screening_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["screening_id"], name: "index_reservations_on_screening_id"
+  end
+
   create_table "screenings", force: :cascade do |t|
     t.datetime "date"
     t.bigint "cinema_hall_id", null: false
@@ -31,5 +40,6 @@ ActiveRecord::Schema.define(version: 2021_05_22_153841) do
     t.index ["cinema_hall_id"], name: "index_screenings_on_cinema_hall_id"
   end
 
+  add_foreign_key "reservations", "screenings"
   add_foreign_key "screenings", "cinema_halls"
 end

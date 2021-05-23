@@ -1,7 +1,6 @@
 class ScreeningsController < ApplicationController
     before_action :set_screening, only: [:show, :update, :destroy]
     def index
-        
         render json: @screenings
     end
 

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  valid_to: 2021-05-22 22:02:48
+  screening: one
+
+two:
+  status: MyString
+  valid_to: 2021-05-22 22:02:48
+  screening: two
