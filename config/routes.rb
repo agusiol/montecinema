@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   
   resources :cinema_halls, :path => '/cinema-halls' do
     resources :screenings do
-      resources :reservations
+      resources :reservations do
+        resources :tickets
+      end
     end
   end
 
