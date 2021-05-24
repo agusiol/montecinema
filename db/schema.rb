@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_23_093954) do
+ActiveRecord::Schema.define(version: 2021_05_24_074938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 2021_05_23_093954) do
   create_table "cinema_halls", force: :cascade do |t|
     t.string "name"
     t.integer "capacity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string "title"
+    t.string "genre"
+    t.integer "age_allowed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -37,7 +45,9 @@ ActiveRecord::Schema.define(version: 2021_05_23_093954) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "seats", default: [], array: true
+    t.bigint "movie_id"
     t.index ["cinema_hall_id"], name: "index_screenings_on_cinema_hall_id"
+    t.index ["movie_id"], name: "index_screenings_on_movie_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -52,5 +62,6 @@ ActiveRecord::Schema.define(version: 2021_05_23_093954) do
 
   add_foreign_key "reservations", "screenings"
   add_foreign_key "screenings", "cinema_halls"
+  add_foreign_key "screenings", "movies"
   add_foreign_key "tickets", "reservations"
 end
