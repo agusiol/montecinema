@@ -10,9 +10,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :screenings do
-    resources :reservations do
-      resources :tickets
+  resources :ticket_desks do
+    resources :screenings do
+      resources :reservations do
+        resources :tickets
+      end
     end
   end
 

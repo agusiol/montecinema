@@ -13,6 +13,7 @@ class ReservationsController < ApplicationController
         @screening = Screening.find(params[:screening_id])
         #status should be somehow limited to confirmed, paied, cancelled
         @reservation = @screening.reservations.create(reservation_params)
+        @reservation.ticket_desk_id = params[:ticket_desk_id]
         #time whe the reservation should be cancceled if not paid.
         #maybe this paraeter is not necessary? for further consideration
         @reservation.valid_to = (@screening.date.to_time - 0.5.hours).to_datetime
