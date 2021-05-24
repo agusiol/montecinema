@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_05_24_124326) do
     t.bigint "screening_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "ticket_desk_id", null: false
+    t.bigint "ticket_desk_id"
     t.index ["screening_id"], name: "index_reservations_on_screening_id"
     t.index ["ticket_desk_id"], name: "index_reservations_on_ticket_desk_id"
   end
