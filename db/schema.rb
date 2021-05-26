@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_24_124326) do
+ActiveRecord::Schema.define(version: 2021_05_25_190217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,10 +22,36 @@ ActiveRecord::Schema.define(version: 2021_05_24_124326) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "clients", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.integer "age"
+    t.boolean "real_user"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "clients_promotion", force: :cascade do |t|
+    t.bigint "client_id"
+    t.bigint "promotion_id"
+    t.datetime "expiry_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_clients_promotion_on_client_id"
+    t.index ["promotion_id"], name: "index_clients_promotion_on_promotion_id"
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.string "genre"
     t.integer "age_allowed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "promotions", force: :cascade do |t|
+    t.text "description"
+    t.string "code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -37,6 +63,8 @@ ActiveRecord::Schema.define(version: 2021_05_24_124326) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "ticket_desk_id"
+    t.bigint "client_id"
+    t.index ["client_id"], name: "index_reservations_on_client_id"
     t.index ["screening_id"], name: "index_reservations_on_screening_id"
     t.index ["ticket_desk_id"], name: "index_reservations_on_ticket_desk_id"
   end
@@ -68,6 +96,7 @@ ActiveRecord::Schema.define(version: 2021_05_24_124326) do
     t.index ["reservation_id"], name: "index_tickets_on_reservation_id"
   end
 
+  add_foreign_key "reservations", "clients"
   add_foreign_key "reservations", "screenings"
   add_foreign_key "reservations", "ticket_desks"
   add_foreign_key "screenings", "cinema_halls"

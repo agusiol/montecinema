@@ -1,5 +1,4 @@
 class TicketDesksController < ApplicationController
-    before_action :set_ticket_desk, only: [:show, :update, :destroy]
     def index
         @ticket_desks = TicketDesk.all
         
@@ -7,6 +6,7 @@ class TicketDesksController < ApplicationController
     end
 
     def show
+        set_ticket_desk
         render json: @ticket_desk
     end
 
@@ -21,6 +21,7 @@ class TicketDesksController < ApplicationController
     end
 
     def update
+        set_ticket_desk
         if @ticket_desk.update(ticket_desk_params)
             render json: @ticket_desk
         else
@@ -29,7 +30,9 @@ class TicketDesksController < ApplicationController
     end
 
     def destroy
+        set_ticket_desk
         @ticket_desk.destroy
+        render json: {status: "deleted"}
     end
 
     private

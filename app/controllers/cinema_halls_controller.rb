@@ -1,5 +1,5 @@
 class CinemaHallsController < ApplicationController
-    before_action :set_cinema_hall, only: [:show, :update, :destroy]
+    
     def index
         @cinema_halls = CinemaHall.all.map do |cinema_hall|
             {
@@ -13,7 +13,7 @@ class CinemaHallsController < ApplicationController
 
     def show
         @cinema_hall = {
-            id: @cinema_hall.id
+            id: @cinema_hall.id,
             name: @cinema_hall.name,
             cpacity: @cinema_hall.capacity
         }
@@ -21,7 +21,7 @@ class CinemaHallsController < ApplicationController
     end
 
     def create
-        @cinema_hall = CinemaHall.new(cinema_hall_params)
+      @cinema_hall = CinemaHall.new(cinema_hall_params)
         if @cinema_hall.save
             render json: @cinema_hall, status: :created
         else
@@ -31,6 +31,7 @@ class CinemaHallsController < ApplicationController
     end
 
     def update
+      set_cinema_hall
         if @cinema_hall.update(cinema_hall_params)
             render json: @cinema_hall
         else
@@ -39,7 +40,9 @@ class CinemaHallsController < ApplicationController
     end
 
     def destroy
+      set_cinema_hall
         @cinema_hall.destroy
+        render json: {status: "deleted"}
     end
 
     private

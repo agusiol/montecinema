@@ -1,5 +1,4 @@
 class MoviesController < ApplicationController
-    before_action :set_movie, only: [:show, :update, :destroy]
     def index
         @movies = Movie.all
         
@@ -7,6 +6,7 @@ class MoviesController < ApplicationController
     end
 
     def show
+        set_movie
         render json: @movie
     end
 
@@ -21,6 +21,7 @@ class MoviesController < ApplicationController
     end
 
     def update
+        set_movie
         if @movie.update(movie_params)
             render json: @movie
         else
@@ -29,7 +30,9 @@ class MoviesController < ApplicationController
     end
 
     def destroy
+        set_movie
         @movie.destroy
+        render json: {status: "deleted"}
     end
 
     private

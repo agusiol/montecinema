@@ -1,10 +1,10 @@
 class TicketsController < ApplicationController
-    before_action :set_ticket, only: [:show, :update, :destroy]
     def index
         render json: @tickets
     end
 
     def show
+        set_ticket
         render json: @ticket
     end
 
@@ -22,6 +22,7 @@ class TicketsController < ApplicationController
     end
 
     def update
+        set_ticket
         if @ticket.update(ticket_params)
             render json: @ticket
         else
@@ -30,7 +31,9 @@ class TicketsController < ApplicationController
     end
 
     def destroy
+        set_ticket
         @ticket.destroy
+        render json: {status: "deleted"}
     end
 
     private
