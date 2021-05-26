@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root "cinema_halls#index"
 
   resources :movies
+
+  resources :clients
+
   
   resources :cinema_halls, :path => '/cinema-halls' do
     resources :movies do
@@ -11,9 +14,11 @@ Rails.application.routes.draw do
   end
 
   resources :ticket_desks do
-    resources :screenings do
-      resources :reservations do
-        resources :tickets
+    resources :clients do
+      resources :screenings do
+        resources :reservations do
+          resources :tickets
+        end
       end
     end
   end

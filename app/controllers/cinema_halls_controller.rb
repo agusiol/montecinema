@@ -13,7 +13,7 @@ class CinemaHallsController < ApplicationController
 
     def show
         @cinema_hall = {
-            id: @cinema_hall.id
+            id: @cinema_hall.id,
             name: @cinema_hall.name,
             cpacity: @cinema_hall.capacity
         }
