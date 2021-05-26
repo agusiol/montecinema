@@ -2,7 +2,7 @@ module Repositories
     class CinemaHallRepository
         attr_reader :adapter
 
-        def initialize(adapter: Models::CinemaHall)
+        def initialize(adapter: CinemaHall)
             @adapter = adapter
         end
 
@@ -12,6 +12,6 @@ module Repositories
 
         # def find_all
         #     adapter.all
-        end
+        #end
     end
 end
