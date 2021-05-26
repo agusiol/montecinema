@@ -1,11 +1,11 @@
 class ReservationsController < ApplicationController
-    before_action :set_reservation, only: [:show, :update, :destroy]
     def index
         @reservations = Reservation.all
         render json: @reservations
     end
 
     def show
+        set_reservation
         render json: @reservation
     end
 
@@ -26,6 +26,7 @@ class ReservationsController < ApplicationController
     end
 
     def update
+      set_reservation
         if @reservation.update(reservation_params)
             render json: @reservation
         else
@@ -34,7 +35,9 @@ class ReservationsController < ApplicationController
     end
 
     def destroy
+        set_reservation
         @reservation.destroy
+        render json: {status: "deleted"}
     end
 
     private

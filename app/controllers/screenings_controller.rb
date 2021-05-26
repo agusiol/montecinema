@@ -1,11 +1,11 @@
 class ScreeningsController < ApplicationController
-    before_action :set_screening, only: [:show, :update, :destroy]
     def index
         @screenings = Screening.all
         render json: @screenings
     end
 
     def show
+        set_screening
         render json: @screening
     end
 
@@ -26,6 +26,7 @@ class ScreeningsController < ApplicationController
     end
 
     def update
+        set_screening
         if @screening.update(screening_params)
             render json: @screening
         else
@@ -34,7 +35,9 @@ class ScreeningsController < ApplicationController
     end
 
     def destroy
+        set_screening
         @screening.destroy
+        render json: {status: "deleted"}
     end
 
     private
