@@ -11,7 +11,6 @@ class ReservationsController < ApplicationController
 
     def create
         @screening = Screening.find(params[:screening_id])
-        #status should be somehow limited to confirmed, paied, cancelled
         @reservation = @screening.reservations.create(reservation_params)
         @reservation.ticket_desk_id = params[:ticket_desk_id]
         @reservation.client_id = params[:client_id]
