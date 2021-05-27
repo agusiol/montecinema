@@ -18,6 +18,7 @@ module CinemaHalls
 
     def extended
       cinema_halls.map do |cinema_hall|
+        cinema_hall
       end
     end
   end

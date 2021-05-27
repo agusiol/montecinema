@@ -6,7 +6,7 @@ class CinemaHallsController < ApplicationController
 
   def show
     cinema_hall = CinemaHalls::Repository.new.find_by(params[:id])
-    render json: CinemaHalls::Representer.new([cinema_hall]).basic
+    render json: CinemaHalls::Representer.new([cinema_hall]).extended
   end
 
   def create
