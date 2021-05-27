@@ -60,7 +60,10 @@ class CinemaHallsController < ApplicationController
 
     def create_seats
       @seats = Array.new
-      (1..@cinema_hall.capacity/10).each { |i| ("A".."J").each { |letter|  @seats.push("#{i}#{letter}") }}
+      if @cinema_hall.capaity % 10 == 0
+        (1..@cinema_hall.capacity/10).each { |i| ("A".."J").each { |letter|  @seats.push("#{i}#{letter}") }}
+      end
+      #else load seats from file ?
 
     end
 
