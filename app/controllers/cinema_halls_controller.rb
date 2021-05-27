@@ -12,10 +12,12 @@ class CinemaHallsController < ApplicationController
     end
 
     def show
+      set_cinema_hall
         @cinema_hall = {
             id: @cinema_hall.id,
             name: @cinema_hall.name,
-            cpacity: @cinema_hall.capacity
+            cpacity: @cinema_hall.capacity,
+            seats: @cinema_hall.seats
         }
         render json: @cinema_hall
     end
