@@ -9,8 +9,8 @@ module CinemaHalls
 
       def call(params:)
         repository.create(params)
-        repository.seats = CinemaHalls::UseCases::GenerateSeats.new.(repository.capacity).call
-        repository.save!
+        seats =  CinemaHalls::UseCases::GenerateSeats.new(params[:capacity]).call
+        #add seats
       end
     end
   end

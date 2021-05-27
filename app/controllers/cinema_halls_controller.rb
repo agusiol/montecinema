@@ -11,8 +11,8 @@ class CinemaHallsController < ApplicationController
 
   def create
     cinema_hall = CinemaHalls::UseCases::Create.new.call(params: cinema_hall_params)
-    seats =   CinemaHalls::UseCases::GenerateSeats.new(capacity: cinema_hall.capacity).call
-    cinema_hall.seats = seats
+    # seats =   CinemaHalls::UseCases::GenerateSeats.new(capacity: cinema_hall.capacity).call
+    # cinema_hall.seats = seats
     if cinema_hall.valid?
         render json: cinema_hall, status: :created
       else
