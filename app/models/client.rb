@@ -4,6 +4,6 @@ class Client < ApplicationRecord
     has_many :promotions, through: :clients_promotions
 
     validates :name, :age,  presence: true
-    validates :email, presence: true, email: true
+    validates :email, presence: true
 end
 
