@@ -6,6 +6,10 @@ module Base
       @adapter = adapter
     end
 
+    def fetch_with_columns(columns:, filter:)
+      adapter.where(filter).select(*columns)
+    end
+
     def find_all
       adapter.order(:id).all
     end
