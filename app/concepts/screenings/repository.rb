@@ -3,6 +3,8 @@ module Screenings
     def initialize(adapter: Screening)
       @adapter = adapter
     end
+
+
   end
 end
 
