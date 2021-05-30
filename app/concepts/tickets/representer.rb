@@ -10,9 +10,9 @@ module Tickets
       tickets.map do |ticket|
         {
             id: ticket.id,
-            date: ticket.date,
-            movie_id: ticket.screening_id,
-            cinema_hall_id: ticket.ticket_desk_id
+            date: ticket.price,
+            movie_id: ticket.type,
+            cinema_hall_id: ticket.reservation_id
         }
       end
     end

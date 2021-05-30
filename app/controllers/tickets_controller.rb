@@ -10,14 +10,17 @@ class TicketsController < ApplicationController
   end
 
   def create
-
-    ticket = Tickets::UseCases::Create.new.call(params: ticket_params)
-    
-    if ticket.valid?
-        render json: ticket, status: :created
-      else
-        render json: ticket.errors, status: :unprocessable_entity
-      end
+    if Tickets::UseCases::SeatAvailable.new(ticket_params[:reservation_id], ticket_params[:seat]).call
+      ticket = Tickets::UseCases::Create.new.call(params: ticket_params)
+      
+      if ticket.valid?
+          render json: ticket, status: :created
+        else
+          render json: ticket.errors, status: :unprocessable_entity
+        end
+    else
+      render json: {status: "seat taken"}
+    end
   end
 
   def update
