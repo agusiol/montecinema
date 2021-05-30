@@ -10,8 +10,9 @@ module Screenings
       screenings.map do |screening|
         {
             id: screening.id,
-            title: screening.date,
-            genre: screening.movie_id,
+            date: screening.date,
+            movie_id: screening.movie_id,
+            cinema_hall_id: screening.cinema_hall_id
         }
       end
     end
