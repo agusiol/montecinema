@@ -10,11 +10,6 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    # reservation = Reservations::UseCases::Create.new.call(params: {
-    #             date: params[:reservation][:date], 
-    #             movie_id: params[:movie_id],
-    #             cinema_hall_id: params[:cinema_hall_id] })
-    # #doesn't work
     reservation = Reservations::UseCases::Create.new.call(params: reservation_params)
     
     if reservation.valid?
@@ -39,6 +34,7 @@ class ReservationsController < ApplicationController
   end
 
   
+<<<<<<< HEAD
 
   private
   
@@ -98,3 +94,12 @@ end
 #     end
 
 # end
+=======
+
+  private
+  
+  def reservation_params
+    params.require(:reservation).permit(:status, :screening_id, :ticket_desk_id)
+  end
+end
+>>>>>>> f6136dcd4ca59c4afe052944e81feffbc7e4245b

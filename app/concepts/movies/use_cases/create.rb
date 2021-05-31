@@ -1,7 +1,7 @@
 module Movies
   module UseCases
     class Create
-      attr_reader :repository, :params
+      attr_reader :repository
 
       def initialize(repository: Movies::Repository.new)
         @repository = repository

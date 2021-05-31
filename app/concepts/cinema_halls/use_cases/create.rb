@@ -1,7 +1,7 @@
 module CinemaHalls
   module UseCases
     class Create
-      attr_reader :repository, :params
+      attr_reader :repository
 
       def initialize(repository: CinemaHalls::Repository.new)
         @repository = repository
