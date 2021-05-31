@@ -10,12 +10,8 @@ class ScreeningsController < ApplicationController
     end
   
     def create
-      screening = Screenings::UseCases::Create.new.call(params: {
-                  date: params[:screening][:date], 
-                  movie_id: params[:movie_id],
-                  cinema_hall_id: params[:cinema_hall_id] })
-      #doesn't work
-      #screening = Screenings::UseCases::Create.new.call(params: screening_params)
+     
+      screening = Screenings::UseCases::Create.new.call(params: screening_params)
       
       if screening.valid?
           render json: screening, status: :created
