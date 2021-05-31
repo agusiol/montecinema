@@ -14,13 +14,12 @@ Rails.application.routes.draw do
   end
 
   resources :ticket_desks do
-    resources :clients do
       resources :screenings do
         resources :reservations do
           resources :tickets
         end
       end
-    end
+    
   end
 
 end
