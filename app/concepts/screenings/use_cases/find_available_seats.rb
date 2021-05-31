@@ -18,7 +18,7 @@ module Screenings
 
       def find_reserved_seats
         @taken_seats =Array.new
-        @reservations.map do |reservation|
+        @reservations.includes(:tickets).map do |reservation|
           reservation.tickets.map do |ticket|
             @taken_seats.push(ticket.seat)
           end
