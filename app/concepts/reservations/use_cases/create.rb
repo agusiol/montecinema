@@ -1,7 +1,7 @@
 module Reservations
   module UseCases
     class Create
-      attr_reader :repository, :params
+      attr_reader :repository
 
       def initialize(repository: Reservations::Repository.new)
         @repository = repository

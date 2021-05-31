@@ -1,7 +1,7 @@
 module Screenings
   module UseCases
     class Create
-      attr_reader :repository, :params
+      attr_reader :repository
 
       def initialize(repository: Screenings::Repository.new)
         @repository = repository

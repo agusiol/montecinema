@@ -31,6 +31,7 @@ module Tickets
       end
       def find_available_seats
         @available_seats = @seats - @taken_seats
+        
       end
     end
   end

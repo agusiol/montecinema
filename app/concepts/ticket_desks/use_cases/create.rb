@@ -1,7 +1,7 @@
 module TicketDesks
   module UseCases
     class Create
-      attr_reader :repository, :params
+      attr_reader :repository
 
       def initialize(repository: TicketDesks::Repository.new)
         @repository = repository
