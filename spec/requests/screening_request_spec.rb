@@ -1,5 +1,5 @@
 require "rails_helper"
-RSpec.describe "CinemaHalls requests" do
+RSpec.describe "Screening requests" do
   let!(:hall) { CinemaHall.create(name: "New name", capacity: 200) }
   let!(:movie) { Movie.create(title: "New title", genre: "example", age_allowed: 16, duration: 120) }
   let!(:screening) {Screening.create(date: "2021-07-21T15:30:00", cinema_hall_id: hall.id, movie_id: movie.id)}
