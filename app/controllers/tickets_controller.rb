@@ -1,48 +1,57 @@
 class TicketsController < ApplicationController
-    def index
-        render json: @tickets
-    end
+  def index
+    @tickets = Tickets::UseCases::FetchWithColumns.new.call(params[:reservation_id])
+    render json: Tickets::Representer.new(@tickets).basic
+  end
 
-    def show
-        set_ticket
-        render json: @ticket
-    end
+  def show
+    ticket = Tickets::Repository.new.find_by(params[:id])
+    render json: Tickets::Representer.new([ticket]).extended
+  end
 
-    def create
-        @reservation = Reservation.find(params[:reservation_id])
-        @ticket = @reservation.tickets.create(ticket_params)
-       #ticket seat should be somehow validetated if it is in screening available seats
-       #after creation seat should be removed from screening's available seats? 
-        if @ticket.save
-            render json: @ticket, status: :created
-        else
-            render json: @ticket.errors, status: :unprocessable_entity
-        end
-
+  def create
+    if Tickets::UseCases::SeatAvailable.new(ticket_params[:reservation_id],ticket_params[:seat]).call
+      ticket = Tickets::UseCases::Create.new.call(params: ticket_params)
+      
+      if ticket.valid?
+          update_screening_seats
+          render json: ticket, status: :created
+      else
+          render json: ticket.errors, status: :unprocessable_entity
+      end
+    else
+      render json: {status: "seat taken"}
     end
+  end
 
-    def update
-        set_ticket
-        if @ticket.update(ticket_params)
-            render json: @ticket
-        else
-            render json: @ticket.errors, status: :unprocessable_entity
-        end
-    end
+  def update
+    ticket = Tickets::UseCases::Update.new.call(id: params[:id], params: ticket_params)
+      if ticket.valid?
+          render json: ticket
+      else
+          render json: ticket.errors, status: :unprocessable_entity
+      end
+  end
 
-    def destroy
-        set_ticket
-        @ticket.destroy
-        render json: {status: "deleted"}
-    end
+  def destroy
+    Tickets::UseCases::Delete.new.call(id: params[:id])
+    render json: {status: "deleted"}
+  end
 
-    private
-    def set_ticket
-        @ticket = Ticket.find(params[:id])
-    end
-        
-    def ticket_params
-        params.require(:ticket).permit(:seat, :type, :price)
-    end
+  
 
+  private
+  
+  def ticket_params
+    params.require(:ticket).permit(:reservation_id, :type, :price, :seat)
+  end
+
+  def update_screening_seats
+    reservation = Reservations::Repository.new.find_by(ticket_params[:reservation_id])
+    screening_id = reservation.screening_id
+    available_seats = Screenings::UseCases::FindAvailableSeats.new(screening_id).call
+    Screenings::UseCases::Update.new.call(id: screening_id, params: {available_seats: available_seats })
+  end
+
+  
 end

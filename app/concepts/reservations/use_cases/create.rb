@@ -1,9 +1,9 @@
-module Movies
+module Reservations
   module UseCases
     class Create
       attr_reader :repository
 
-      def initialize(repository: Movies::Repository.new)
+      def initialize(repository: Reservations::Repository.new)
         @repository = repository
       end
 
