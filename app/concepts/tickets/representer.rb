@@ -19,10 +19,7 @@ module Tickets
     end
 
     def extended
-      tickets.map do |ticket|
-        ticket
-
-      end
+      tickets
     end
   end
 end
