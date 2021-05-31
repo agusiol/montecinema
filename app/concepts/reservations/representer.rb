@@ -18,10 +18,7 @@ module Reservations
     end
 
     def extended
-      reservations.map do |reservation|
-        reservation
-
-      end
+      reservations
     end
   end
 end
