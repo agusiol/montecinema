@@ -3,14 +3,14 @@ module Reservations
     class CancelUnpaidReservations
       
 
-      def initialize(screening_id)
-        @reservations = Reservations::UseCases::FetchUnpaidReservations.new.call((screening_id))
-      end
+      def initialize(repository: Reservations::Repository.new)
+        @repository = repository
 
-      def call()
-        @reservarions.map do |reservation|
-          Reservations::UseCases::Delete.new.call(id: reservation.id)
-          
+      def call(screening_id)
+          reservations = repository.unpaid(screening_id)
+          reservarions.map do |reservation|
+            Reservations::UseCases::Delete.new.call(id: reservation.id)
+          end
         end
       end
     end

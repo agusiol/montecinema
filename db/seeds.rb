@@ -18,7 +18,7 @@ movie_2 = Movie.create(id: 2, title: "Star Wars", genre: "fantasy", age_allowed:
 movie_3 = Movie.create(id: 3, title: "The Accountant", genre: "crime", age_allowed: 16, duration: 140)
 
 screening_1 = Screening.create(id: 1, 
-  date: DateTime.parse("13/06/2021 16:00"),
+  date: DateTime.parse("01/06/2021 21:15"),
   cinema_hall_id: cinema_hall_1.id,
   movie_id: movie_1.id,
   available_seats: cinema_hall_1.seats
@@ -39,6 +39,11 @@ screening_3 = Screening.create(id: 3,
 ticket_desk_1 = TicketDesk.create(id: 1, type: "offline")
 
 reservation_1 = Reservation.create(id: 1, status: "confirmed", screening_id: screening_1.id, ticket_desk_id: ticket_desk_1.id)
+reservation_2 = Reservation.create(id: 2, status: "confirmed", screening_id: screening_1.id, ticket_desk_id: ticket_desk_1.id)
+reservation_3 = Reservation.create(id: 3, status: "paid", screening_id: screening_1.id, ticket_desk_id: ticket_desk_1.id)
+
 
 ticket_1 = Ticket.create(id: 1, type: "full", price: 15.99, seat: "1A", reservation_id: reservation_1.id)
+ticket_2 = Ticket.create(id: 2, type: "full", price: 15.99, seat: "2A", reservation_id: reservation_2.id)
+ticket_3 = Ticket.create(id: 3, type: "full", price: 15.99, seat: "3A", reservation_id: reservation_3.id)
 
