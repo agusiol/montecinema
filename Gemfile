@@ -43,3 +43,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rspec', '~> 3.0'
 end
+
+gem "sidekiq"
+
+group :test do
+   gem 'rspec-sidekiq'
+end
