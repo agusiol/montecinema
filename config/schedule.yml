@@ -1,0 +1,6 @@
+cancel_reservations:
+  corn: "*/5* * * *"
+  class: "CancelReservationsJob"
+  description: "Cancel rreservatioons that were not paid 30 before screening"
+  name: "Cancel reservations"
+  queue: "defult"
