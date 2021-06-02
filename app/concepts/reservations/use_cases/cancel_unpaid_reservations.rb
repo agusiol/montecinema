@@ -7,8 +7,8 @@ module Reservations
         @repository = repository
 
       def call(screening_id)
-          reservations = repository.unpaid(screening_id)
-          reservarions.map do |reservation|
+          reservations = @repository.unpaid(screening_id)
+          reservations.map do |reservation|
             Reservations::UseCases::Delete.new.call(id: reservation.id)
           end
         end

@@ -4,8 +4,8 @@ module Reservations
       @adapter = adapter
     end
     
-    def unpaid(screening)
-      adapter.where(status: "confirmed", screening_id: screening.id)
+    def unpaid(screening_id)
+      adapter.where(status: "confirmed", screening_id: screening_id)
     end
 
   end
