@@ -10,7 +10,7 @@ module Reservations
       reservations.map do |reservation|
         {
             id: reservation.id,
-            date: reservation.date,
+            status: reservation.status,
             movie_id: reservation.screening_id,
             cinema_hall_id: reservation.ticket_desk_id
         }
