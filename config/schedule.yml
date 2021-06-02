@@ -1,6 +1,6 @@
-cancel_reservations:
+cancel_reservations_job:
   cron: "*/5* * * *"
-  class: "CancelReservationsJob"
+  class: "CancelReservations"
   description: "Cancel rreservatioons that were not paid 30 before screening"
-  name: "Cancel reservations"
+  name: "Cancel Reservations"
   queue: "default"

@@ -1,7 +1,7 @@
 class CancelReservationsJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
+  def perform
     #find all screenings that will start in 30 minuts or earlier
     screenigs  = Screenings::UseCases::FindAll.new.call
     now = Time.zone.now
