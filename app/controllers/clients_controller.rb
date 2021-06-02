@@ -1,56 +1,42 @@
 class ClientsController < ApplicationController
+
   def index
-      @clients = Client.all
-      
-      render json: @clients
+    @clients = Clients::UseCases::FindAll.new.call
+    render json: Clients::Representer.new(@clients).basic
   end
 
   def show
-    set_client
-      render json: @client
+    client = Clients::Repository.new.find_by(params[:id])
+    render json: Clients::Representer.new([client]).extended
   end
 
   def create
-      @client = Client.new(client_params)
-      @ticket_desk = TicketDesk.find(params[:ticket_desk_id])
-      if @ticket_desk.type == "offline"
-          @client.real_user = false
+    client = Clients::UseCases::Create.new.call(params: client_params)
+    if client.valid?
+        render json: client, status: :created
       else
-          @client.real_user = true
+        render json: client.errors, status: :unprocessable_entity
       end
-          
-      
-      if @client.save
-          render json: @client, status: :created
-      else
-          render json: @client.errors, status: :unprocessable_entity
-      end
-
   end
 
   def update
-      set_client
-      if @client.update(clients_params)
-          render json: @client
+    client = Clients::UseCases::Update.new.call(id: params[:id], params: client_params)
+      if client.valid?
+          render json: client
       else
-          render json: @client.errors, status: :unprocessable_entity
+          render json: client.errors, status: :unprocessable_entity
       end
   end
 
   def destroy
-      set_client
-      @client.destroy
-      render json: {status: "deleted"}
+    Clients::UseCases::Delete.new.call(id: params[:id])
+    render json: {status: "deleted"}
   end
+
 
   private
-  def set_client
-      @client = Client.find(params[:id])
-  end
-      
+  
   def client_params
-      params.require(:client).permit(:name, :email, :age)
+    params.require(:client).permit(:name, :email, :age)
   end
-
-
 end
