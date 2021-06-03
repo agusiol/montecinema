@@ -39,6 +39,6 @@ class ScreeningsController < ApplicationController
     private
     
     def screening_params
-      params.require(:screening).permit(:date)
+      params.require(:screening).permit(:date,:cinema_hall_id, :movie_id)
     end
   end

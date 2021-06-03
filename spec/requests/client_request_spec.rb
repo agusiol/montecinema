@@ -1,6 +1,6 @@
 require "rails_helper"
 RSpec.describe "Clienrs requests" do
-  let!(:client) { client.create(email: "example@email.com", name: "Some name", age: 17) }
+  let!(:client) { Client.create(email: "example@email.com", name: "Some name", age: 17) }
 
   describe "GET /clients" do
     it "works and return status 200" do

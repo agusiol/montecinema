@@ -7,10 +7,10 @@ module Reservations
         @repository = repository
       end
 
-      def call(screening_id, ticket_desk_id)
+      def call(screening_id, client_id)
         repository.fetch_with_columns(
-          columns: [:id, :ticket_desk_id, :screening_id, :status],
-          filter: {screening_id: screening_id, ticket_desk_id: ticket_desk_id,}
+          columns: [:id, :ticket_desk_id, :screening_id, :status, :client_id],
+          filter: {screening_id: screening_id, client_id: client_id,}
           )
       end
     end

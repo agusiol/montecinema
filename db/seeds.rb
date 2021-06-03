@@ -36,11 +36,16 @@ screening_3 = Screening.create(id: 3,
   available_seats: cinema_hall_3.seats
 )
 
-ticket_desk_1 = TicketDesk.create(id: 1, type: "offline")
+client_1 = Client.create(id: 1, name: "Jan kowalski", email: "jankowalski@mail.com", age:16)
+client_2 = Client.create(id: 2, name: "Agnieszka Kowalska", email: "agnieszkakowalska@mail.com", age:21)
+client_3 = Client.create(id: 3, name: "Janina Kowalska", email: "janinakowalska@mail.com", age:12)
 
-reservation_1 = Reservation.create(id: 1, status: "confirmed", screening_id: screening_1.id, ticket_desk_id: ticket_desk_1.id)
-reservation_2 = Reservation.create(id: 2, status: "confirmed", screening_id: screening_1.id, ticket_desk_id: ticket_desk_1.id)
-reservation_3 = Reservation.create(id: 3, status: "paid", screening_id: screening_1.id, ticket_desk_id: ticket_desk_1.id)
+ticket_desk_1 = TicketDesk.create(id: 1, type: "offline")
+ticket_desk_2 = TicketDesk.create(id: 2, type: "online")
+
+reservation_1 = Reservation.create(id: 1, status: "confirmed", screening_id: screening_1.id, ticket_desk_id: ticket_desk_1.id, client_id: client_1.id)
+reservation_2 = Reservation.create(id: 2, status: "confirmed", screening_id: screening_1.id, ticket_desk_id: ticket_desk_1.id, client_id: client_2.id)
+reservation_3 = Reservation.create(id: 3, status: "paid", screening_id: screening_1.id, ticket_desk_id: ticket_desk_1.id, client_id: client_3.id)
 
 
 ticket_1 = Ticket.create(id: 1, type: "full", price: 15.99, seat: "1A", reservation_id: reservation_1.id)

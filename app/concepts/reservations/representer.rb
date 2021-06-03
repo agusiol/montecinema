@@ -12,7 +12,8 @@ module Reservations
             id: reservation.id,
             status: reservation.status,
             movie_id: reservation.screening_id,
-            cinema_hall_id: reservation.ticket_desk_id
+            ticket_desk_id: reservation.ticket_desk_id,
+            client_id: reservation.client_id,
         }
       end
     end

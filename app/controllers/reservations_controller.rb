@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservations::UseCases::FetchWithColumns.new.call(params[:cinema_hall_id],params[:movie_id])
+    @reservations = Reservations::UseCases::FetchWithColumns.new.call(params[:screening_id], params[:client_id])
     render json: Reservations::Representer.new(@reservations).basic
   end
 
@@ -37,6 +37,6 @@ class ReservationsController < ApplicationController
   private
   
   def reservation_params
-    params.require(:reservation).permit(:status, :screening_id, :ticket_desk_id)
+    params.require(:reservation).permit(:status, :screening_id, :ticket_desk_id, :client_id)
   end
 end

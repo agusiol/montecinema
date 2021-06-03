@@ -25,7 +25,7 @@ RSpec.describe "Tickets requests" do
   describe "POST /tickets" do
     it "works and return status 201" do
       post("/ticket_desks/#{desk.id}/screenings/#{screening.id}/reservations/#{res.id}/tickets",
-         params: { ticket: { type: "other type", price: 30, seat: "A2", reservation_id: res.id } } )
+         params: { ticket: { type: "other type", price: 30, seat: "5B", reservation_id: res.id } } )
       expect(response.status).to eq(201)
     end
   end
@@ -33,7 +33,7 @@ RSpec.describe "Tickets requests" do
   describe "PUT /tickets/:id" do
     it "works and return status 200" do
       put("/ticket_desks/#{desk.id}/screenings/#{screening.id}/reservations/#{res.id}/tickets/#{ticket.id}",
-         params: { ticket: { id: ticket.id, seat: "A3" } })
+         params: { ticket: { id: ticket.id, seat: "3A" } })
       expect(response.status).to eq(200)
     end
   end
