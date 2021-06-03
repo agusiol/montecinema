@@ -18,7 +18,7 @@ movie_2 = Movie.create(id: 2, title: "Star Wars", genre: "fantasy", age_allowed:
 movie_3 = Movie.create(id: 3, title: "The Accountant", genre: "crime", age_allowed: 16, duration: 140)
 
 screening_1 = Screening.create(id: 1, 
-  date: DateTime.parse("02/06/2021 14:50"),
+  date: DateTime.parse("03/06/2021 18:30:00"),
   cinema_hall_id: cinema_hall_1.id,
   movie_id: movie_1.id,
   available_seats: cinema_hall_1.seats

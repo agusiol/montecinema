@@ -9,7 +9,11 @@ module Reservations
       def call(screening_id)
           reservations = @repository.unpaid(screening_id)
           reservations.map do |reservation|
+            client = Clients::UseCases::FindBy.new.call(id: reservation.client_id)
+            ReservationMailer.with(reservation: reservation, email: client.email).cancellation_email.deliver_now
+
             Reservations::UseCases::Delete.new.call(id: reservation.id)
+
           end
         end
       end

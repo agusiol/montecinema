@@ -8,7 +8,11 @@ module Reservations
       end
 
       def call(params:)
-        repository.create(params)
+        reservation = repository.create(params)
+        client = Clients::UseCases::FindBy.new.call(id: params[:client_id])
+
+        ReservationMailer.with(reservation: reservation, email: client.email).confirmation_email.deliver_now
+
       end
     end
   end
