@@ -1,15 +1,16 @@
 class ReservationMailer < ApplicationMailer
   default from: 'notifications@example.com'
 
-  def confirmation_email
-    @reservation = params[:reservation]
-    email = params[:email]
+  def confirmation_email(reservation:, email:, date:, movie: )
+    @reservation = reservation
+    @email = email
+    @date = date
+    @movie = movie
     text = "We are confiming your reservation"
     mail(
       to: email,
-      subject: 'Reservation done') do |format|
-        format.text { render html: text }
-      end 
+      subject: 'Reservation done')
+    
   end
 
   def cancellation_email
@@ -18,7 +19,7 @@ class ReservationMailer < ApplicationMailer
     text = "You did't pay for your tickets 30 minuts before screening and your reservation has been cancelled"
     mail(
       to: email,
-      subject: 'Reservation done') do |format|
+      subject: 'Reservation cancelled') do |format|
         format.text { render html: text }
       end 
   
