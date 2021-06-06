@@ -1,15 +1,25 @@
 module Tickets
   module UseCases
     class Create
-      attr_reader :repository, :params
+      attr_reader :reservation, :tickets
+      SeatsNotAvailableError = Class.new(StandardError)
 
-      def initialize(repository: Tickets::Repository.new)
-        @repository = repository
-      end
+    def initialize(reservation:, tickets: []) 
+      @tickets = tickets
+      @reservation  = reservation
+    end
 
-      def call(params:)
-          ticket = repository.create(params)
+    def call
+      tickets.each do |ticket|
+        if not SeatAvailable.new(@reservation.id, ticket[:seat]).call
+          raise SeatsNotAvailableError
+        end
+        @reservation.tickets.create(ticket)
       end
+    end
+
+
     end
   end
 end
+

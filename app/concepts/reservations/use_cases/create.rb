@@ -8,8 +8,18 @@ module Reservations
       end
 
       def call(params:)
-        @reservation = repository.create(params)
-        send_email
+       
+          Reservation.transaction do
+
+            puts params
+            reservation_params = params.except(:tickets)
+            puts reservation_params
+            @reservation = repository.create(reservation_params)
+            puts @reservation
+            Tickets::UseCases::Create.new(reservation: @reservation, tickets: params[:tickets]).call
+          end
+          send_email
+        
       end
 
       def send_email

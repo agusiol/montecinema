@@ -11,16 +11,15 @@ class ReservationsController < ApplicationController
 
   def create
     reservation = Reservations::UseCases::Create.new.call(params: reservation_params)
-    
-    if reservation.valid?
         render json: reservation, status: :created
-      else
-        render json: reservation.errors, status: :unprocessable_entity
-      end
+      rescue Tickets::UseCases::Create::SeatsNotAvailableError => error
+        render json: { error: error.message }.to_json
+    
+    
   end
 
   def update
-    reservation = Reservations::UseCases::Update.new.call(id: params[:id], params: reservation_params)
+    reservation = Reservations::UseCases::Pay.new.call(id: params[:id])
       if reservation.valid?
           render json: reservation
       else
@@ -37,6 +36,12 @@ class ReservationsController < ApplicationController
   private
   
   def reservation_params
-    params.require(:reservation).permit(:status, :screening_id, :ticket_desk_id, :client_id)
+    params.require(:reservation).permit(
+      :status, 
+      :screening_id, 
+      :ticket_desk_id, 
+      :client_id,
+      tickets: %i[price type seat screening_id]
+    )
   end
 end

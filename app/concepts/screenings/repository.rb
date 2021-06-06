@@ -4,6 +4,12 @@ module Screenings
       @adapter = adapter
     end
 
+    def today
+      @adapter.where(date: Date.today.all_day)
+
+    end
+
+
 
   end
 end
