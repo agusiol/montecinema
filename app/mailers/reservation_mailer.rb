@@ -6,7 +6,6 @@ class ReservationMailer < ApplicationMailer
     @email = email
     @date = date
     @movie = movie
-    text = "We are confiming your reservation"
     mail(
       to: email,
       subject: 'Reservation done')

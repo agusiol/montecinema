@@ -1,6 +1,6 @@
 module Reservations
   module UseCases
-    class CreateOnline
+    class CreateOnline  < Reservations::UseCases::CreateReservationWithTickets
       attr_reader :repository
 
       def initialize(repository: Reservations::Repository.new)
@@ -8,18 +8,9 @@ module Reservations
       end
 
       def call(params:)
-       
-          Reservation.transaction do
-
-            puts params
-            reservation_params = params.except(:tickets)
-            puts reservation_params
-            @reservation = repository.create(reservation_params)
-            puts @reservation
-            Tickets::UseCases::Create.new(reservation: @reservation, tickets: params[:tickets]).call
-          end
-          send_email
-          @reservaton
+        super
+        send_email
+        @reservaton
         
       end
 

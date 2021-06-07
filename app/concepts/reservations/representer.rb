@@ -19,7 +19,16 @@ module Reservations
     end
 
     def extended
-      reservations
+      reservations.map do |reservation|
+        {
+            id: reservation.id,
+            status: reservation.status,
+            movie_id: reservation.screening_id,
+            ticket_desk_id: reservation.ticket_desk_id,
+            client_id: reservation.client_id,
+            tickets: reservation.tickets,
+        }
+      end
     end
   end
 end
