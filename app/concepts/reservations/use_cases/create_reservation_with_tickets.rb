@@ -13,7 +13,6 @@ module Reservations
             reservation_params = params.except(:tickets)
             @reservation = @repository.create(reservation_params)
             Tickets::UseCases::Create.new(reservation: @reservation, tickets: params[:tickets]).call
-            byebug
           end
       end
     end

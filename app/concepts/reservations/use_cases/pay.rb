@@ -8,7 +8,7 @@ module Reservations
       end
 
       def call(id:)
-        repository.update(id, :status => "paid")
+        repository.update(id, status: "paid")
       end
     end
   end

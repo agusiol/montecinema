@@ -26,7 +26,7 @@ module Reservations
             movie_id: reservation.screening_id,
             ticket_desk_id: reservation.ticket_desk_id,
             client_id: reservation.client_id,
-            tickets: reservation.tickets,
+            tickets: Tickets::Representer.new(reservation.tickets).basic,
         }
       end
     end

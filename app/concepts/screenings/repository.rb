@@ -9,6 +9,10 @@ module Screenings
 
     end
 
+    def thirty_minutes_from_now
+      @adapter.where(date: Time.now..Time.now + 30.minutes)
+    end
+
 
 
   end
