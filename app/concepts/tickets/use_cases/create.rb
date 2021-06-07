@@ -12,7 +12,7 @@ module Tickets
     def call
       tickets.each do |ticket|
         if not SeatAvailable.new(@reservation.id, ticket[:seat]).call
-          raise SeatsNotAvailableError
+          raise SeatsNotAvailableError , "Provided seats are not available!"
         end
         @reservation.tickets.create(ticket)
       end
