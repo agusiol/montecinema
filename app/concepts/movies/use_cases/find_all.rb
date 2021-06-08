@@ -1,4 +1,3 @@
-
 module Movies
   module UseCases
     class FindAll

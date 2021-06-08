@@ -1,4 +1,3 @@
-
 module CinemaHalls
   module UseCases
     class FindAll

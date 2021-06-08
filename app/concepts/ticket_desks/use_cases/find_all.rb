@@ -1,4 +1,3 @@
-
 module TicketDesks
   module UseCases
     class FindAll

@@ -9,9 +9,9 @@ module Tickets
 
       def call(reservation_id)
         repository.fetch_with_columns(
-          columns: [:id, :reservation_id, :type,  :price, :seat],
-          filter: {reservation_id: reservation_id}
-          )
+          columns: %i[id reservation_id type price seat],
+          filter: { reservation_id: reservation_id }
+        )
       end
     end
   end

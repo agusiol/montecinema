@@ -1,4 +1,3 @@
-
 module Screenings
   module UseCases
     class FindAll

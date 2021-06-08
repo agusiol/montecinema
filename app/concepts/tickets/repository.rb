@@ -3,9 +3,5 @@ module Tickets
     def initialize(adapter: Ticket)
       @adapter = adapter
     end
-
-
   end
 end
-
-  

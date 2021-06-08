@@ -9,18 +9,17 @@ module Clients
     def basic
       clients.map do |client|
         {
-            id: client.id,
-            email: client.email,
-            name: client.name,
-            age: client.age,
+          id: client.id,
+          email: client.email,
+          name: client.name,
+          age: client.age
 
-            
         }
       end
     end
 
     def extended
-      clients.map do |client|
+      clients.map do |_client|
         clients
       end
     end

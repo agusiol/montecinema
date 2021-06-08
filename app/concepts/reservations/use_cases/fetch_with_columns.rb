@@ -9,9 +9,9 @@ module Reservations
 
       def call(screening_id, client_id)
         repository.fetch_with_columns(
-          columns: [:id, :ticket_desk_id, :screening_id, :status, :client_id],
-          filter: {screening_id: screening_id, client_id: client_id,}
-          )
+          columns: %i[id ticket_desk_id screening_id status client_id],
+          filter: { screening_id: screening_id, client_id: client_id }
+        )
       end
     end
   end

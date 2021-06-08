@@ -1,4 +1,3 @@
-
 module Reservations
   module UseCases
     class FindAll

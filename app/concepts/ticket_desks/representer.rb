@@ -9,9 +9,9 @@ module TicketDesks
     def basic
       ticket_desks.map do |ticket_desk|
         {
-            id: ticket_desk.id,
-            type: ticket_desk.type,
-            
+          id: ticket_desk.id,
+          type: ticket_desk.type
+
         }
       end
     end

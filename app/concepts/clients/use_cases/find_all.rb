@@ -1,4 +1,3 @@
-
 module Clients
   module UseCases
     class FindAll

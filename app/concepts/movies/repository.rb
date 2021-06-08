@@ -5,5 +5,3 @@ module Movies
     end
   end
 end
-
-  

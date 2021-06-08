@@ -12,29 +12,28 @@ class TicketDesksController < ApplicationController
   def create
     ticket_desk = TicketDesks::UseCases::Create.new.call(params: ticket_desk_params)
     if ticket_desk.valid?
-        render json: ticket_desk, status: :created
-      else
-        render json: ticket_desk.errors, status: :unprocessable_entity
-      end
+      render json: ticket_desk, status: :created
+    else
+      render json: ticket_desk.errors, status: :unprocessable_entity
+    end
   end
 
   def update
     ticket_desk = TicketDesks::UseCases::Update.new.call(id: params[:id], params: ticket_desk_params)
-      if ticket_desk.valid?
-          render json: ticket_desk
-      else
-          render json: ticket_desk.errors, status: :unprocessable_entity
-      end
+    if ticket_desk.valid?
+      render json: ticket_desk
+    else
+      render json: ticket_desk.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
     TicketDesks::UseCases::Delete.new.call(id: params[:id])
-    render json: {status: "deleted"}
+    render json: { status: 'deleted' }
   end
 
-
   private
-  
+
   def ticket_desk_params
     params.require(:ticket_desk).permit(:type)
   end

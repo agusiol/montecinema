@@ -2,7 +2,7 @@ module Base
   class BaseRepository
     attr_reader :adapter
 
-    def initialize(adapter: )
+    def initialize(adapter:)
       @adapter = adapter
     end
 

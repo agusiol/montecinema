@@ -1,15 +1,14 @@
-
 module Clients
   module UseCases
     class Delete
       attr_reader :repository
 
       def initialize(repository: Clients::Repository.new)
-          @repository = repository
+        @repository = repository
       end
 
       def call(id:)
-          repository.delete(id)
+        repository.delete(id)
       end
     end
   end

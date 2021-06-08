@@ -1,7 +1,6 @@
 module Reservations
   module UseCases
-    class CreateOffline  < Reservations::UseCases::CreateReservationWithTickets
-
+    class CreateOffline < Reservations::UseCases::CreateReservationWithTickets
     end
   end
 end

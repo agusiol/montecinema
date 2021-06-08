@@ -1,5 +1,4 @@
 class ClientsController < ApplicationController
-
   def index
     @clients = Clients::UseCases::FindAll.new.call
     render json: Clients::Representer.new(@clients).basic
@@ -13,29 +12,28 @@ class ClientsController < ApplicationController
   def create
     client = Clients::UseCases::Create.new.call(params: client_params)
     if client.valid?
-        render json: client, status: :created
-      else
-        render json: client.errors, status: :unprocessable_entity
-      end
+      render json: client, status: :created
+    else
+      render json: client.errors, status: :unprocessable_entity
+    end
   end
 
   def update
     client = Clients::UseCases::Update.new.call(id: params[:id], params: client_params)
-      if client.valid?
-          render json: client
-      else
-          render json: client.errors, status: :unprocessable_entity
-      end
+    if client.valid?
+      render json: client
+    else
+      render json: client.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
     Clients::UseCases::Delete.new.call(id: params[:id])
-    render json: {status: "deleted"}
+    render json: { status: 'deleted' }
   end
 
-
   private
-  
+
   def client_params
     params.require(:client).permit(:name, :email, :age)
   end
