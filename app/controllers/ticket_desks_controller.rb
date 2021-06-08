@@ -37,6 +37,6 @@ class TicketDesksController < ApplicationController
   private
 
   def ticket_desk_params
-    params.require(:ticket_desk).permit(:type)
+    params.require(:ticket_desk).permit(:category)
   end
 end

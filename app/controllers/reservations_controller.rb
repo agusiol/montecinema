@@ -14,13 +14,14 @@ class ReservationsController < ApplicationController
   def create
     ticket_desk = TicketDesks::Repository.new.find_by(params[:ticket_desk_id])
 
-    reservation = if ticket_desk.type == 'online'
+    reservation = if ticket_desk.category == 'online'
                     Reservations::UseCases::CreateOnline.new.call(params: reservation_params.merge(status: 'confirmed'))
                   else
                     Reservations::UseCases::CreateOffline.new.call(params: reservation_params.merge(client_id: 1))
                   end
 
     render json: reservation, status: :created
+  
   rescue Tickets::UseCases::Create::SeatsNotAvailableError => e
     render json: { error: e.message }.to_json
   end
