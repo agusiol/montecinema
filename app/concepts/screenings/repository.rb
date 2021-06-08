@@ -3,6 +3,7 @@
 module Screenings
   class Repository < ::Base::BaseRepository
     def initialize(adapter: Screening)
+      super
       @adapter = adapter
     end
 

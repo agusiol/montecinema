@@ -5,22 +5,22 @@ require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'cinema_halls#index'
+  root 'movies#index'
 
-  resources :movies
+  resources :cinema_halls, :movies, :ticket_desks, :clients
 
-  resources :clients
-
-  resources :cinema_halls, path: '/cinema-halls' do
+  resources :cinema_halls do
     resources :movies do
       resources :screenings
     end
   end
 
-  resources :ticket_desks do
-    resources :screenings do
-      resources :reservations do
-        resources :tickets
+  resources :ticket_desks, only: %i[index show] do
+    resources :movies, only: %i[index show] do
+      resources :screenings, only: %i[index show] do
+        resources :reservations do
+          resources :tickets, only: %i[index show]
+        end
       end
     end
   end

@@ -13,7 +13,7 @@ module Reservations
         {
           id: reservation.id,
           status: reservation.status,
-          movie_id: reservation.screening_id,
+          screening_date: reservation.screening.date,
           ticket_desk_id: reservation.ticket_desk_id,
           client_id: reservation.client_id
         }
@@ -25,7 +25,9 @@ module Reservations
         {
           id: reservation.id,
           status: reservation.status,
-          movie_id: reservation.screening_id,
+          screening_date: reservation.screening.date,
+          movie_title: reservation.screening.movie.title,
+          cinema_hall_name: reservation.screening.cinema_hall.name,
           ticket_desk_id: reservation.ticket_desk_id,
           client_id: reservation.client_id,
           tickets: Tickets::Representer.new(reservation.tickets).basic
