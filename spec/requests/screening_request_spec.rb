@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 RSpec.describe 'Screening requests' do
   let!(:hall) { CinemaHall.create(name: 'New name', capacity: 200) }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReservationMailer < ApplicationMailer
   default from: 'notifications@example.com'
 

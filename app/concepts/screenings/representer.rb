@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Screenings
   class Representer
     attr_reader :screenings

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TicketDesks
   class Representer
     attr_reader :ticket_desks

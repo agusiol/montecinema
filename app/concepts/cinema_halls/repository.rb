@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module CinemaHalls
   class Repository < ::Base::BaseRepository
     def initialize(adapter: CinemaHall)
-      @adapter = adapter
+      super
     end
   end
 end

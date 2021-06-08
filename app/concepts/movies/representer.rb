@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Movies
   class Representer
     attr_reader :movies

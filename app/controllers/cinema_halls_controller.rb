@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CinemaHallsController < ApplicationController
   def index
     @cinema_halls = CinemaHalls::UseCases::FindAll.new.call

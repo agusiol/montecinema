@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 RSpec.describe 'Movies requests' do
   let!(:movie) { Movie.create(title: 'New title', genre: 'example', age_allowed: 16, duration: 120) }

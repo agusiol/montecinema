@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ScreeningsController < ApplicationController
   def index
     @screenings = Screenings::UseCases::FetchWithColumns.new.call(params[:cinema_hall_id], params[:movie_id])

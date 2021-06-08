@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateClientsPromotion < ActiveRecord::Migration[6.1]
   def change
     create_table :clients_promotion do |t|

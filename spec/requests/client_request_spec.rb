@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 RSpec.describe 'Clienrs requests' do
   let!(:client) { Client.create(email: 'example@email.com', name: 'Some name', age: 17) }

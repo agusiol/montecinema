@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CinemaHalls
   class Representer
     attr_reader :cinema_halls

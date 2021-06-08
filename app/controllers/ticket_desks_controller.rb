@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TicketDesksController < ApplicationController
   def index
     @ticket_desks = TicketDesks::UseCases::FindAll.new.call

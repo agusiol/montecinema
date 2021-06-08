@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TicketsController < ApplicationController
   def index
     @tickets = Tickets::UseCases::FetchWithColumns.new.call(params[:reservation_id])
