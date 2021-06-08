@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Reservations
   module UseCases
     class FetchReservationsForScreening
@@ -9,9 +11,9 @@ module Reservations
 
       def call(screening_id)
         repository.fetch_with_columns(
-          columns: [:id, :screening_id,],
-          filter: {screening_id: screening_id}
-          )
+          columns: %i[id screening_id],
+          filter: { screening_id: screening_id }
+        )
       end
     end
   end

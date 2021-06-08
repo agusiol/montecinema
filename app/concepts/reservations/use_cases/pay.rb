@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Reservations
   module UseCases
     class Pay
@@ -8,7 +10,7 @@ module Reservations
       end
 
       def call(id:)
-        repository.update(id, status: "paid")
+        repository.update(id, status: 'paid')
       end
     end
   end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 module CinemaHalls
   module UseCases
@@ -5,11 +6,11 @@ module CinemaHalls
       attr_reader :repository
 
       def initialize(repository: CinemaHalls::Repository.new)
-          @repository = repository
+        @repository = repository
       end
 
       def call(id:)
-          repository.delete(id)
+        repository.delete(id)
       end
     end
   end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 module TicketDesks
   module UseCases
@@ -5,11 +6,11 @@ module TicketDesks
       attr_reader :repository
 
       def initialize(repository: TicketDesks::Repository.new)
-          @repository = repository
+        @repository = repository
       end
 
       def call(id:)
-          repository.delete(id)
+        repository.delete(id)
       end
     end
   end

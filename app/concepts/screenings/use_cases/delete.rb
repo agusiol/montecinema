@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 module Screenings
   module UseCases
@@ -5,11 +6,11 @@ module Screenings
       attr_reader :repository
 
       def initialize(repository: Screenings::Repository.new)
-          @repository = repository
+        @repository = repository
       end
 
       def call(id:)
-          repository.delete(id)
+        repository.delete(id)
       end
     end
   end

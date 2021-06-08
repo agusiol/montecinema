@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Screenings
   class Representer
     attr_reader :screenings
@@ -9,10 +11,10 @@ module Screenings
     def basic
       screenings.map do |screening|
         {
-            id: screening.id,
-            date: screening.date,
-            movie_id: screening.movie_id,
-            cinema_hall_id: screening.cinema_hall_id
+          id: screening.id,
+          date: screening.date,
+          movie_id: screening.movie_id,
+          cinema_hall_id: screening.cinema_hall_id
         }
       end
     end
@@ -24,8 +26,8 @@ module Screenings
           date: screening.date,
           movie_id: screening.movie_id,
           cinema_hall_id: screening.cinema_hall_id,
-          available_seats:  UseCases::FindAvailableSeats.new(screening.id).call
-      }
+          available_seats: UseCases::FindAvailableSeats.new(screening.id).call
+        }
       end
     end
   end

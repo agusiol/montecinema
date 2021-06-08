@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Screenings
   module UseCases
     class FetchWithColumns
@@ -9,9 +11,9 @@ module Screenings
 
       def call(cinema_hall_id, movie_id)
         repository.fetch_with_columns(
-          columns: [:id, :movie_id, :cinema_hall_id, :date],
-          filter: {cinema_hall_id: cinema_hall_id, movie_id: movie_id,}
-          )
+          columns: %i[id movie_id cinema_hall_id date],
+          filter: { cinema_hall_id: cinema_hall_id, movie_id: movie_id }
+        )
       end
     end
   end

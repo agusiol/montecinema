@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 module Screenings
   module UseCases
-    class FindAvailableSeats 
-
+    class FindAvailableSeats
       def initialize(screening_id)
         @reservations = Reservations::UseCases::FetchReservationsForScreening.new.call(screening_id)
         screening = Screenings::Repository.new.find_by(screening_id)
@@ -13,11 +14,10 @@ module Screenings
         find_reserved_seats
         find_available_seats
         @available_seats
-        
       end
 
       def find_reserved_seats
-        @taken_seats =Array.new
+        @taken_seats = []
         @reservations.includes(:tickets).map do |reservation|
           reservation.tickets.map do |ticket|
             @taken_seats.push(ticket.seat)

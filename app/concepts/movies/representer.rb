@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Movies
   class Representer
     attr_reader :movies
@@ -9,11 +11,11 @@ module Movies
     def basic
       movies.map do |movie|
         {
-            id: movie.id,
-            title: movie.title,
-            genre: movie.genre,
-            age_allowed: movie.age_allowed,
-            duration: movie.duration,
+          id: movie.id,
+          title: movie.title,
+          genre: movie.genre,
+          age_allowed: movie.age_allowed,
+          duration: movie.duration
         }
       end
     end

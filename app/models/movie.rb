@@ -1,6 +1,8 @@
-class Movie < ApplicationRecord
-    has_many :screenings
+# frozen_string_literal: true
 
-    validates :title, :genre, presence: true
-    validates :age_allowed, presence: true, numericality: { only_integer: true }
+class Movie < ApplicationRecord
+  has_many :screenings
+
+  validates :title, :genre, presence: true
+  validates :age_allowed, presence: true, numericality: { only_integer: true }
 end
