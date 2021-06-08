@@ -19,8 +19,13 @@ module Screenings
 
     def extended
       screenings.map do |screening|
-        screening
-
+        {
+          id: screening.id,
+          date: screening.date,
+          movie_id: screening.movie_id,
+          cinema_hall_id: screening.cinema_hall_id,
+          available_seats:  UseCases::FindAvailableSeats.new(screening.id).call
+      }
       end
     end
   end

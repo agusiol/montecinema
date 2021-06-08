@@ -10,17 +10,24 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    reservation = Reservations::UseCases::Create.new.call(params: reservation_params)
+    ticket_desk = TicketDesks::Repository.new.find_by(params[:ticket_desk_id])
     
-    if reservation.valid?
-        render json: reservation, status: :created
-      else
-        render json: reservation.errors, status: :unprocessable_entity
-      end
+    if ticket_desk.type == "online"
+        reservation = Reservations::UseCases::CreateOnline.new.call(params: reservation_params.merge(status: "confirmed"))
+    else
+        reservation = Reservations::UseCases::CreateOffline.new.call(params: reservation_params.merge(client_id: 1))
+    end
+    
+    render json: reservation, status: :created
+    
+    rescue Tickets::UseCases::Create::SeatsNotAvailableError => error
+        render json: { error: error.message }.to_json
+    
+    
   end
 
   def update
-    reservation = Reservations::UseCases::Update.new.call(id: params[:id], params: reservation_params)
+    reservation = Reservations::UseCases::Pay.new.call(id: params[:id])
       if reservation.valid?
           render json: reservation
       else
@@ -37,6 +44,12 @@ class ReservationsController < ApplicationController
   private
   
   def reservation_params
-    params.require(:reservation).permit(:status, :screening_id, :ticket_desk_id, :client_id)
+    params.require(:reservation).permit(
+      :status, 
+      :screening_id, 
+      :ticket_desk_id, 
+      :client_id,
+      tickets: %i[price type seat screening_id]
+    )
   end
 end
