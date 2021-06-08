@@ -1,19 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe CancelReservationsJob, type: :job do
-  subject(:run_job) { described_class.perform_later(screening_id) }
-  let(:screening_id) { 1 }
-
-
-  
-
-  before do
-    allow( Reservations::UseCases::CancelUnpaidReservations).to receive(:call)
-    run_job
-  end
+  let(:cinema_hall) {create(:cinema_hall)}
+  let(:movie) {create(:movie)}
+  let(:screening) {create(:screening, date: Time.current - 30.minutes, movie: movie, cinema_hall: cinema_hall) }
+  let(:cancel_unpaid_reservations) { instance_double(Reservations::UseCases::CancelUnpaidReservations, call: true) }
 
   it "runs CancelUnpaidReservations use case" do
-    expect( Reservations::UseCases::CancelUnpaidReservations).to have_received(:call).with(params: screening_id)
+    expect(Reservations::UseCases::CancelUnpaidReservations).to receive(:new).and_return(cancel_unpaid_reservations)
+    expect(cancel_unpaid_reservations).to receive(:call).with(screening.id)
   end
 end
 

@@ -34,6 +34,7 @@ RSpec.describe "CinemaHalls requests" do
     it "works and return status 200" do
       delete("/cinema-halls/#{hall.id}")
       expect(response.status).to eq(200)
+      expect(CinemaHall.find_by(id: hall.id).to eq(nil))
     end
   end
 end
