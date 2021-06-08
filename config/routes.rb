@@ -9,10 +9,13 @@ Rails.application.routes.draw do
 
   resources :cinema_halls, :movies, :ticket_desks, :clients
 
-  resources :cinema_halls do
-    resources :movies do
-      resources :screenings
-    end
+ 
+  resources :movies do
+    resources :screenings
+  end
+
+  resources :reservations do
+    resources :tickets, only: %i[index show]
   end
 
   resources :ticket_desks, only: %i[index show] do

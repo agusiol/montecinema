@@ -17,7 +17,7 @@ class ReservationsController < ApplicationController
     reservation = if ticket_desk.category == 'online'
                     Reservations::UseCases::CreateOnline.new.call(params: reservation_params.merge(status: 'confirmed'))
                   else
-                    Reservations::UseCases::CreateOffline.new.call(params: reservation_params.merge(client_id: 1))
+                    Reservations::UseCases::CreateOffline.new.call(params: reservation_params)
                   end
 
     render json: reservation, status: :created

@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :ticket_desk do
-    type { 'Offline' }
+    category { 'offline' }
   end
 end

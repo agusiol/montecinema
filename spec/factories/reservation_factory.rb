@@ -3,8 +3,8 @@
 FactoryBot.define do
   factory :reservation do
     status { 'confirmed' }
-    association :screening
-    association :client
-    association :ticket_desk
+    association :screening, factory: :screening
+    association :client , factory: :client
+    association :ticket_desk , factory: :ticket_desk
   end
 end
