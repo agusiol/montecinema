@@ -8,7 +8,7 @@ class TicketsController < ApplicationController
 
   def show
     ticket = Tickets::Repository.new.find_by(params[:id])
-    render json: Tickets::Representer.new([ticket]).extended
+    render json: Tickets::Representer.new([ticket]).basic
   end
 
   private

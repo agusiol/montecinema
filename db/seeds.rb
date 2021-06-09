@@ -23,17 +23,17 @@ screening_1 = Screening.create(id: 1,
                                date: DateTime.parse('04/06/2021 18:30:00'),
                                cinema_hall_id: cinema_hall1.id,
                                movie_id: movie_1.id,
-                               available_seats: cinema_hall1.seats)
+                               )
 screening_2 = Screening.create(id: 2,
                                date: DateTime.parse('13/06/2021 19:00'),
                                cinema_hall_id: cinema_hall_2.id,
                                movie_id: movie_2.id,
-                               available_seats: cinema_hall_2.seats)
+                               )
 screening_3 = Screening.create(id: 3,
                                date: DateTime.parse('13/06/2021 20:00'),
                                cinema_hall_id: cinema_hall_3.id,
                                movie_id: movie_3.id,
-                               available_seats: cinema_hall_3.seats)
+                               )
 
 client_1 = Client.create(id: 1, name: 'Jan kowalski', email: 'jankowalski@mail.com', age: 16)
 client_2 = Client.create(id: 2, name: 'Agnieszka Kowalska', email: 'agnieszkakowalska@mail.com', age: 21)

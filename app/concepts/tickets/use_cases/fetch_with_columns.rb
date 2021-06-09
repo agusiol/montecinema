@@ -11,7 +11,7 @@ module Tickets
 
       def call(reservation_id)
         repository.fetch_with_columns(
-          columns: %i[id reservation_id type price seat],
+          columns: %i[id reservation_id ticket_type price seat],
           filter: { reservation_id: reservation_id }
         )
       end
