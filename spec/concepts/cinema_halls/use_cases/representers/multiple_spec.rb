@@ -3,7 +3,7 @@ RSpec.describe CinemaHalls::Representers::Multiple do
     let(:hall1) { create :cinema_hall }
     let(:hall2) { create :cinema_hall }
     let(:halls) { [hall1, hall2] }
-    let(:instance) { CinemaHalls::Representers::Single.new(halls) }
+    let(:instance) { CinemaHalls::Representers::Multiple.new(halls) }
 
     it 'returns proper hash with cinema halls' do
       expect(instance.call).to match_array(
