@@ -27,16 +27,14 @@ RSpec.describe 'Reservations requests' do
   describe 'POST /reservations' do
     it 'works and return status 201' do
       post("/ticket_desks/#{desk.id}/movies/#{movie.id}/screenings/#{screening.id}/reservations",
-           params:{ reservation: { status: 'paid', screening_id: screening.id, ticket_desk_id: desk.id, client_id: client.id, 
-            tickets: [
-              { "price": 15, "ticket_type": "normal", "seat": "2A" },
-              { "price": 15, "ticket_type": "normal", "seat": "2B" },
-              { "price": 15, "ticket_type": "normal", "seat": "2C" },
-              { "price": 15, "ticket_type": "normal", "seat": "2D" },
-              { "price": 15, "ticket_type": "normal", "seat": "2E" } 
-              ]
-              }
-            })
+           params: { reservation: { status: 'paid', screening_id: screening.id, ticket_desk_id: desk.id, client_id: client.id,
+                                    tickets: [
+                                      { "price": 15, "ticket_type": 'normal', "seat": '2A' },
+                                      { "price": 15, "ticket_type": 'normal', "seat": '2B' },
+                                      { "price": 15, "ticket_type": 'normal', "seat": '2C' },
+                                      { "price": 15, "ticket_type": 'normal', "seat": '2D' },
+                                      { "price": 15, "ticket_type": 'normal', "seat": '2E' }
+                                    ] } })
 
       expect(response.status).to eq(200)
     end

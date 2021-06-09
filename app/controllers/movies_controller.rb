@@ -2,7 +2,7 @@
 
 class MoviesController < ApplicationController
   def index
-    @movies = Movies::UseCases::FindAll.new.call
+    @movies = Movies::Repository.new.find_all
     render json: Movies::Representer.new(@movies).basic
   end
 

@@ -21,7 +21,6 @@ class ReservationsController < ApplicationController
                   end
 
     render json: reservation, status: :created
-  
   rescue Tickets::UseCases::Create::SeatsNotAvailableError => e
     render json: { error: e.message }.to_json
   end
@@ -48,7 +47,7 @@ class ReservationsController < ApplicationController
       :screening_id,
       :ticket_desk_id,
       :client_id,
-      tickets: %i[price type seat screening_id]
+      tickets: %i[price ticket_type seat screening_id]
     )
   end
 end

@@ -9,7 +9,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 cinema_hall1 = CinemaHall.create(id: 1, name: 'Number 1', capacity: 200,
-                                  seats: CinemaHalls::UseCases::GenerateSeats.new(200).call)
+                                 seats: CinemaHalls::UseCases::GenerateSeats.new(200).call)
 cinema_hall_2 = CinemaHall.create(id: 2, name: 'Number 2', capacity: 100,
                                   seats: CinemaHalls::UseCases::GenerateSeats.new(100).call)
 cinema_hall_3 = CinemaHall.create(id: 3, name: 'Number 3', capacity: 50,
@@ -22,18 +22,15 @@ movie_3 = Movie.create(id: 3, title: 'The Accountant', genre: 'crime', age_allow
 screening_1 = Screening.create(id: 1,
                                date: DateTime.parse('04/06/2021 18:30:00'),
                                cinema_hall_id: cinema_hall1.id,
-                               movie_id: movie_1.id,
-                               )
+                               movie_id: movie_1.id)
 screening_2 = Screening.create(id: 2,
                                date: DateTime.parse('13/06/2021 19:00'),
                                cinema_hall_id: cinema_hall_2.id,
-                               movie_id: movie_2.id,
-                               )
+                               movie_id: movie_2.id)
 screening_3 = Screening.create(id: 3,
                                date: DateTime.parse('13/06/2021 20:00'),
                                cinema_hall_id: cinema_hall_3.id,
-                               movie_id: movie_3.id,
-                               )
+                               movie_id: movie_3.id)
 
 client_1 = Client.create(id: 1, name: 'Jan kowalski', email: 'jankowalski@mail.com', age: 16)
 client_2 = Client.create(id: 2, name: 'Agnieszka Kowalska', email: 'agnieszkakowalska@mail.com', age: 21)

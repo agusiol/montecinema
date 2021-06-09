@@ -7,7 +7,7 @@ RSpec.describe 'Tickets requests' do
   let!(:client) { create(:client) }
   let!(:ticket_desk) { create(:ticket_desk) }
   let!(:reservation) { create(:reservation) }
-  #let!(:reservation) { Reservation.create(status:'confirmed', client_id: client.id, ticket_desk_id: ticket_desk.id, screening_id: screening.id)}
+  # let!(:reservation) { Reservation.create(status:'confirmed', client_id: client.id, ticket_desk_id: ticket_desk.id, screening_id: screening.id)}
   let!(:ticket) { create(:ticket, reservation_id: reservation.id) }
 
   describe 'GET /tickets' do

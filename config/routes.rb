@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   resources :cinema_halls, :movies, :ticket_desks, :clients
 
- 
   resources :movies do
     resources :screenings
   end

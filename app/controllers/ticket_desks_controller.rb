@@ -2,7 +2,7 @@
 
 class TicketDesksController < ApplicationController
   def index
-    @ticket_desks = TicketDesks::UseCases::FindAll.new.call
+    @ticket_desks = TicketDesks::Repository.new.find_all
     render json: TicketDesks::Representer.new(@ticket_desks).basic
   end
 
