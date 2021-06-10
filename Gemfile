@@ -53,3 +53,5 @@ gem 'sidekiq-cron', '~> 1.1'
 group :test do
   gem 'rspec-sidekiq'
 end
+
+gem 'simplecov', require: false

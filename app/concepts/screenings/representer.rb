@@ -13,8 +13,8 @@ module Screenings
         {
           id: screening.id,
           date: screening.date,
-          movie_id: screening.movie_id,
-          cinema_hall_id: screening.cinema_hall_id
+          movie_title: screening.movie.title,
+          cinema_hall_name: screening.cinema_hall.name
         }
       end
     end
@@ -24,8 +24,9 @@ module Screenings
         {
           id: screening.id,
           date: screening.date,
-          movie_id: screening.movie_id,
-          cinema_hall_id: screening.cinema_hall_id,
+          movie_title: screening.movie.title,
+          cinema_hall_name: screening.cinema_hall.name,
+          valid_to: screening.date - 30.minutes,
           available_seats: UseCases::FindAvailableSeats.new(screening.id).call
         }
       end

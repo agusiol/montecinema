@@ -2,7 +2,7 @@
 
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservations::UseCases::FetchWithColumns.new.call(params[:screening_id], params[:client_id])
+    @reservations = Reservations::UseCases::FetchWithColumns.new.call(params[:screening_id])
     render json: Reservations::Representer.new(@reservations).basic
   end
 
@@ -14,10 +14,10 @@ class ReservationsController < ApplicationController
   def create
     ticket_desk = TicketDesks::Repository.new.find_by(params[:ticket_desk_id])
 
-    reservation = if ticket_desk.type == 'online'
+    reservation = if ticket_desk.category == 'online'
                     Reservations::UseCases::CreateOnline.new.call(params: reservation_params.merge(status: 'confirmed'))
                   else
-                    Reservations::UseCases::CreateOffline.new.call(params: reservation_params.merge(client_id: 1))
+                    Reservations::UseCases::CreateOffline.new.call(params: reservation_params)
                   end
 
     render json: reservation, status: :created
@@ -47,7 +47,7 @@ class ReservationsController < ApplicationController
       :screening_id,
       :ticket_desk_id,
       :client_id,
-      tickets: %i[price type seat screening_id]
+      tickets: %i[price ticket_type seat screening_id]
     )
   end
 end

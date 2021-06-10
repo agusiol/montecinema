@@ -2,7 +2,7 @@
 
 class ClientsController < ApplicationController
   def index
-    @clients = Clients::UseCases::FindAll.new.call
+    @clients = Clients::Repository.new.find_all
     render json: Clients::Representer.new(@clients).basic
   end
 

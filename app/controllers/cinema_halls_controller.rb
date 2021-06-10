@@ -2,13 +2,13 @@
 
 class CinemaHallsController < ApplicationController
   def index
-    @cinema_halls = CinemaHalls::UseCases::FindAll.new.call
-    render json: CinemaHalls::Representer.new(@cinema_halls).basic
+    @cinema_halls = CinemaHalls::Repository.new.find_all
+    render json: CinemaHalls::Representers::Multiple.new(@cinema_halls).call
   end
 
   def show
     cinema_hall = CinemaHalls::Repository.new.find_by(params[:id])
-    render json: CinemaHalls::Representer.new([cinema_hall]).extended
+    render json: CinemaHalls::Representers::Single.new(cinema_hall).call
   end
 
   def create

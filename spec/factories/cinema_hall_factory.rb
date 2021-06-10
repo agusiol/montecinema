@@ -3,6 +3,7 @@
 FactoryBot.define do
   factory :cinema_hall do
     name { 'Some name' }
-    capacity { 200 }
+    capacity { 50 }
+    seats { [] }
   end
 end

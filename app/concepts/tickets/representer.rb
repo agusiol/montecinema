@@ -13,7 +13,7 @@ module Tickets
         {
           id: ticket.id,
           price: ticket.price,
-          type: ticket.type,
+          ticket_type: ticket.ticket_type,
           seat: ticket.seat,
           reservation_id: ticket.reservation_id
         }

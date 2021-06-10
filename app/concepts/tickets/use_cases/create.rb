@@ -7,17 +7,16 @@ module Tickets
 
       SeatsNotAvailableError = Class.new(StandardError)
 
-      def initialize(reservation:, tickets: [])
-        @tickets = tickets
-        @reservation = reservation
+      def initialize(repository: Tickets::Repository.new)
+        @repository = repository
       end
 
-      def call
+      def call(reservation:, tickets: [])
         tickets.each do |ticket|
-          raise SeatsNotAvailableError, 'Provided seats are not available!' unless SeatAvailable.new(@reservation.id,
+          raise SeatsNotAvailableError, 'Provided seats are not available!' unless SeatAvailable.new(reservation.id,
                                                                                                      ticket[:seat]).call
 
-          @reservation.tickets.create(ticket)
+          @ticket = @repository.create(ticket.merge({ "reservation_id": reservation.id }))
         end
       end
     end

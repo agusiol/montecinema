@@ -4,13 +4,8 @@ require 'rails_helper'
 
 RSpec.describe CinemaHall, type: :model do
   subject do
-    described_class.new(name: 'Anything',
-                        capacity: 100)
+    create(:cinema_hall)
   end
-  # it "is invalid without name" do
-  #     subject.name = nil
-  #     expect(subject).to_not be_valid
-  # end
 
   describe 'validations' do
     context 'when all params are passed' do

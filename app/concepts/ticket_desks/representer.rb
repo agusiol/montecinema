@@ -12,7 +12,7 @@ module TicketDesks
       ticket_desks.map do |ticket_desk|
         {
           id: ticket_desk.id,
-          type: ticket_desk.type
+          type: ticket_desk.category
 
         }
       end
