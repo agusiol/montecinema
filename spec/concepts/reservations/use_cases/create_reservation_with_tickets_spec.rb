@@ -30,11 +30,11 @@ RSpec.describe Reservations::UseCases::CreateReservationWithTickets do
 
   context 'all seats are available' do
     it 'creates reservation' do
-      expect { instance.call(params: params) }.to change { Reservation.count }.by(1)
+      expect { subject }.to change { Reservation.count }.by(1)
     end
 
     it 'creates all given tickets' do
-      expect { instance.call(params: params) }.to change { Ticket.count }.by(5)
+      expect { subject }.to change { Ticket.count }.by(5)
     end
   end
 
@@ -43,13 +43,8 @@ RSpec.describe Reservations::UseCases::CreateReservationWithTickets do
     let!(:ticket) { create :ticket, seat: '3C', reservation_id: reservation.id }
     #not working
     it 'raisees SeatNotAvailable error' do
-      expect(subject).to raise_error(SeatsNotAvailableError)
+      expect {subject}.to raise_error(Tickets::UseCases::Create::SeatsNotAvailableError)
     end
-
-    it 'does not create Reservation' do
-    end
-
-    it 'does nitt create Tickets'
   end
 
   context 'all seats are not available' do
