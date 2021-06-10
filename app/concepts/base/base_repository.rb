@@ -24,6 +24,10 @@ module Base
       adapter.create(params)
     end
 
+    def create!(params)
+      adapter.create!(params)
+    end
+
     def update(id, params)
       adapter.update(id, params)
     end

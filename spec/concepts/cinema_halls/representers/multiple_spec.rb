@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.describe CinemaHalls::Representers::Multiple do
   describe '.call' do
     let(:hall1) { create :cinema_hall }

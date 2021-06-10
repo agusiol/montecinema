@@ -12,7 +12,7 @@ module Reservations
       def call(params:)
         Reservation.transaction do
           reservation_params = params.except(:tickets)
-          @reservation = @repository.create(reservation_params)
+          @reservation = @repository.create!(reservation_params)
           Tickets::UseCases::Create.new.call(reservation: @reservation, tickets: params[:tickets])
         end
       end

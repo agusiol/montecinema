@@ -16,6 +16,8 @@ module Screenings
         @available_seats
       end
 
+      private
+
       def find_reserved_seats
         @taken_seats = []
         @reservations.includes(:tickets).map do |reservation|
