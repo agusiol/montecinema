@@ -20,14 +20,16 @@ RSpec.describe 'CinemaHalls requests' do
 
   describe 'POST /cinema_halls' do
     it 'works and return status 201' do
-      post('/cinema_halls', params: { cinema_hall: { name: 'new name', capacity: 100 } })
+      post('/cinema_halls',
+           params: { cinema_hall: { name: 'new name', capacity: 100 } })
       expect(response.status).to eq(201)
     end
   end
 
   describe 'PUT /cinema_halls/:id' do
     it 'works and return status 200' do
-      put("/cinema_halls/#{hall.id}", params: { cinema_hall: { id: hall.id, name: 'new name' } })
+      put("/cinema_halls/#{hall.id}",
+          params: { cinema_hall: { id: hall.id, name: 'new name' } })
       expect(response.status).to eq(200)
     end
   end
