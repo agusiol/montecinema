@@ -17,20 +17,19 @@ Rails.application.routes.draw do
     resources :tickets, only: %i[index show]
   end
 
-  #offline endpoint
+  # offline endpoint
   scope module: 'offline' do
     resources :ticket_desks, only: %i[index show] do
       resources :reservations
     end
   end
 
-  #online endpoint
-  #namespace :users do
-  #  post resources :reservations
-  # end
-
-
-  
+  # online endpoint
+  scope module: 'online' do
+    resources :clients do
+      resources :reservations
+    end
+  end
 
   Montecinema::Application.routes.draw do
     mount Sidekiq::Web => '/sidekiq' # mount Sidekiq::Web in your Rails app
