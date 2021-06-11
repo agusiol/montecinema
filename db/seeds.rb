@@ -32,7 +32,7 @@ screening_3 = Screening.create(id: 3,
                                cinema_hall_id: cinema_hall_3.id,
                                movie_id: movie_3.id)
 
-client_1 = Client.create(id: 1, name: 'Jan kowalski', email: 'jankowalski@mail.com', age: 16)
+client_1 = Client.create(id: 1, name: 'Jan kowalski', email: 'jankowalski@mail.com', age: 16, real_user: false)
 client_2 = Client.create(id: 2, name: 'Agnieszka Kowalska', email: 'agnieszkakowalska@mail.com', age: 21)
 client_3 = Client.create(id: 3, name: 'Janina Kowalska', email: 'janinakowalska@mail.com', age: 12)
 

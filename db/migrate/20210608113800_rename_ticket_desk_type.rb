@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RenameTicketDeskType < ActiveRecord::Migration[6.1]
   def change
     rename_column :ticket_desks, :type, :category

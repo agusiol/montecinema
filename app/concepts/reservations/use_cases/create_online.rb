@@ -6,7 +6,7 @@ module Reservations
       def call(params:)
         super
         send_email
-        @reservaton
+        @reservation
       end
 
       def send_email
