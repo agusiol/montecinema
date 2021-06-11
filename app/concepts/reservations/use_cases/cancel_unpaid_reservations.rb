@@ -11,8 +11,9 @@ module Reservations
         reservations = @repository.unpaid(screening_id)
         reservations.map do |reservation|
           client = Clients::Repository.new.find_by(reservation.client_id)
-          ReservationMailer.with(reservation: reservation, email: client.email).cancellation_email.deliver_later
-
+          if client.real_user
+            ReservationMailer.with(reservation: reservation, email: client.email).cancellation_email.deliver_later
+          end
           Reservations::UseCases::Delete.new.call(id: reservation.id)
         end
       end

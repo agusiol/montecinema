@@ -17,13 +17,17 @@ Rails.application.routes.draw do
     resources :tickets, only: %i[index show]
   end
 
-  resources :ticket_desks, only: %i[index show] do
-    resources :movies, only: %i[index show] do
-      resources :screenings, only: %i[index show] do
-        resources :reservations do
-          resources :tickets, only: %i[index show]
-        end
-      end
+  # offline endpoint
+  scope module: 'offline' do
+    resources :ticket_desks, only: %i[index show] do
+      resources :reservations
+    end
+  end
+
+  # online endpoint
+  scope module: 'online' do
+    resources :clients do
+      resources :reservations
     end
   end
 

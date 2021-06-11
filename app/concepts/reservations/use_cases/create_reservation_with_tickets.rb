@@ -14,6 +14,7 @@ module Reservations
           reservation_params = params.except(:tickets)
           @reservation = @repository.create!(reservation_params)
           Tickets::UseCases::Create.new.call(reservation: @reservation, tickets: params[:tickets])
+          @reservation
         end
       end
     end

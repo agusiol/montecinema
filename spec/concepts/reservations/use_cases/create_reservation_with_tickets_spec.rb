@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Reservations::UseCases::CreateReservationWithTickets do
@@ -41,9 +43,9 @@ RSpec.describe Reservations::UseCases::CreateReservationWithTickets do
   context 'one seat in the middle is not available' do
     let!(:reservation) { create :reservation, screening_id: screening.id }
     let!(:ticket) { create :ticket, seat: '3C', reservation_id: reservation.id }
-    #not working
+    # not working
     it 'raisees SeatNotAvailable error' do
-      expect {subject}.to raise_error(Tickets::UseCases::Create::SeatsNotAvailableError)
+      expect { subject }.to raise_error(Tickets::UseCases::Create::SeatsNotAvailableError)
     end
   end
 
