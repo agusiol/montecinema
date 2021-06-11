@@ -29,8 +29,12 @@ RSpec.describe ReservationMailer, type: :mailer do
     end
 
     it 'renders the body' do
-      expect(mail.text_part.body.to_s).to include("Your reservation: #{reservation.id} for #{movie.title} has been succesfull.")
-      expect(mail.html_part.body.to_s).to include
+      expect(mail.text_part.body.to_s).to include(
+        "Your reservation: #{reservation.id} for #{movie.title} has been succesfull."
+      )
+      expect(mail.html_part.body.to_s).to include(
+        "Your reservation: #{reservation.id} for #{movie.title} has been succesfull."
+      )
     end
 
     it 'sends the email' do
