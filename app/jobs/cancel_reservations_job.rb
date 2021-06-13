@@ -13,7 +13,7 @@ class CancelReservationsJob < ApplicationJob
       if client.real_user
         ReservationMailer.with(reservation: reservation, email: client.email).cancellation_email.deliver_later
       end
-    
+
       Reservations::UseCases::Delete.new.call(id: reservation.id)
     end
   end

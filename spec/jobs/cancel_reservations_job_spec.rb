@@ -14,10 +14,11 @@ RSpec.describe CancelReservationsJob, type: :job do
   end
 
   describe '.perform' do
-    it "enqueues cancel unpaid reservations process" do
+    it 'enqueues cancel unpaid reservations process' do
       ActiveJob::Base.queue_adapter = :test
-      expect { CancelReservationsJob.perform_later(screening.id)
-             }.to have_enqueued_job
+      expect do
+        CancelReservationsJob.perform_later(screening.id)
+      end.to have_enqueued_job
     end
     context 'unpaiid reservations exist' do
       let!(:reservation1) { create :reservation, status: 'confirmed', screening_id: screening.id }
@@ -31,8 +32,8 @@ RSpec.describe CancelReservationsJob, type: :job do
     end
   end
 
-      # it 'call cancelation email' do
-      #   # not working, having trouble with that
-      #   expect(mailer).to receive(:deliver_later).with(reservation: reservation1, email: reservation.client.email)
-      # end
+  # it 'call cancelation email' do
+  #   # not working, having trouble with that
+  #   expect(mailer).to receive(:deliver_later).with(reservation: reservation1, email: reservation.client.email)
+  # end
 end
