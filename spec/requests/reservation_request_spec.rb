@@ -12,21 +12,21 @@ RSpec.describe 'Reservations requests' do
 
   describe 'GET /reservations' do
     it 'works and return status 200' do
-      get('//reservations')
+      get("/movies/#{movie.id}/screenings/#{screening.id}/reservations")
       expect(response.status).to eq(200)
     end
   end
 
   describe 'GET /reservations/:id' do
     it 'works and return status 200' do
-      get("//reservations/#{res.id}")
+      get("/movies/#{movie.id}/screenings/#{screening.id}/reservations/#{res.id}")
       expect(response.status).to eq(200)
     end
   end
 
   describe 'PUT /reservations/:id' do
     it 'works and return status 200' do
-      put("//reservations/#{res.id}",
+      put("/movies/#{movie.id}/screenings/#{screening.id}/reservations/#{res.id}",
           params: { reservation: { id: res.id, status: 'paid' } })
       expect(response.status).to eq(200)
     end
@@ -34,7 +34,7 @@ RSpec.describe 'Reservations requests' do
 
   describe 'DELETE /reservations/:id' do
     it 'works and return status 200' do
-      delete("//reservations/#{res.id}")
+      delete("/movies/#{movie.id}/screenings/#{screening.id}/reservations/#{res.id}")
       expect(response.status).to eq(200)
     end
   end
