@@ -10,7 +10,9 @@ module Screenings
       end
 
       def call(params:)
-        repository.create(params)
+        screening = repository.create!(params)
+        CancelReservationsJob.set(wait_until: screening.date - 30.minutes).perform_later(screening.id)
+        screening
       end
     end
   end

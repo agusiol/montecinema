@@ -32,7 +32,7 @@ screening3 = Screening.create(id: 3,
                               cinema_hall_id: cinema_hall3.id,
                               movie_id: movie3.id)
 
-Client.create(id: 1, name: 'Jan kowalski', email: 'jankowalski@mail.com', age: 16, real_user: false)
+client1 = Client.create(id: 1, name: 'Jan kowalski', email: 'jankowalski@mail.com', age: 16, real_user: false)
 client2 = Client.create(id: 2, name: 'Agnieszka Kowalska', email: 'agnieszkakowalska@mail.com', age: 21,
                         real_user: true)
 client3 = Client.create(id: 3, name: 'Janina Kowalska', email: 'janinakowalska@mail.com', age: 12, real_user: true)
@@ -44,6 +44,7 @@ Reservations::UseCases::CreateOffline.new.call(
   params: {
     status: 'paid',
     screening_id: screening1.id,
+    client_id: client1.id,
     ticket_desk_id: ticket_desk1.id,
     tickets: [
       { price: 25,  ticket_type: 'full', seat: '1A' },
@@ -58,6 +59,7 @@ Reservations::UseCases::CreateOffline.new.call(
   params: {
     status: 'paid',
     screening_id: screening1.id,
+    client_id: client1.id,
     ticket_desk_id: ticket_desk2.id,
     tickets: [
       { price: 25,  ticket_type: 'full', seat: '3A' },
@@ -71,6 +73,7 @@ Reservations::UseCases::CreateOffline.new.call(
   params: {
     status: 'paid',
     screening_id: screening2.id,
+    client_id: client1.id,
     ticket_desk_id: ticket_desk2.id,
     tickets: [
       { price: 25,  ticket_type: 'full', seat: '3A' },
