@@ -3,7 +3,7 @@
 module Online
   class ReservationsController < ApplicationController
     def index
-      @reservations = Reservations::UseCases::FetchWithColumns.new.call(params[:screening_id])
+      @reservations = Reservations::Repository.new.fetch(client_id: params[:client_id])
       render json: Reservations::Representer.new(@reservations).basic
     end
 

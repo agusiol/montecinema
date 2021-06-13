@@ -10,12 +10,13 @@ Rails.application.routes.draw do
   resources :cinema_halls, :movies, :ticket_desks, :clients
 
   resources :movies do
-    resources :screenings
+    resources :screenings do
+      resources :reservations do
+        resources :tickets, only: %i[index show]
+      end
+    end
   end
 
-  resources :reservations do
-    resources :tickets, only: %i[index show]
-  end
 
   # offline endpoint
   scope module: 'offline' do
