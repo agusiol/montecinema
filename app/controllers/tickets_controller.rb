@@ -2,7 +2,7 @@
 
 class TicketsController < ApplicationController
   def index
-    @tickets = Tickets::UseCases::FetchWithColumns.new.call(params[:reservation_id])
+    @tickets = Tickets::Repository.new.fetch(reservation_id: params[:reservation_id])
     render json: Tickets::Representer.new(@tickets).basic
   end
 

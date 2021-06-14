@@ -11,14 +11,14 @@ RSpec.describe 'Tickets requests' do
 
   describe 'GET /tickets' do
     it 'works and return status 200' do
-      get("/reservations/#{ticket.reservation_id}/tickets")
+      get("/movies/#{screening.movie.id}/screenings/#{screening.id}/reservations/#{ticket.reservation_id}/tickets")
       expect(response.status).to eq(200)
     end
   end
 
   describe 'GET /tickets/:id' do
     it 'works and return status 200' do
-      get("/reservations/#{reservation.id}/tickets/#{ticket.id}")
+      get("/movies/#{screening.movie.id}/screenings/#{screening.id}/reservations/#{reservation.id}/tickets/#{ticket.id}")
       expect(response.status).to eq(200)
     end
   end

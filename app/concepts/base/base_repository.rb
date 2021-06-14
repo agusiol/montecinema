@@ -12,6 +12,10 @@ module Base
       adapter.where(filter).select(*columns)
     end
 
+    def fetch(filter)
+      adapter.where(filter)
+    end
+
     def find_all
       adapter.order(:id).all
     end

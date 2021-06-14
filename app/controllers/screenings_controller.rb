@@ -2,7 +2,7 @@
 
 class ScreeningsController < ApplicationController
   def index
-    @screenings = Screenings::UseCases::FetchWithColumns.new.call(params[:movie_id])
+    @screenings = Screenings::Repository.new.fetch(movie_id: params[:movie_id])
     render json: Screenings::Representer.new(@screenings).basic
   end
 
