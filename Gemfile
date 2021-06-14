@@ -54,5 +54,6 @@ group :test do
   gem 'rspec-sidekiq'
 end
 
+gem 'devise'
 gem 'rubocop', require: false
 gem 'simplecov', require: false
