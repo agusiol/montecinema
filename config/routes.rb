@@ -4,9 +4,12 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
+  devise_for :users, defaults: { format: :json },controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+    
+  }
+
   root 'movies#index'
 
   resources :cinema_halls, :movies, :ticket_desks, :clients
