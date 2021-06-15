@@ -4,9 +4,9 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
-  devise_for :users, defaults: { format: :json },controllers: {
-    sessions: 'users/sessions',
-    
+  devise_for :users, defaults: { format: :json }, controllers: {
+    sessions: 'users/sessions'
+
   }
 
   root 'movies#index'
@@ -20,7 +20,6 @@ Rails.application.routes.draw do
       end
     end
   end
-
 
   # offline endpoint
   scope module: 'offline' do

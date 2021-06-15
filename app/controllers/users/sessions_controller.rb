@@ -1,16 +1,17 @@
 # frozen_string_literal: true
 
-class Users::SessionsController < Devise::SessionsController
+module Users
+  class SessionsController < Devise::SessionsController
+    respond_to :json
 
-  respond_to :json
+    private
 
-  private
-
-  def respond_with(resource, _opts = {})
+    def respond_with(resource, _opts = {})
       render json: resource
-  end
+    end
 
-  def respond_to_on_destroy
-    render json: { message: "You are logged out." }, status: :ok
+    def respond_to_on_destroy
+      render json: { message: 'You are logged out.' }, status: :ok
+    end
   end
 end
