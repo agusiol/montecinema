@@ -6,19 +6,19 @@ RSpec.describe ReservationMailer, type: :mailer do
   describe 'confirmation_email' do
     let(:movie) { create(:movie) }
     let(:hall) { create(:cinema_hall) }
-    let(:client) { create(:client) }
+    let(:user) { create(:user) }
     let(:ticket_desk) { create(:ticket_desk) }
     let(:screening) { create(:screening, cinema_hall_id: hall.id, movie_id: movie.id) }
 
     let(:reservation) do
-      create(:reservation, screening_id: screening.id, client_id: client.id, ticket_desk_id: ticket_desk.id)
+      create(:reservation, screening_id: screening.id, user_id: user.id, ticket_desk_id: ticket_desk.id)
     end
     let(:mail) do
       ReservationMailer.confirmation_email(
         reservation: reservation,
         movie: movie.title,
         date: screening.date,
-        email: client.email
+        email: user.email
       )
     end
 

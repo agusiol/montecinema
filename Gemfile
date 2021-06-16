@@ -57,6 +57,6 @@ end
 
 gem 'devise'
 gem 'devise-jwt'
-gem "pundit"
+gem 'pundit'
 gem 'rubocop', require: false
 gem 'simplecov', require: false

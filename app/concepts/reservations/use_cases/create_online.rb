@@ -10,13 +10,13 @@ module Reservations
       end
 
       def send_email
-        client = Clients::Repository.new.find_by(@reservation.client_id)
+        user = Users::Repository.new.find_by(@reservation.user_id)
         screening = Screenings::Repository.new.find_by(@reservation.screening_id)
         movie = Movies::Repository.new.find_by(screening.movie_id)
 
         ReservationMailer.confirmation_email(
           reservation: @reservation,
-          email: client.email,
+          email: user.email,
           date: screening.date,
           movie: movie.title
         ).deliver_later

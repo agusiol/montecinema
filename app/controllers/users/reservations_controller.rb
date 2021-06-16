@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module Online
+module Users
   class ReservationsController < ApplicationController
     def index
-      @reservations = Reservations::Repository.new.fetch(client_id: params[:client_id])
+      @reservations = Reservations::Repository.new.fetch(user_id: params[:user_id])
       render json: Reservations::Representer.new(@reservations).basic
     end
 
@@ -25,7 +25,7 @@ module Online
       params.require(:reservation).permit(
         :status,
         :screening_id,
-        :client_id,
+        :user_id,
         tickets: %i[price ticket_type seat screening_id]
       )
     end

@@ -32,10 +32,12 @@ screening3 = Screening.create(id: 3,
                               cinema_hall_id: cinema_hall3.id,
                               movie_id: movie3.id)
 
-client1 = Client.create(id: 1, name: 'Jan kowalski', email: 'jankowalski@mail.com', age: 16, real_user: false)
-client2 = Client.create(id: 2, name: 'Agnieszka Kowalska', email: 'agnieszkakowalska@mail.com', age: 21,
-                        real_user: true)
-client3 = Client.create(id: 3, name: 'Janina Kowalska', email: 'janinakowalska@mail.com', age: 12, real_user: true)
+user1 = User.create(id: 1, name: 'Jan kowalski', email: 'jankowalski@mail.com', password: 'savepassword',
+                    real_user: false)
+user2 = User.create(id: 2, name: 'Agnieszka Kowalska', email: 'agnieszkakowalska@mail.com', password: 'savepassword',
+                    real_user: true)
+user3 = User.create(id: 3, name: 'Janina Kowalska', email: 'janinakowalska@mail.com', password: 'savepassword',
+                    real_user: true)
 
 ticket_desk1 = TicketDesk.create(id: 1, category: 'offline')
 ticket_desk2 = TicketDesk.create(id: 2, category: 'offline')
@@ -44,7 +46,7 @@ Reservations::UseCases::CreateOffline.new.call(
   params: {
     status: 'paid',
     screening_id: screening1.id,
-    client_id: client1.id,
+    user_id: user1.id,
     ticket_desk_id: ticket_desk1.id,
     tickets: [
       { price: 25,  ticket_type: 'full', seat: '1A' },
@@ -59,7 +61,7 @@ Reservations::UseCases::CreateOffline.new.call(
   params: {
     status: 'paid',
     screening_id: screening1.id,
-    client_id: client1.id,
+    user_id: user1.id,
     ticket_desk_id: ticket_desk2.id,
     tickets: [
       { price: 25,  ticket_type: 'full', seat: '3A' },
@@ -73,7 +75,7 @@ Reservations::UseCases::CreateOffline.new.call(
   params: {
     status: 'paid',
     screening_id: screening2.id,
-    client_id: client1.id,
+    user_id: user1.id,
     ticket_desk_id: ticket_desk2.id,
     tickets: [
       { price: 25,  ticket_type: 'full', seat: '3A' },
@@ -86,7 +88,7 @@ Reservations::UseCases::CreateOffline.new.call(
 Reservations::UseCases::CreateOnline.new.call(
   params: {
     status: 'confirmed',
-    client_id: client2.id,
+    user_id: user2.id,
     screening_id: screening1.id,
     tickets: [
       { price: 25,  ticket_type: 'full', seat: '2A' },
@@ -100,7 +102,7 @@ Reservations::UseCases::CreateOnline.new.call(
 Reservations::UseCases::CreateOnline.new.call(
   params: {
     status: 'confirmed',
-    client_id: client3.id,
+    user_id: user3.id,
     screening_id: screening1.id,
     tickets: [
       { price: 25,  ticket_type: 'full', seat: '5C' },
@@ -112,7 +114,7 @@ Reservations::UseCases::CreateOnline.new.call(
 Reservations::UseCases::CreateOnline.new.call(
   params: {
     status: 'confirmed',
-    client_id: client2.id,
+    user_id: user2.id,
     screening_id: screening3.id,
     tickets: [
       { price: 25,  ticket_type: 'full', seat: '2A' },

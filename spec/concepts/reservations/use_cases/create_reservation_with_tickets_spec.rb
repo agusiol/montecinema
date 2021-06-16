@@ -6,14 +6,14 @@ RSpec.describe Reservations::UseCases::CreateReservationWithTickets do
   let(:hall) { create :cinema_hall, seats: CinemaHalls::UseCases::GenerateSeats.new(100).call }
   let(:screening) { create :screening, cinema_hall_id: hall.id }
   let(:ticket_desk) { create :ticket_desk }
-  let(:client) { create :client }
+  let(:user) { create :user }
   let(:instance) { described_class.new }
   let(:params) do
     {
       status: 'confirmed',
       screening_id: screening.id,
       ticket_desk_id: ticket_desk.id,
-      client_id: client.id,
+      user_id: user.id,
       tickets: tickets
     }
   end

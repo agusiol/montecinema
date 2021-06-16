@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Tickets requests' do
   let!(:screening) { create(:screening) }
-  let!(:client) { create(:client) }
+  let!(:user) { create(:user) }
   let!(:ticket_desk) { create(:ticket_desk) }
   let!(:reservation) { create(:reservation) }
   let!(:ticket) { create(:ticket, reservation_id: reservation.id) }
