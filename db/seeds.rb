@@ -32,10 +32,12 @@ screening3 = Screening.create(id: 3,
                               cinema_hall_id: cinema_hall3.id,
                               movie_id: movie3.id)
 
-user1 = User.create(id: 1, name: 'Jan kowalski', email: 'jankowalski@mail.com', password: 'savepassword', real_user: false)
+user1 = User.create(id: 1, name: 'Jan kowalski', email: 'jankowalski@mail.com', password: 'savepassword',
+                    real_user: false)
 user2 = User.create(id: 2, name: 'Agnieszka Kowalska', email: 'agnieszkakowalska@mail.com', password: 'savepassword',
-                        real_user: true)
-user3 = User.create(id: 3, name: 'Janina Kowalska', email: 'janinakowalska@mail.com', password: 'savepassword', real_user: true)
+                    real_user: true)
+user3 = User.create(id: 3, name: 'Janina Kowalska', email: 'janinakowalska@mail.com', password: 'savepassword',
+                    real_user: true)
 
 ticket_desk1 = TicketDesk.create(id: 1, category: 'offline')
 ticket_desk2 = TicketDesk.create(id: 2, category: 'offline')

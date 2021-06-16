@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   # online endpoint
   namespace :users do
-      resources :reservations
+    resources :reservations
   end
 
   Montecinema::Application.routes.draw do

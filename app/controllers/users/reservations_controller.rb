@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-
-  class Users::ReservationsController < ApplicationController
+module Users
+  class ReservationsController < ApplicationController
     def index
       @reservations = Reservations::Repository.new.fetch(user_id: params[:user_id])
       render json: Reservations::Representer.new(@reservations).basic
@@ -30,4 +30,4 @@
       )
     end
   end
-
+end

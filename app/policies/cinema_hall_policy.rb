@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CinemaHallPolicy < ApplicationPolicy
   def update?
-    user.admin? 
+    user.admin?
   end
 end
