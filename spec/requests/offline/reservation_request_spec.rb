@@ -7,7 +7,7 @@ RSpec.describe 'Offline Reservations requests' do
   let!(:movie) { create(:movie) }
   let!(:screening) { create(:screening, movie: movie, cinema_hall: hall) }
   let!(:desk) { create(:ticket_desk) }
-  let!(:client) { create :client, real_user: false }
+  let!(:user) { create :user, real_user: false }
   let!(:res) { create(:reservation, screening_id: screening.id, ticket_desk_id: desk.id) }
 
   describe 'GET /reservations' do

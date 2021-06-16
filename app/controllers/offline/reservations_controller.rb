@@ -13,8 +13,8 @@ module Offline
     end
 
     def create
-      client = Clients::Repository.new.offline_client
-      reservation = Reservations::UseCases::CreateOffline.new.call(params: reservation_params.merge(client_id: client.id))
+      user = Users::Repository.new.offline_user
+      reservation = Reservations::UseCases::CreateOffline.new.call(params: reservation_params.merge(user_id: user.id))
 
       render json: Reservations::Representer.new([reservation]).extended, status: :created
     rescue Tickets::UseCases::Create::SeatsNotAvailableError => e

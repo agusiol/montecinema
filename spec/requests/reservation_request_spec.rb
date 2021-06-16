@@ -5,10 +5,10 @@ require 'rails_helper'
 RSpec.describe 'Reservations requests' do
   let!(:hall) { create(:cinema_hall) }
   let!(:movie) { create(:movie) }
-  let!(:client) { create(:client) }
+  let!(:user) { create(:user) }
   let!(:screening) { create(:screening, movie: movie, cinema_hall: hall) }
   let!(:desk) { create(:ticket_desk) }
-  let!(:res) { create(:reservation, screening_id: screening.id, ticket_desk_id: desk.id, client_id: client.id) }
+  let!(:res) { create(:reservation, screening_id: screening.id, ticket_desk_id: desk.id, user_id: user.id) }
 
   describe 'GET /reservations' do
     it 'works and return status 200' do

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   root 'movies#index'
 
-  resources :cinema_halls, :movies, :ticket_desks, :clients
+  resources :cinema_halls, :movies, :ticket_desks
 
   resources :movies do
     resources :screenings do
@@ -29,10 +29,8 @@ Rails.application.routes.draw do
   end
 
   # online endpoint
-  scope module: 'online' do
-    resources :clients do
+  namespace :users do
       resources :reservations
-    end
   end
 
   Montecinema::Application.routes.draw do
