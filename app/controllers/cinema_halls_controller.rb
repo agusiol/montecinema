@@ -23,6 +23,7 @@ class CinemaHallsController < ApplicationController
 
   def update
     cinema_hall = CinemaHalls::UseCases::Update.new.call(id: params[:id], params: cinema_hall_params)
+    authorize cinema_hall
     if cinema_hall.valid?
       render json: cinema_hall
     else
