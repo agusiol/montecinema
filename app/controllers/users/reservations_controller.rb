@@ -2,14 +2,17 @@
 
 module Users
   class ReservationsController < ApplicationController
+    before_action :authenticate_user!
     def index
-      @reservations = Reservations::Repository.new.fetch(user_id: params[:user_id])
+      authorize Reservation
+      @reservations = policy_scope(Reservation)
       render json: Reservations::Representer.new(@reservations).basic
     end
 
     def show
-      reservation = Reservations::Repository.new.find_by(params[:id])
-      render json: Reservations::Representer.new([reservation]).extended
+      @reservation = Reservations::Repository.new.find_by(params[:id])
+      authorize @reservation
+      render json: Reservations::Representer.new([@reservation]).extended
     end
 
     def create

@@ -2,6 +2,7 @@
 
 class CinemaHallsController < ApplicationController
   before_action :authenticate_user!
+  before_action :staff_authenticate
   def index
     @cinema_halls = CinemaHalls::Repository.new.find_all
     render json: CinemaHalls::Representers::Multiple.new(@cinema_halls).call
@@ -40,5 +41,9 @@ class CinemaHallsController < ApplicationController
 
   def cinema_hall_params
     params.require(:cinema_hall).permit(:name, :capacity)
+  end
+  
+  def authorize_staff
+    authorize :staff, :access?
   end
 end
