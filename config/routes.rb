@@ -22,10 +22,8 @@ Rails.application.routes.draw do
   end
 
   # offline endpoint
-  scope module: 'offline' do
-    resources :ticket_desks, only: %i[index show] do
-      resources :reservations
-    end
+  namespace :ticket_desks do
+    resources :reservations
   end
 
   # online endpoint

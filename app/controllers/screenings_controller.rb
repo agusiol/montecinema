@@ -12,6 +12,7 @@ class ScreeningsController < ApplicationController
   end
 
   def create
+    authorize Screening
     screening = Screenings::UseCases::Create.new.call(params: screening_params)
 
     if screening.valid?
@@ -22,6 +23,7 @@ class ScreeningsController < ApplicationController
   end
 
   def update
+    authorize Screening
     screening = Screenings::UseCases::Update.new.call(id: params[:id], params: screening_params)
     if screening.valid?
       render json: screening
@@ -31,6 +33,7 @@ class ScreeningsController < ApplicationController
   end
 
   def destroy
+    authorize Screening
     Screenings::UseCases::Delete.new.call(id: params[:id])
     render json: { status: 'deleted' }
   end

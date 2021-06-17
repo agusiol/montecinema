@@ -2,6 +2,9 @@
 
 module Offline
   class ReservationsController < ApplicationController
+    before_action :authenticate_user!
+    before_action :staff_authorize!
+
     def index
       @reservations = Reservations::Repository.new.find_all
       render json: Reservations::Representer.new(@reservations).basic
@@ -14,9 +17,8 @@ module Offline
 
     def create
       user = Users::Repository.new.offline_user
-      reservation = Reservations::UseCases::CreateOffline.new.call(params: reservation_params.merge(user_id: user.id))
-
-      render json: Reservations::Representer.new([reservation]).extended, status: :created
+      @reservation = Reservations::UseCases::CreateOffline.new.call(params: reservation_params.merge(user_id: user.id))
+      render json: Reservations::Representer.new([@reservation]).extended, status: :created
     rescue Tickets::UseCases::Create::SeatsNotAvailableError => e
       render json: { error: e.message }.to_json
     end
