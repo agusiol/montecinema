@@ -8,7 +8,11 @@ class MoviePolicy < ApplicationPolicy
   end
 
   def new?
-    update?
+    create?
+  end
+
+  def create?
+    user.admin? || user.employee?
   end
 
   def destroy?

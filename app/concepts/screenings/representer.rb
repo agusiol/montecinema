@@ -13,7 +13,6 @@ module Screenings
         {
           id: screening.id,
           date: screening.date,
-          movie_title: screening.movie.title,
           cinema_hall_name: screening.cinema_hall.name
         }
       end

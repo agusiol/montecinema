@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
 
   def show
     movie = Movies::Repository.new.find_by(params[:id])
-    render json: Movies::Representer.new([movie]).basic
+    render json: Movies::Representer.new([movie]).extended
   end
 
   def create
