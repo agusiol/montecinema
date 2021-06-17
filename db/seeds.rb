@@ -20,15 +20,15 @@ movie2 = Movie.create(id: 2, title: 'Star Wars', genre: 'fantasy', age_allowed: 
 movie3 = Movie.create(id: 3, title: 'The Accountant', genre: 'crime', age_allowed: 16, duration: 140)
 
 screening1 = Screening.create(id: 1,
-                              date: DateTime.parse('04/06/2021 18:30:00'),
+                              date: DateTime.parse('04/07/2021 18:30:00'),
                               cinema_hall_id: cinema_hall1.id,
                               movie_id: movie1.id)
 screening2 = Screening.create(id: 2,
-                              date: DateTime.parse('13/06/2021 19:00'),
+                              date: DateTime.parse('13/07/2021 19:00'),
                               cinema_hall_id: cinema_hall2.id,
                               movie_id: movie2.id)
 screening3 = Screening.create(id: 3,
-                              date: DateTime.parse('13/06/2021 20:00'),
+                              date: DateTime.parse('13/07/2021 20:00'),
                               cinema_hall_id: cinema_hall3.id,
                               movie_id: movie3.id)
 
@@ -38,6 +38,8 @@ user2 = User.create(id: 2, name: 'Agnieszka Kowalska', email: 'agnieszkakowalska
                     real_user: true)
 user3 = User.create(id: 3, name: 'Janina Kowalska', email: 'janinakowalska@mail.com', password: 'savepassword',
                     real_user: true)
+User.create(id: 4, name: 'Employee', email: 'employee@mail.com', password: 'employee',role: 1)
+User.create(id: 5, name: 'Admin', email: 'admin@mail.com', password: 'adminadmin',role: 2)   
 
 ticket_desk1 = TicketDesk.create(id: 1, category: 'offline')
 ticket_desk2 = TicketDesk.create(id: 2, category: 'offline')

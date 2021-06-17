@@ -11,13 +11,11 @@ Rails.application.routes.draw do
 
   root 'movies#index'
 
-  resources :cinema_halls, :movies, :ticket_desks
+  resources :cinema_halls, :movies, :ticket_desks, :screenings
 
   resources :movies do
     resources :screenings do
-      resources :reservations do
-        resources :tickets, only: %i[index show]
-      end
+      resources :reservations 
     end
   end
 

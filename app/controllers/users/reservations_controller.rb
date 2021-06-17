@@ -16,7 +16,7 @@ module Users
     end
 
     def create
-      reservation = Reservations::UseCases::CreateOnline.new.call(params: reservation_params.merge(status: 'confirmed'))
+      reservation = Reservations::UseCases::CreateOnline.new.call(params: reservation_params.merge(status: 'confirmed', user_id: current_user.id))
       render json: Reservations::Representer.new([reservation]).extended, status: :created
     rescue Tickets::UseCases::Create::SeatsNotAvailableError => e
       render json: { error: e.message }.to_json
@@ -35,7 +35,6 @@ module Users
       params.require(:reservation).permit(
         :status,
         :screening_id,
-        :user_id,
         tickets: %i[price ticket_type seat screening_id]
       )
     end
