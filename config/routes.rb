@@ -15,9 +15,7 @@ Rails.application.routes.draw do
 
   resources :movies do
     resources :screenings do
-      resources :reservations do
-        resources :tickets, only: %i[index show]
-      end
+      resources :reservations 
     end
   end
 
