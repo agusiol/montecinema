@@ -3,7 +3,7 @@
 module Offline
   class ReservationsController < ApplicationController
     before_action :authenticate_user!
-    before_action :staff_authenticate
+    before_action :staff_authorize!
 
     def index
       @reservations = Reservations::Repository.new.find_all

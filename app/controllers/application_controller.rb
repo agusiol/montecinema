@@ -14,11 +14,11 @@ class ApplicationController < ActionController::API
     devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :name, :real_user])
   end
 
-  def staff_authenticate
+  def staff_authorize!
     authorize :staff, :staff?
   end
 
-  def admin_authenticate
+  def admin_authorize!
     authorize :staff, :admin?
   end
 

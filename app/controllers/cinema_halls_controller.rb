@@ -2,7 +2,7 @@
 
 class CinemaHallsController < ApplicationController
   before_action :authenticate_user!
-  before_action :staff_authenticate
+  before_action :staff_authorize!
   def index
     @cinema_halls = CinemaHalls::Repository.new.find_all
     render json: CinemaHalls::Representers::Multiple.new(@cinema_halls).call

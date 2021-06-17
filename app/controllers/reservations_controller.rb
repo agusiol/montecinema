@@ -2,7 +2,7 @@
 
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_authenticate
+  before_action :admin_authorize!
   
   def index
     @reservations = Reservations::Repository.new.fetch(screening_id: params[:screening_id])
