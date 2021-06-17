@@ -1,5 +1,4 @@
 class ReservationPolicy < ApplicationPolicy
-  
   def index?
     true
   end
@@ -13,14 +12,8 @@ class ReservationPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.employee? || user.admin?
+    record.user_id == user.id || user.admin? || user.employee?
   end
-
-  def create_offline?
-    user.employee? || user.admin?
-  end
-
-
 
   class Scope
     attr_reader :user, :scope

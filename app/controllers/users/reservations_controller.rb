@@ -22,6 +22,13 @@ module Users
       render json: { error: e.message }.to_json
     end
 
+    def destroy
+      @reservation = Reservations::Repository.new.find_by(params[:id])
+      authorize @reservation
+      Reservations::UseCases::Delete.new.call(id: params[:id])
+      render json: { status: 'deleted' }
+    end
+
     private
 
     def reservation_params
