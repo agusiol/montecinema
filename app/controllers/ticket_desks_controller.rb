@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class TicketDesksController < ApplicationController
+  before_action :authenticate_user!
+  before_action :staff_authorize!
   def index
     @ticket_desks = TicketDesks::Repository.new.find_all
     render json: TicketDesks::Representer.new(@ticket_desks).basic
