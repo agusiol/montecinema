@@ -47,7 +47,8 @@ RSpec.describe 'Online Reservations requests' do
     context "when reservation does not belog to current user" do
       before {get("/online/reservations/#{res2.id}", headers: auth_headers)}
 
-        it 'works and return status 200' do
+
+        it 'does not render reservation' do
           expect(response.body).to eq("{\"message\":\"You are not allowed to access!\"}")
           expect(response.body).not_to include("#{res2.id}")
         end
@@ -103,13 +104,13 @@ RSpec.describe 'Online Reservations requests' do
       end
     end
 
-    context 'when reservation belongs to the user' do 
+    context 'when reservation does NOT belong to the user' do 
       before {delete("/online/reservations/#{res2.id}", headers: auth_headers)}
       
-      it 'works and return status 200' do
-        expect(response.body).to eq(200)
+      it 'works and return status 401' do
+        expect(response.status).to eq(401)
       end
-      it 'delettets the reservation'  do
+      it 'does not deletes the reservation'  do
         expect(Reservation.exists?(res1.id)).to eq(true)
       end
     end
