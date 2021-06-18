@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   # online endpoint
-  namespace :users do
+  namespace :online do
     resources :reservations
   end
 

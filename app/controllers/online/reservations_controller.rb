@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Users
-  class ReservationsController < ApplicationController
+
+  class Online::ReservationsController < ApplicationController
     before_action :authenticate_user!
     def index
       authorize Reservation
@@ -39,4 +39,3 @@ module Users
       )
     end
   end
-end
