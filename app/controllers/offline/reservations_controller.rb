@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Offline
-  class ReservationsController < ApplicationController
+
+  class Offline::ReservationsController < ApplicationController
     before_action :authenticate_user!
     before_action :staff_authorize!
 
@@ -44,8 +44,8 @@ module Offline
         :status,
         :screening_id,
         :ticket_desk_id,
-        tickets: %i[price ticket_type seat screening_id]
+        tickets: %i[price ticket_type seat]
       )
     end
   end
-end
+
