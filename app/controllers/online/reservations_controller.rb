@@ -33,7 +33,6 @@
 
     def reservation_params
       params.require(:reservation).permit(
-        :status,
         :screening_id,
         tickets: %i[price ticket_type seat screening_id]
       )

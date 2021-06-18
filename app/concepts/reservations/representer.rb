@@ -14,8 +14,8 @@ module Reservations
           id: reservation.id,
           status: reservation.status,
           screening_date: reservation.screening.date,
-          ticket_desk_id: reservation.ticket_desk_id,
           user_id: reservation.user_id
+
         }
       end
     end

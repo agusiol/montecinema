@@ -41,8 +41,4 @@ class CinemaHallsController < ApplicationController
   def cinema_hall_params
     params.require(:cinema_hall).permit(:name, :capacity)
   end
-  
-  def authorize_staff
-    authorize :staff, :access?
-  end
 end
