@@ -60,3 +60,5 @@ gem 'devise-jwt'
 gem 'pundit'
 gem 'rubocop', require: false
 gem 'simplecov', require: false
+gem "sentry-ruby"
+gem "sentry-rails"
