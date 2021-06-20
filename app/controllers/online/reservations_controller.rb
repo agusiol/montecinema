@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-
-  class Online::ReservationsController < ApplicationController
+module Online
+  class ReservationsController < ApplicationController
     before_action :authenticate_user!
     def index
       authorize Reservation
@@ -16,7 +16,8 @@
     end
 
     def create
-      reservation = Reservations::UseCases::CreateOnline.new.call(params: reservation_params.merge(status: 'confirmed', user_id: current_user.id))
+      reservation = Reservations::UseCases::CreateOnline.new.call(params: reservation_params.merge(status: 'confirmed',
+                                                                                                   user_id: current_user.id))
       render json: Reservations::Representer.new([reservation]).extended, status: :created
     rescue Tickets::UseCases::Create::SeatsNotAvailableError => e
       render json: { error: e.message }.to_json
@@ -38,3 +39,4 @@
       )
     end
   end
+end

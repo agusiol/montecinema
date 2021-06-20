@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-
-  class Offline::ReservationsController < ApplicationController
+module Offline
+  class ReservationsController < ApplicationController
     before_action :authenticate_user!
     before_action :staff_authorize!
 
@@ -48,4 +48,4 @@
       )
     end
   end
-
+end

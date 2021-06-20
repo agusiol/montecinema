@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReservationPolicy < ApplicationPolicy
   def index?
     true
@@ -27,8 +29,6 @@ class ReservationPolicy < ApplicationPolicy
       return scope.all if user.admin? || user.employee?
 
       scope.where(user_id: user.id)
-
     end
   end
-
 end

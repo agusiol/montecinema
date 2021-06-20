@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :name, :real_user])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[role name real_user])
   end
 
   def staff_authorize!
@@ -25,6 +25,6 @@ class ApplicationController < ActionController::API
   private
 
   def user_not_authorized
-    render json: { message: 'You are not allowed to access!' }, status: 401 
+    render json: { message: 'You are not allowed to access!' }, status: 401
   end
 end

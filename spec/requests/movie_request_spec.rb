@@ -6,8 +6,7 @@ RSpec.describe 'Movies requests' do
   let!(:admin) { create(:user, role: 2) }
 
   headers = { 'Accept' => 'application/json', 'Content-Type' => 'application/json' }
-  let!(:auth_headers)  {Devise::JWT::TestHelpers.auth_headers(headers, admin)}
-
+  let!(:auth_headers)  { Devise::JWT::TestHelpers.auth_headers(headers, admin) }
 
   describe 'GET /movies' do
     it 'works and return status 200' do
@@ -25,13 +24,11 @@ RSpec.describe 'Movies requests' do
 
   describe 'POST /movies' do
     let!(:params) do
-      { movie: 
+      { movie:
         { title: 'new title',
-          genre: 'example', 
-          age_allowed: 12, 
-          duration: 180 } 
-        }.to_json
-      
+          genre: 'example',
+          age_allowed: 12,
+          duration: 180 } }.to_json
     end
     it 'works and return status 201' do
       post('/movies', headers: auth_headers, params: params)
@@ -40,7 +37,7 @@ RSpec.describe 'Movies requests' do
   end
 
   describe 'PUT /movies/:id' do
-    let!(:params) {{ movie: { id: movie.id, title: 'Other title' } }.to_json}
+    let!(:params) { { movie: { id: movie.id, title: 'Other title' } }.to_json }
     it 'works and return status 200' do
       put("/movies/#{movie.id}", headers: auth_headers, params: params)
       expect(response.status).to eq(200)

@@ -11,7 +11,7 @@ RSpec.describe 'Reservations requests' do
   let!(:admin) { create(:user, role: 2) }
 
   headers = { 'Accept' => 'application/json', 'Content-Type' => 'application/json' }
-  let!(:auth_headers)  {Devise::JWT::TestHelpers.auth_headers(headers, admin)}
+  let!(:auth_headers)  { Devise::JWT::TestHelpers.auth_headers(headers, admin) }
 
   describe 'GET /reservations' do
     it 'works and return status 200' do
@@ -28,10 +28,10 @@ RSpec.describe 'Reservations requests' do
   end
 
   describe 'PUT /reservations/:id' do
-    let!(:params) {{ reservation: { id: res.id, status: 'paid' } }.to_json}
+    let!(:params) { { reservation: { id: res.id, status: 'paid' } }.to_json }
     it 'works and return status 200' do
       put("/movies/#{movie.id}/screenings/#{screening.id}/reservations/#{res.id}", headers: auth_headers,
-          params: params)
+                                                                                   params: params)
       expect(response.status).to eq(200)
     end
   end

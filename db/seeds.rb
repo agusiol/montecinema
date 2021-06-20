@@ -9,17 +9,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 CinemaHall.create(id: 1, name: 'Number 1', capacity: 200,
-                                 seats: CinemaHalls::UseCases::GenerateSeats.new(200).call)
+                  seats: CinemaHalls::UseCases::GenerateSeats.new(200).call)
 CinemaHall.create(id: 2, name: 'Number 2', capacity: 100,
-                                 seats: CinemaHalls::UseCases::GenerateSeats.new(100).call)
+                  seats: CinemaHalls::UseCases::GenerateSeats.new(100).call)
 CinemaHall.create(id: 3, name: 'Number 3', capacity: 50,
-                                 seats: CinemaHalls::UseCases::GenerateSeats.new(50).call)
+                  seats: CinemaHalls::UseCases::GenerateSeats.new(50).call)
 Movie.create(id: 1, title: 'Shrek', genre: 'cartoon', age_allowed: 10, duration: 120)
 Movie.create(id: 2, title: 'Star Wars', genre: 'fantasy', age_allowed: 16, duration: 180)
 Movie.create(id: 3, title: 'The Accountant', genre: 'crime', age_allowed: 16, duration: 140)
 
 screenings = (1..20).map do |id|
-  
   date = rand(Time.current..Time.current + 7.days)
   movie_id = rand(1..3)
   cinema_hall_id = rand(1..3)
@@ -32,15 +31,14 @@ screenings = (1..20).map do |id|
   )
 end
 
-
 user1 = User.create(id: 1, name: 'Jan kowalski', email: 'jankowalski@mail.com', password: 'savepassword',
                     real_user: false)
 user2 = User.create(id: 2, name: 'Agnieszka Kowalska', email: 'agnieszkakowalska@mail.com', password: 'savepassword',
                     real_user: true)
 user3 = User.create(id: 3, name: 'Janina Kowalska', email: 'janinakowalska@mail.com', password: 'savepassword',
                     real_user: true)
-User.create(id: 4, name: 'Employee', email: 'employee@mail.com', password: 'employee',role: 1)
-User.create(id: 5, name: 'Admin', email: 'admin@mail.com', password: 'adminadmin',role: 2)   
+User.create(id: 4, name: 'Employee', email: 'employee@mail.com', password: 'employee', role: 1)
+User.create(id: 5, name: 'Admin', email: 'admin@mail.com', password: 'adminadmin', role: 2)
 
 ticket_desk1 = TicketDesk.create(id: 1, category: 'offline')
 ticket_desk2 = TicketDesk.create(id: 2, category: 'offline')

@@ -16,7 +16,7 @@ module Screenings
     end
 
     def next_five(movie_id)
-      @adapter.where(movie_id: movie_id).where("date >= ?", Time.now).order("date").limit(5)
+      @adapter.where(movie_id: movie_id).where('date >= ?', Time.now).order('date').limit(5)
     end
   end
 end

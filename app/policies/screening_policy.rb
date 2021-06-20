@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ScreeningPolicy < ApplicationPolicy
   def show?
     user.admin? || user.employee?
