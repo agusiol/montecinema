@@ -8,29 +8,30 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-cinema_hall1 = CinemaHall.create(id: 1, name: 'Number 1', capacity: 200,
+CinemaHall.create(id: 1, name: 'Number 1', capacity: 200,
                                  seats: CinemaHalls::UseCases::GenerateSeats.new(200).call)
-cinema_hall2 = CinemaHall.create(id: 2, name: 'Number 2', capacity: 100,
+CinemaHall.create(id: 2, name: 'Number 2', capacity: 100,
                                  seats: CinemaHalls::UseCases::GenerateSeats.new(100).call)
-cinema_hall3 = CinemaHall.create(id: 3, name: 'Number 3', capacity: 50,
+CinemaHall.create(id: 3, name: 'Number 3', capacity: 50,
                                  seats: CinemaHalls::UseCases::GenerateSeats.new(50).call)
+Movie.create(id: 1, title: 'Shrek', genre: 'cartoon', age_allowed: 10, duration: 120)
+Movie.create(id: 2, title: 'Star Wars', genre: 'fantasy', age_allowed: 16, duration: 180)
+Movie.create(id: 3, title: 'The Accountant', genre: 'crime', age_allowed: 16, duration: 140)
 
-movie1 = Movie.create(id: 1, title: 'Shrek', genre: 'cartoon', age_allowed: 10, duration: 120)
-movie2 = Movie.create(id: 2, title: 'Star Wars', genre: 'fantasy', age_allowed: 16, duration: 180)
-movie3 = Movie.create(id: 3, title: 'The Accountant', genre: 'crime', age_allowed: 16, duration: 140)
+screenings = (1..20).map do |id|
+  
+  date = rand(Time.current..Time.current + 7.days)
+  movie_id = rand(1..3)
+  cinema_hall_id = rand(1..3)
 
-screening1 = Screening.create(id: 1,
-                              date: DateTime.parse('04/07/2021 18:30:00'),
-                              cinema_hall_id: cinema_hall1.id,
-                              movie_id: movie1.id)
-screening2 = Screening.create(id: 2,
-                              date: DateTime.parse('13/07/2021 19:00'),
-                              cinema_hall_id: cinema_hall2.id,
-                              movie_id: movie2.id)
-screening3 = Screening.create(id: 3,
-                              date: DateTime.parse('13/07/2021 20:00'),
-                              cinema_hall_id: cinema_hall3.id,
-                              movie_id: movie3.id)
+  Screening.create(
+    id: id,
+    date: date,
+    cinema_hall_id: cinema_hall_id,
+    movie_id: movie_id
+  )
+end
+
 
 user1 = User.create(id: 1, name: 'Jan kowalski', email: 'jankowalski@mail.com', password: 'savepassword',
                     real_user: false)
@@ -47,28 +48,28 @@ ticket_desk2 = TicketDesk.create(id: 2, category: 'offline')
 Reservations::UseCases::CreateOffline.new.call(
   params: {
     status: 'paid',
-    screening_id: screening1.id,
+    screening_id: screenings[1].id,
     user_id: user1.id,
     ticket_desk_id: ticket_desk1.id,
     tickets: [
-      { price: 25,  ticket_type: 'full', seat: '1A' },
-      { price: 25,  ticket_type: 'full', seat: '1B' },
-      { price: 25,  ticket_type: 'full', seat: '1C' },
-      { price: 15,  ticket_type: 'discounted', seat: '1D' },
-      { price: 15,  ticket_type: 'discounted', seat: '1E' }
+      { price: 25.99,  ticket_type: 'normal', seat: '1A' },
+      { price: 25.99,  ticket_type: 'normal', seat: '1B' },
+      { price: 25.99,  ticket_type: 'normal', seat: '1C' },
+      { price: 15.99,  ticket_type: 'student', seat: '1D' },
+      { price: 15.99,  ticket_type: 'student', seat: '1E' }
     ]
   }
 )
 Reservations::UseCases::CreateOffline.new.call(
   params: {
     status: 'paid',
-    screening_id: screening1.id,
+    screening_id: screenings[1].id,
     user_id: user1.id,
     ticket_desk_id: ticket_desk2.id,
     tickets: [
-      { price: 25,  ticket_type: 'full', seat: '3A' },
-      { price: 25,  ticket_type: 'full', seat: '3B' },
-      { price: 25,  ticket_type: 'full', seat: '3C' }
+      { price: 25.99,  ticket_type: 'normal', seat: '3A' },
+      { price: 25.99,  ticket_type: 'normal', seat: '3B' },
+      { price: 25.99,  ticket_type: 'normal', seat: '3C' }
     ]
   }
 )
@@ -76,13 +77,13 @@ Reservations::UseCases::CreateOffline.new.call(
 Reservations::UseCases::CreateOffline.new.call(
   params: {
     status: 'paid',
-    screening_id: screening2.id,
+    screening_id: screenings[0].id,
     user_id: user1.id,
     ticket_desk_id: ticket_desk2.id,
     tickets: [
-      { price: 25,  ticket_type: 'full', seat: '3A' },
-      { price: 25,  ticket_type: 'full', seat: '3B' },
-      { price: 25,  ticket_type: 'full', seat: '3C' }
+      { price: 25.99,  ticket_type: 'normal', seat: '3A' },
+      { price: 25.99,  ticket_type: 'normal', seat: '3B' },
+      { price: 25.99,  ticket_type: 'normal', seat: '3C' }
     ]
   }
 )
@@ -91,12 +92,12 @@ Reservations::UseCases::CreateOnline.new.call(
   params: {
     status: 'confirmed',
     user_id: user2.id,
-    screening_id: screening1.id,
+    screening_id: screenings[1].id,
     tickets: [
-      { price: 25,  ticket_type: 'full', seat: '2A' },
-      { price: 25,  ticket_type: 'full', seat: '2B' },
-      { price: 25,  ticket_type: 'full', seat: '2C' },
-      { price: 15,  ticket_type: 'discounted', seat: '2D' }
+      { price: 25.99,  ticket_type: 'normal', seat: '2A' },
+      { price: 25.99,  ticket_type: 'normal', seat: '2B' },
+      { price: 25.99,  ticket_type: 'normal', seat: '2C' },
+      { price: 15.99,  ticket_type: 'student', seat: '2D' }
     ]
   }
 )
@@ -105,10 +106,10 @@ Reservations::UseCases::CreateOnline.new.call(
   params: {
     status: 'confirmed',
     user_id: user3.id,
-    screening_id: screening1.id,
+    screening_id: screenings[1].id,
     tickets: [
-      { price: 25,  ticket_type: 'full', seat: '5C' },
-      { price: 15,  ticket_type: 'discounted', seat: '5D' }
+      { price: 25.99,  ticket_type: 'normal', seat: '5C' },
+      { price: 15.99,  ticket_type: 'student', seat: '5D' }
     ]
   }
 )
@@ -117,12 +118,12 @@ Reservations::UseCases::CreateOnline.new.call(
   params: {
     status: 'confirmed',
     user_id: user2.id,
-    screening_id: screening3.id,
+    screening_id: screenings[2].id,
     tickets: [
-      { price: 25,  ticket_type: 'full', seat: '2A' },
-      { price: 25,  ticket_type: 'full', seat: '2B' },
-      { price: 25,  ticket_type: 'full', seat: '2C' },
-      { price: 15,  ticket_type: 'discounted', seat: '2D' }
+      { price: 25.99,  ticket_type: 'normal', seat: '2A' },
+      { price: 25.99,  ticket_type: 'normal', seat: '2B' },
+      { price: 25.99,  ticket_type: 'normal', seat: '2C' },
+      { price: 15.99,  ticket_type: 'student', seat: '2D' }
     ]
   }
 )
