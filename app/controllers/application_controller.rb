@@ -25,6 +25,6 @@ class ApplicationController < ActionController::API
   private
 
   def user_not_authorized
-    render json: { message: 'You are not allowed to access!' }
+    render json: { message: 'You are not allowed to access!' }, status: 401 
   end
 end

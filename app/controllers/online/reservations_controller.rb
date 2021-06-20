@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Users
-  class ReservationsController < ApplicationController
+
+  class Online::ReservationsController < ApplicationController
     before_action :authenticate_user!
     def index
       authorize Reservation
@@ -33,10 +33,8 @@ module Users
 
     def reservation_params
       params.require(:reservation).permit(
-        :status,
         :screening_id,
         tickets: %i[price ticket_type seat screening_id]
       )
     end
   end
-end

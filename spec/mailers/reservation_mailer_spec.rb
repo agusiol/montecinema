@@ -24,7 +24,7 @@ RSpec.describe ReservationMailer, type: :mailer do
 
     it 'renders the header' do
       expect(mail.subject).to eq('Reservation done')
-      expect(mail.to).to eq(['example@email.com'])
+      expect(mail.to).to eq([user.email])
       expect(mail.from).to eq(['notifications@example.com'])
     end
 

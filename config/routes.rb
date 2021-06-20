@@ -20,12 +20,12 @@ Rails.application.routes.draw do
   end
 
   # offline endpoint
-  namespace :ticket_desks do
+  namespace :offline do
     resources :reservations
   end
 
   # online endpoint
-  namespace :users do
+  namespace :online do
     resources :reservations
   end
 
