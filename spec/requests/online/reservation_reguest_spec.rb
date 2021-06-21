@@ -7,6 +7,8 @@ RSpec.describe 'Online Reservations requests' do
   let!(:screening) { create(:screening) }
   let!(:user) { create(:user) }
   let!(:res1) { create :reservation, user_id: user.id }
+  let!(:res2) { create :reservation, user_id: user.id }
+  let!(:res3) { create :reservation}
   let!(:ticket) { create :ticket, reservation_id: res1.id }
   let!(:res2) { create :reservation }
 
@@ -53,9 +55,9 @@ RSpec.describe 'Online Reservations requests' do
     let(:seat) { '4A' }
     let(:tickets) do
       [
-        { "price": 15, "ticket_type": 'normal', "seat": seat },
-        { "price": 15, "ticket_type": 'normal', "seat": '4B' },
-        { "price": 15, "ticket_type": 'normal', "seat": '4C' }
+        { "price": 15.99, "ticket_type": 'normal', "seat": seat },
+        { "price": 15.99, "ticket_type": 'normal', "seat": '4B' },
+        { "price": 7.99, "ticket_type": 'normal', "seat": '4C' }
 
       ]
     end
