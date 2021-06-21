@@ -8,7 +8,7 @@ RSpec.describe 'Online Reservations requests' do
   let!(:user) { create(:user) }
   let!(:res1) { create :reservation, user_id: user.id }
   let!(:res2) { create :reservation, user_id: user.id }
-  let!(:res3) { create :reservation}
+  let!(:res3) { create :reservation, user_id: user.id }
   let!(:ticket) { create :ticket, reservation_id: res1.id }
   let!(:res2) { create :reservation }
 

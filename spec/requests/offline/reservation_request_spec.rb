@@ -8,6 +8,8 @@ RSpec.describe 'Offline Reservations requests' do
   let!(:desk) { create(:ticket_desk) }
   let!(:offline_user) { create :user, real_user: false }
   let!(:res) { create(:reservation, screening_id: screening.id, ticket_desk_id: desk.id, status: 'confirmed') }
+  let!(:ticket1) {create :ticket, reservation_id: res.id}
+  let!(:ticket2) {create :ticket, reservation_id: res.id}
   let!(:res2) { create :reservation}
   let!(:res3) { create :reservation}
   let!(:employee) { create(:user, role: 1) }
