@@ -1,0 +1,1708 @@
+{
+  "apipieapipies#index": [
+    {
+      "verb": "GET",
+      "path": "/apipie",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": "<!DOCTYPE html>\n<html>\n<head>\n  <title>API documentation</title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/bootstrap.min.css'/>\n<link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/prettify.css'/>\n<link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/bootstrap-responsive.min.css'/>\n  <link type='text/css' rel='stylesheet' href='/apipie/stylesheets/application.css'/>\n  <!-- IE6-8 support of HTML5 elements -->\n  <!--[if lt IE 9]>\n    <script src=\"//html5shim.googlecode.com/svn/trunk/html5.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div class=\"container-fluid\">\n    <div class=\"row-fluid\">\n      <div id='container'>\n        <ul class='breadcrumb'>\n  <li class='active'><a href='/apipie/1.0.html'>Montecinema 1.0</a></li>\n  \n</ul>\n\n<div>\n<p>Another API description</p>\n</div>\n\n<h1 class='page-header'>Resources</h1>\n\n  <h2>\n    <a href='/apipie/1.0/movies.html'>\n      Movies\n    </a>\n    <br>\n    <small></small>\n  </h2>\n  <table class='table'>\n    <thead>\n      <tr>\n        <th>Resource</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/movies/index.html'>GET /movies</a>\n            </td>\n            <td width='60%'>Shows all movies</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/movies/show.html'>GET /movies/:id</a>\n            </td>\n            <td width='60%'>Shows a detiled information about movie and its next 5 screenings</td>\n          </tr>\n    </tbody>\n  </table>\n  <h2>\n    <a href='/apipie/1.0/offlinereservations.html'>\n      Offlinereservations\n    </a>\n    <br>\n    <small>Offline Reservations/ Only for staff members</small>\n  </h2>\n  <table class='table'>\n    <thead>\n      <tr>\n        <th>Resource</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/offlinereservations/index.html'>GET /offline/reservations</a>\n            </td>\n            <td width='60%'>Display all reservations </td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/offlinereservations/show.html'>GET /offline/reservations/:id</a>\n            </td>\n            <td width='60%'>Detailed info about reservation</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/offlinereservations/create.html'>POST /offline/reservations</a>\n            </td>\n            <td width='60%'>Creates a reservation with tickets</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/offlinereservations/update.html'>PUT /offline/reservations/:id</a>\n            </td>\n            <td width='60%'>Changes reservation status from confirmed to paid </td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/offlinereservations/destroy.html'>DELETE /offline/reservations/:id</a>\n            </td>\n            <td width='60%'>Deletes reservation </td>\n          </tr>\n    </tbody>\n  </table>\n  <h2>\n    <a href='/apipie/1.0/onlinereservations.html'>\n      Onlinereservations\n    </a>\n    <br>\n    <small>ONLINE Reservations</small>\n  </h2>\n  <table class='table'>\n    <thead>\n      <tr>\n        <th>Resource</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/onlinereservations/index.html'>GET /online/reservations</a>\n            </td>\n            <td width='60%'>Display logged in User&#39;s reservations </td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/onlinereservations/show.html'>GET /online/reservations/:id</a>\n            </td>\n            <td width='60%'>Detailed info about reservation</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/onlinereservations/create.html'>POST /online/reservations</a>\n            </td>\n            <td width='60%'>Creates a reservation with tickets</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/onlinereservations/destroy.html'>DELETE /online/reservations/:id</a>\n            </td>\n            <td width='60%'>Deletes reservation if it belongs to logged in User </td>\n          </tr>\n    </tbody>\n  </table>\n  <h2>\n    <a href='/apipie/1.0/screenings.html'>\n      Screenings\n    </a>\n    <br>\n    <small></small>\n  </h2>\n  <table class='table'>\n    <thead>\n      <tr>\n        <th>Resource</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/screenings/index.html'>GET /movies/:id/screenings</a>\n            </td>\n            <td width='60%'>Shows all screenings for movie with given id</td>\n          </tr>\n          <tr>\n            <td>\n              <a href='/apipie/1.0/screenings/show.html'>GET /movies/:id/screenings/:id</a>\n            </td>\n            <td width='60%'>Shows a deailed information about screening</td>\n          </tr>\n    </tbody>\n  </table>\n\n\n        \n      </div>\n    </div>\n    <hr>\n    <footer></footer>\n  </div>\n  <script type='text/javascript' src='/apipie/javascripts/bundled/jquery.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/bundled/bootstrap-collapse.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/bundled/prettify.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/apipie.js'></script>\n</body>\n</html>\n",
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/apipie/1.0/offlinereservations/index.html",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": "<!DOCTYPE html>\n<html>\n<head>\n  <title>API documentation</title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/bootstrap.min.css'/>\n<link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/prettify.css'/>\n<link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/bootstrap-responsive.min.css'/>\n  <link type='text/css' rel='stylesheet' href='/apipie/stylesheets/application.css'/>\n  <!-- IE6-8 support of HTML5 elements -->\n  <!--[if lt IE 9]>\n    <script src=\"//html5shim.googlecode.com/svn/trunk/html5.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div class=\"container-fluid\">\n    <div class=\"row-fluid\">\n      <div id='container'>\n        <ul class='breadcrumb'>\n  <li>\n    <a href='/apipie/1.0.html'>Montecinema 1.0</a>\n    <span class='divider'>/</span>\n  </li>\n  <li>\n    <a href='/apipie/1.0/offlinereservations.html'>\n      Offlinereservations\n      \n    </a>\n    <span class='divider'>/</span>\n  </li>\n  <li class='active'>index</li>\n  \n\n</ul>\n\n  <div class='page-header'>\n    <h1>\n      GET /offline/reservations\n      <br>\n      <small>Display all reservations </small>\n    </h1>\n  </div>\n\n<div>\n\n  \n\n  <h2>Supported Formats</h2>\n  json\n\n\n\n\n\n\n\n</div>\n\n\n        \n      </div>\n    </div>\n    <hr>\n    <footer></footer>\n  </div>\n  <script type='text/javascript' src='/apipie/javascripts/bundled/jquery.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/bundled/bootstrap-collapse.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/bundled/prettify.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/apipie.js'></script>\n</body>\n</html>\n",
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/apipie/1.0/offlinereservations/create.html",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": "<!DOCTYPE html>\n<html>\n<head>\n  <title>API documentation</title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/bootstrap.min.css'/>\n<link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/prettify.css'/>\n<link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/bootstrap-responsive.min.css'/>\n  <link type='text/css' rel='stylesheet' href='/apipie/stylesheets/application.css'/>\n  <!-- IE6-8 support of HTML5 elements -->\n  <!--[if lt IE 9]>\n    <script src=\"//html5shim.googlecode.com/svn/trunk/html5.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div class=\"container-fluid\">\n    <div class=\"row-fluid\">\n      <div id='container'>\n        <ul class='breadcrumb'>\n  <li>\n    <a href='/apipie/1.0.html'>Montecinema 1.0</a>\n    <span class='divider'>/</span>\n  </li>\n  <li>\n    <a href='/apipie/1.0/offlinereservations.html'>\n      Offlinereservations\n      \n    </a>\n    <span class='divider'>/</span>\n  </li>\n  <li class='active'>create</li>\n  \n\n</ul>\n\n  <div class='page-header'>\n    <h1>\n      POST /offline/reservations\n      <br>\n      <small>Creates a reservation with tickets</small>\n    </h1>\n  </div>\n\n<div>\n\n  \n\n  <h2>Supported Formats</h2>\n  json\n\n\n\n\n  <h2>Params</h2>\n  <table class='table'>\n    <thead>\n      <tr>\n        <th>Param name</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>reservation </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a Hash</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n    <tr style='background-color:rgb(250,250,250);'>\n    <td>\n      <strong>reservation[screening_id] </strong><br>\n      <small>\n        required\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a Integer</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(250,250,250);'>\n    <td>\n      <strong>reservation[ticket_desk_id] </strong><br>\n      <small>\n        required\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a Integer</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(250,250,250);'>\n    <td>\n      <strong>reservation[status] </strong><br>\n      <small>\n        required\n        \n      </small>\n    </td>\n    <td>\n      \n<p>confirmed or paid</p>\n\n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(250,250,250);'>\n    <td>\n      <strong>reservation[tickets] </strong><br>\n      <small>\n        required\n        \n      </small>\n    </td>\n    <td>\n      \n<p>Array of tickets with {price ticket_type seat}</p>\n\n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be an Array of nested elements</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n    <tr style='background-color:rgb(245,245,245);'>\n    <td>\n      <strong>reservation[tickets][price] </strong><br>\n      <small>\n        required\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a Float</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(245,245,245);'>\n    <td>\n      <strong>reservation[tickets][seat] </strong><br>\n      <small>\n        required\n        \n      </small>\n    </td>\n    <td>\n      \n<p>ex. “1A” , 2E</p>\n\n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(245,245,245);'>\n    <td>\n      <strong>reservation[tickets][ticket_type] </strong><br>\n      <small>\n        required\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n\n\n\n    </tbody>\n  </table>\n\n\n\n</div>\n\n\n        \n      </div>\n    </div>\n    <hr>\n    <footer></footer>\n  </div>\n  <script type='text/javascript' src='/apipie/javascripts/bundled/jquery.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/bundled/bootstrap-collapse.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/bundled/prettify.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/apipie.js'></script>\n</body>\n</html>\n",
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/apipie/1.0/offlinereservations/create.html",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": "<!DOCTYPE html>\n<html>\n<head>\n  <title>API documentation</title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/bootstrap.min.css'/>\n<link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/prettify.css'/>\n<link type='text/css' rel='stylesheet' href='/apipie/stylesheets/bundled/bootstrap-responsive.min.css'/>\n  <link type='text/css' rel='stylesheet' href='/apipie/stylesheets/application.css'/>\n  <!-- IE6-8 support of HTML5 elements -->\n  <!--[if lt IE 9]>\n    <script src=\"//html5shim.googlecode.com/svn/trunk/html5.js\"></script>\n  <![endif]-->\n</head>\n<body>\n  <div class=\"container-fluid\">\n    <div class=\"row-fluid\">\n      <div id='container'>\n        <ul class='breadcrumb'>\n  <li>\n    <a href='/apipie/1.0.html'>Montecinema 1.0</a>\n    <span class='divider'>/</span>\n  </li>\n  <li>\n    <a href='/apipie/1.0/offlinereservations.html'>\n      Offlinereservations\n      \n    </a>\n    <span class='divider'>/</span>\n  </li>\n  <li class='active'>create</li>\n  \n\n</ul>\n\n  <div class='page-header'>\n    <h1>\n      POST /offline/reservations\n      <br>\n      <small>Creates a reservation with tickets</small>\n    </h1>\n  </div>\n\n<div>\n\n  \n\n  <h2>Supported Formats</h2>\n  json\n\n\n\n\n  <h2>Params</h2>\n  <table class='table'>\n    <thead>\n      <tr>\n        <th>Param name</th>\n        <th>Description</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr style='background-color:rgb(255,255,255);'>\n    <td>\n      <strong>reservation </strong><br>\n      <small>\n        optional\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a Hash</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n    <tr style='background-color:rgb(250,250,250);'>\n    <td>\n      <strong>reservation[screening_id] </strong><br>\n      <small>\n        required\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a Integer</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(250,250,250);'>\n    <td>\n      <strong>reservation[ticket_desk_id] </strong><br>\n      <small>\n        required\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a Integer</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(250,250,250);'>\n    <td>\n      <strong>reservation[status] </strong><br>\n      <small>\n        required\n        \n      </small>\n    </td>\n    <td>\n      \n<p>confirmed or paid</p>\n\n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(250,250,250);'>\n    <td>\n      <strong>reservation[tickets] </strong><br>\n      <small>\n        required\n        \n      </small>\n    </td>\n    <td>\n      \n<p>Array of tickets with {price ticket_type seat}</p>\n\n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be an Array of nested elements</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n    <tr style='background-color:rgb(245,245,245);'>\n    <td>\n      <strong>reservation[tickets][price] </strong><br>\n      <small>\n        required\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a Float</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(245,245,245);'>\n    <td>\n      <strong>reservation[tickets][seat] </strong><br>\n      <small>\n        required\n        \n      </small>\n    </td>\n    <td>\n      \n<p>ex. “1A” , 2E</p>\n\n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n  <tr style='background-color:rgb(245,245,245);'>\n    <td>\n      <strong>reservation[tickets][ticket_type] </strong><br>\n      <small>\n        required\n        \n      </small>\n    </td>\n    <td>\n      \n        <p><strong>Validations:</strong></p>\n        <ul>\n            <li>\n<p>Must be a String</p>\n</li>\n        </ul>\n\n    </td>\n\n  </tr>\n\n  \n\n\n\n    </tbody>\n  </table>\n\n\n\n</div>\n\n\n        \n      </div>\n    </div>\n    <hr>\n    <footer></footer>\n  </div>\n  <script type='text/javascript' src='/apipie/javascripts/bundled/jquery.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/bundled/bootstrap-collapse.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/bundled/prettify.js'></script>\n<script type='text/javascript' src='/apipie/javascripts/apipie.js'></script>\n</body>\n</html>\n",
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "cinema_halls#create": [
+    {
+      "verb": "POST",
+      "path": "/cinema_halls",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": {
+        "name": "Some name",
+        "capacity": 100
+      },
+      "response_data": {
+        "id": 945,
+        "name": "Some name",
+        "capacity": 100,
+        "created_at": "2021-06-21T11:06:29.384Z",
+        "updated_at": "2021-06-21T11:06:29.384Z",
+        "seats": [
+          "1A",
+          "1B",
+          "1C",
+          "1D",
+          "1E",
+          "1F",
+          "1G",
+          "1H",
+          "1I",
+          "1J",
+          "2A",
+          "2B",
+          "2C",
+          "2D",
+          "2E",
+          "2F",
+          "2G",
+          "2H",
+          "2I",
+          "2J",
+          "3A",
+          "3B",
+          "3C",
+          "3D",
+          "3E",
+          "3F",
+          "3G",
+          "3H",
+          "3I",
+          "3J",
+          "4A",
+          "4B",
+          "4C",
+          "4D",
+          "4E",
+          "4F",
+          "4G",
+          "4H",
+          "4I",
+          "4J",
+          "5A",
+          "5B",
+          "5C",
+          "5D",
+          "5E",
+          "5F",
+          "5G",
+          "5H",
+          "5I",
+          "5J",
+          "6A",
+          "6B",
+          "6C",
+          "6D",
+          "6E",
+          "6F",
+          "6G",
+          "6H",
+          "6I",
+          "6J",
+          "7A",
+          "7B",
+          "7C",
+          "7D",
+          "7E",
+          "7F",
+          "7G",
+          "7H",
+          "7I",
+          "7J",
+          "8A",
+          "8B",
+          "8C",
+          "8D",
+          "8E",
+          "8F",
+          "8G",
+          "8H",
+          "8I",
+          "8J",
+          "9A",
+          "9B",
+          "9C",
+          "9D",
+          "9E",
+          "9F",
+          "9G",
+          "9H",
+          "9I",
+          "9J",
+          "10A",
+          "10B",
+          "10C",
+          "10D",
+          "10E",
+          "10F",
+          "10G",
+          "10H",
+          "10I",
+          "10J"
+        ]
+      },
+      "code": 201,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "cinema_halls#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/cinema_halls/947",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "status": "deleted"
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "cinema_halls#index": [
+    {
+      "verb": "GET",
+      "path": "/cinema_halls",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 942,
+          "name": "Some name",
+          "capacity": 50
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "cinema_halls#show": [
+    {
+      "verb": "GET",
+      "path": "/cinema_halls/943",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "id": 943,
+        "name": "Some name",
+        "capacity": 50,
+        "seats": [
+          "1A",
+          "1B",
+          "1C",
+          "1D",
+          "1E",
+          "1F",
+          "1G",
+          "1H",
+          "1I",
+          "1J",
+          "2A",
+          "2B",
+          "2C",
+          "2D",
+          "2E",
+          "2F",
+          "2G",
+          "2H",
+          "2I",
+          "2J",
+          "3A",
+          "3B",
+          "3C",
+          "3D",
+          "3E",
+          "3F",
+          "3G",
+          "3H",
+          "3I",
+          "3J",
+          "4A",
+          "4B",
+          "4C",
+          "4D",
+          "4E",
+          "4F",
+          "4G",
+          "4H",
+          "4I",
+          "4J",
+          "5A",
+          "5B",
+          "5C",
+          "5D",
+          "5E",
+          "5F",
+          "5G",
+          "5H",
+          "5I",
+          "5J"
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "cinema_halls#update": [
+    {
+      "verb": "PUT",
+      "path": "/cinema_halls/946",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": {
+        "id": 946,
+        "name": "new name"
+      },
+      "response_data": {
+        "name": "new name",
+        "capacity": 50,
+        "id": 946,
+        "created_at": "2021-06-21T11:06:29.394Z",
+        "updated_at": "2021-06-21T11:06:29.417Z",
+        "seats": [
+          "1A",
+          "1B",
+          "1C",
+          "1D",
+          "1E",
+          "1F",
+          "1G",
+          "1H",
+          "1I",
+          "1J",
+          "2A",
+          "2B",
+          "2C",
+          "2D",
+          "2E",
+          "2F",
+          "2G",
+          "2H",
+          "2I",
+          "2J",
+          "3A",
+          "3B",
+          "3C",
+          "3D",
+          "3E",
+          "3F",
+          "3G",
+          "3H",
+          "3I",
+          "3J",
+          "4A",
+          "4B",
+          "4C",
+          "4D",
+          "4E",
+          "4F",
+          "4G",
+          "4H",
+          "4I",
+          "4J",
+          "5A",
+          "5B",
+          "5C",
+          "5D",
+          "5E",
+          "5F",
+          "5G",
+          "5H",
+          "5I",
+          "5J"
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "movies#create": [
+    {
+      "verb": "POST",
+      "path": "/movies",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": {
+        "movie": {
+          "title": "new title",
+          "genre": "example",
+          "age_allowed": 12,
+          "duration": 180
+        }
+      },
+      "response_data": {
+        "id": 785,
+        "title": "new title",
+        "genre": "example",
+        "age_allowed": 12,
+        "created_at": "2021-06-21T11:06:29.623Z",
+        "updated_at": "2021-06-21T11:06:29.623Z",
+        "duration": 180
+      },
+      "code": 201,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "movies#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/movies/787",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "status": "deleted"
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "movies#index": [
+    {
+      "verb": "GET",
+      "path": "/movies",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 782,
+          "title": "New title",
+          "genre": "example",
+          "age_allowed": 16,
+          "duration": 120
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "movies#show": [
+    {
+      "verb": "GET",
+      "path": "/movies/783",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 783,
+          "title": "New title",
+          "genre": "example",
+          "age_allowed": 16,
+          "duration": 120,
+          "screenings": [
+
+          ]
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "movies#update": [
+    {
+      "verb": "PUT",
+      "path": "/movies/786",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": {
+        "movie": {
+          "id": 786,
+          "title": "Other title"
+        }
+      },
+      "response_data": {
+        "title": "Other title",
+        "age_allowed": 16,
+        "id": 786,
+        "genre": "example",
+        "created_at": "2021-06-21T11:06:29.633Z",
+        "updated_at": "2021-06-21T11:06:29.656Z",
+        "duration": 120
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "offlinereservations#create": [
+    {
+      "verb": "POST",
+      "path": "/offline/reservations",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "reservation": {
+          "status": "paid",
+          "screening_id": 745,
+          "ticket_desk_id": 233,
+          "tickets": [
+            {
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "2A"
+            },
+            {
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "2B"
+            },
+            {
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "2C"
+            },
+            {
+              "price": 7.99,
+              "ticket_type": "student",
+              "seat": "2D"
+            },
+            {
+              "price": 7.99,
+              "ticket_type": "student",
+              "seat": "2E"
+            }
+          ]
+        }
+      },
+      "response_data": [
+        {
+          "id": 626,
+          "status": "paid",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "movie_title": "Some Title",
+          "cinema_hall_name": "Some name",
+          "ticket_desk_id": 233,
+          "user_id": 1045,
+          "tickets": [
+            {
+              "id": 305,
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "2A",
+              "reservation_id": 626
+            },
+            {
+              "id": 306,
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "2B",
+              "reservation_id": 626
+            },
+            {
+              "id": 307,
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "2C",
+              "reservation_id": 626
+            },
+            {
+              "id": 308,
+              "price": 7.99,
+              "ticket_type": "student",
+              "seat": "2D",
+              "reservation_id": 626
+            },
+            {
+              "id": 309,
+              "price": 7.99,
+              "ticket_type": "student",
+              "seat": "2E",
+              "reservation_id": 626
+            }
+          ]
+        }
+      ],
+      "code": 201,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/offline/reservations",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "reservation": {
+          "status": "paid",
+          "screening_id": 748,
+          "ticket_desk_id": 234,
+          "tickets": [
+            {
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "2A"
+            },
+            {
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "2B"
+            },
+            {
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "2C"
+            },
+            {
+              "price": 7.99,
+              "ticket_type": "student",
+              "seat": "2D"
+            },
+            {
+              "price": 7.99,
+              "ticket_type": "student",
+              "seat": "2E"
+            }
+          ]
+        }
+      },
+      "response_data": [
+        {
+          "id": 630,
+          "status": "paid",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "movie_title": "Some Title",
+          "cinema_hall_name": "Some name",
+          "ticket_desk_id": 234,
+          "user_id": 1050,
+          "tickets": [
+            {
+              "id": 312,
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "2A",
+              "reservation_id": 630
+            },
+            {
+              "id": 313,
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "2B",
+              "reservation_id": 630
+            },
+            {
+              "id": 314,
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "2C",
+              "reservation_id": 630
+            },
+            {
+              "id": 315,
+              "price": 7.99,
+              "ticket_type": "student",
+              "seat": "2D",
+              "reservation_id": 630
+            },
+            {
+              "id": 316,
+              "price": 7.99,
+              "ticket_type": "student",
+              "seat": "2E",
+              "reservation_id": 630
+            }
+          ]
+        }
+      ],
+      "code": 201,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/offline/reservations",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "reservation": {
+          "status": "paid",
+          "screening_id": 769,
+          "ticket_desk_id": 241,
+          "tickets": [
+            {
+              "price": 15,
+              "ticket_type": "normal",
+              "seat": "2A"
+            }
+          ]
+        }
+      },
+      "response_data": {
+        "message": "You are not allowed to access!"
+      },
+      "code": 401,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/offline/reservations",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "reservation": {
+          "status": "paid",
+          "screening_id": 772,
+          "ticket_desk_id": 242,
+          "tickets": [
+            {
+              "price": 15,
+              "ticket_type": "normal",
+              "seat": "2A"
+            }
+          ]
+        }
+      },
+      "response_data": {
+        "message": "You are not allowed to access!"
+      },
+      "code": 401,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "offlinereservations#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/offline/reservations/637",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "status": "deleted"
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "DELETE",
+      "path": "/offline/reservations/640",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "status": "deleted"
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "DELETE",
+      "path": "/offline/reservations/661",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "message": "You are not allowed to access!"
+      },
+      "code": 401,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "offlinereservations#index": [
+    {
+      "verb": "GET",
+      "path": "/offline/reservations",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 617,
+          "status": "confirmed",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "user_id": 1036
+        },
+        {
+          "id": 618,
+          "status": "confirmed",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "user_id": 1037
+        },
+        {
+          "id": 619,
+          "status": "confirmed",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "user_id": 1038
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/offline/reservations",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "message": "You are not allowed to access!"
+      },
+      "code": 401,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "offlinereservations#show": [
+    {
+      "verb": "GET",
+      "path": "/offline/reservations/620",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 620,
+          "status": "confirmed",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "movie_title": "Some Title",
+          "cinema_hall_name": "Some name",
+          "ticket_desk_id": 232,
+          "user_id": 1041,
+          "tickets": [
+            {
+              "id": 301,
+              "price": 15.0,
+              "ticket_type": "normal",
+              "seat": "3A",
+              "reservation_id": 620
+            },
+            {
+              "id": 302,
+              "price": 15.0,
+              "ticket_type": "normal",
+              "seat": "4A",
+              "reservation_id": 620
+            }
+          ]
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/offline/reservations/646",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "message": "You are not allowed to access!"
+      },
+      "code": 401,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "offlinereservations#update": [
+    {
+      "verb": "PUT",
+      "path": "/offline/reservations/631",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "id": 631
+      },
+      "response_data": {
+        "status": "paid",
+        "id": 631,
+        "screening_id": 751,
+        "created_at": "2021-06-21T11:06:30.165Z",
+        "updated_at": "2021-06-21T11:06:30.222Z",
+        "ticket_desk_id": 235,
+        "user_id": 1056
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "PUT",
+      "path": "/offline/reservations/634",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "id": 634
+      },
+      "response_data": {
+        "status": "paid",
+        "id": 634,
+        "screening_id": 754,
+        "created_at": "2021-06-21T11:06:30.258Z",
+        "updated_at": "2021-06-21T11:06:30.318Z",
+        "ticket_desk_id": 236,
+        "user_id": 1061
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "PUT",
+      "path": "/offline/reservations/655",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "id": 655
+      },
+      "response_data": {
+        "message": "You are not allowed to access!"
+      },
+      "code": 401,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "PUT",
+      "path": "/offline/reservations/658",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "id": 658
+      },
+      "response_data": {
+        "message": "You are not allowed to access!"
+      },
+      "code": 401,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "onlinereservations#create": [
+    {
+      "verb": "POST",
+      "path": "/online/reservations",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "reservation": {
+          "screening_id": 807,
+          "tickets": [
+            {
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "4A"
+            },
+            {
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "4B"
+            },
+            {
+              "price": 7.99,
+              "ticket_type": "normal",
+              "seat": "4C"
+            }
+          ]
+        }
+      },
+      "response_data": [
+        {
+          "id": 685,
+          "status": "confirmed",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "movie_title": "Some Title",
+          "cinema_hall_name": "Some name",
+          "ticket_desk_id": null,
+          "user_id": 1133,
+          "tickets": [
+            {
+              "id": 347,
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "4A",
+              "reservation_id": 685
+            },
+            {
+              "id": 348,
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "4B",
+              "reservation_id": 685
+            },
+            {
+              "id": 349,
+              "price": 7.99,
+              "ticket_type": "normal",
+              "seat": "4C",
+              "reservation_id": 685
+            }
+          ]
+        }
+      ],
+      "code": 201,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/online/reservations",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "reservation": {
+          "screening_id": 811,
+          "tickets": [
+            {
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "4A"
+            },
+            {
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "4B"
+            },
+            {
+              "price": 7.99,
+              "ticket_type": "normal",
+              "seat": "4C"
+            }
+          ]
+        }
+      },
+      "response_data": [
+        {
+          "id": 689,
+          "status": "confirmed",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "movie_title": "Some Title",
+          "cinema_hall_name": "Some name",
+          "ticket_desk_id": null,
+          "user_id": 1135,
+          "tickets": [
+            {
+              "id": 351,
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "4A",
+              "reservation_id": 689
+            },
+            {
+              "id": 352,
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "4B",
+              "reservation_id": 689
+            },
+            {
+              "id": 353,
+              "price": 7.99,
+              "ticket_type": "normal",
+              "seat": "4C",
+              "reservation_id": 689
+            }
+          ]
+        }
+      ],
+      "code": 201,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/online/reservations",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "reservation": {
+          "screening_id": 815,
+          "tickets": [
+            {
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "100D"
+            },
+            {
+              "price": 15.99,
+              "ticket_type": "normal",
+              "seat": "4B"
+            },
+            {
+              "price": 7.99,
+              "ticket_type": "normal",
+              "seat": "4C"
+            }
+          ]
+        }
+      },
+      "response_data": {
+        "error": "Provided seats are not available!"
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "onlinereservations#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/online/reservations/694",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "status": "deleted"
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "DELETE",
+      "path": "/online/reservations/697",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "status": "deleted"
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "DELETE",
+      "path": "/online/reservations/701",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "message": "You are not allowed to access!"
+      },
+      "code": 401,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "DELETE",
+      "path": "/online/reservations/704",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "message": "You are not allowed to access!"
+      },
+      "code": 401,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "onlinereservations#index": [
+    {
+      "verb": "GET",
+      "path": "/online/reservations",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 667,
+          "status": "confirmed",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "user_id": 1123
+        },
+        {
+          "id": 669,
+          "status": "confirmed",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "user_id": 1123
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/online/reservations",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 670,
+          "status": "confirmed",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "user_id": 1125
+        },
+        {
+          "id": 672,
+          "status": "confirmed",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "user_id": 1125
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "onlinereservations#show": [
+    {
+      "verb": "GET",
+      "path": "/online/reservations/673",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 673,
+          "status": "confirmed",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "movie_title": "Some Title",
+          "cinema_hall_name": "Some name",
+          "ticket_desk_id": null,
+          "user_id": 1127,
+          "tickets": [
+            {
+              "id": 343,
+              "price": 15.0,
+              "ticket_type": "normal",
+              "seat": "35A",
+              "reservation_id": 673
+            }
+          ]
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/online/reservations/676",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 676,
+          "status": "confirmed",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "movie_title": "Some Title",
+          "cinema_hall_name": "Some name",
+          "ticket_desk_id": null,
+          "user_id": 1129,
+          "tickets": [
+            {
+              "id": 344,
+              "price": 15.0,
+              "ticket_type": "normal",
+              "seat": "36A",
+              "reservation_id": 676
+            }
+          ]
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/online/reservations/680",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "message": "You are not allowed to access!"
+      },
+      "code": 401,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "reservations#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/movies/887/screenings/838/reservations/709",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "status": "deleted"
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "reservations#index": [
+    {
+      "verb": "GET",
+      "path": "/movies/884/screenings/835/reservations",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 706,
+          "status": "confirmed",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "user_id": 1147
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "reservations#show": [
+    {
+      "verb": "GET",
+      "path": "/movies/885/screenings/836/reservations/707",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 707,
+          "status": "confirmed",
+          "screening_date": "2021-07-21T15:30:00.000Z",
+          "movie_title": "Some Title",
+          "cinema_hall_name": "Some name",
+          "ticket_desk_id": 248,
+          "user_id": 1149,
+          "tickets": [
+
+          ]
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "reservations#update": [
+    {
+      "verb": "PUT",
+      "path": "/movies/886/screenings/837/reservations/708",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": {
+        "reservation": {
+          "id": 708,
+          "status": "paid"
+        }
+      },
+      "response_data": {
+        "status": "paid",
+        "id": 708,
+        "screening_id": 837,
+        "created_at": "2021-06-21T11:06:32.315Z",
+        "updated_at": "2021-06-21T11:06:32.339Z",
+        "ticket_desk_id": 249,
+        "user_id": 1151
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "screenings#create": [
+    {
+      "verb": "POST",
+      "path": "/movies/890/screenings",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": {
+        "screening": {
+          "date": "2021-07-25T15:30:00",
+          "cinema_hall_id": 1050,
+          "movie_id": 890
+        }
+      },
+      "response_data": {
+        "id": 842,
+        "date": "2021-07-25T15:30:00.000Z",
+        "cinema_hall_id": 1050,
+        "created_at": "2021-06-21T11:06:32.495Z",
+        "updated_at": "2021-06-21T11:06:32.495Z",
+        "movie_id": 890
+      },
+      "code": 201,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "screenings#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/movies/892/screenings/844",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "status": "deleted"
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "screenings#index": [
+    {
+      "verb": "GET",
+      "path": "/movies/888/screenings",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 839,
+          "date": "2021-07-21T15:30:00.000Z",
+          "cinema_hall_name": "Some name"
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "screenings#show": [
+    {
+      "verb": "GET",
+      "path": "/movies/889/screenings/840",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 840,
+          "date": "2021-07-21T15:30:00.000Z",
+          "movie_title": "Some Title",
+          "cinema_hall_name": "Some name",
+          "available_seats": [
+            "1A",
+            "1B",
+            "1C",
+            "1D",
+            "1E",
+            "1F",
+            "1G",
+            "1H",
+            "1I",
+            "1J",
+            "2A",
+            "2B",
+            "2C",
+            "2D",
+            "2E",
+            "2F",
+            "2G",
+            "2H",
+            "2I",
+            "2J",
+            "3A",
+            "3B",
+            "3C",
+            "3D",
+            "3E",
+            "3F",
+            "3G",
+            "3H",
+            "3I",
+            "3J",
+            "4A",
+            "4B",
+            "4C",
+            "4D",
+            "4E",
+            "4F",
+            "4G",
+            "4H",
+            "4I",
+            "4J",
+            "5A",
+            "5B",
+            "5C",
+            "5D",
+            "5E",
+            "5F",
+            "5G",
+            "5H",
+            "5I",
+            "5J"
+          ]
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "screenings#update": [
+    {
+      "verb": "PUT",
+      "path": "/movies/891/screenings/843",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": {
+        "screening": {
+          "id": 843,
+          "date": "2021-07-21T20:30:00"
+        }
+      },
+      "response_data": {
+        "date": "2021-07-21T20:30:00.000Z",
+        "id": 843,
+        "cinema_hall_id": 1051,
+        "created_at": "2021-06-21T11:06:32.511Z",
+        "updated_at": "2021-06-21T11:06:32.538Z",
+        "movie_id": 891
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "ticket_desks#create": [
+    {
+      "verb": "POST",
+      "path": "/ticket_desks",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": {
+        "ticket_desk": {
+          "ticket_type": "normal"
+        }
+      },
+      "response_data": {
+        "id": 254,
+        "category": null,
+        "created_at": "2021-06-21T11:06:32.681Z",
+        "updated_at": "2021-06-21T11:06:32.681Z"
+      },
+      "code": 201,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "ticket_desks#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/ticket_desks/256",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "status": "deleted"
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "ticket_desks#index": [
+    {
+      "verb": "GET",
+      "path": "/ticket_desks",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 251,
+          "type": "offline"
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "ticket_desks#show": [
+    {
+      "verb": "GET",
+      "path": "/ticket_desks/252",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": [
+        {
+          "id": 252,
+          "category": "offline",
+          "created_at": "2021-06-21T11:06:32.625Z",
+          "updated_at": "2021-06-21T11:06:32.625Z"
+        }
+      ],
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "ticket_desks#update": [
+    {
+      "verb": "PUT",
+      "path": "/ticket_desks/255",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": {
+        "ticket_desk": {
+          "id": 255,
+          "ticket_type": "child"
+        }
+      },
+      "response_data": {
+        "id": 255,
+        "category": "offline",
+        "created_at": "2021-06-21T11:06:32.690Z",
+        "updated_at": "2021-06-21T11:06:32.690Z"
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ]
+}

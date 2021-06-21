@@ -8,6 +8,10 @@ RSpec.describe 'Offline Reservations requests' do
   let!(:desk) { create(:ticket_desk) }
   let!(:offline_user) { create :user, real_user: false }
   let!(:res) { create(:reservation, screening_id: screening.id, ticket_desk_id: desk.id, status: 'confirmed') }
+  let!(:ticket1) {create :ticket, reservation_id: res.id}
+  let!(:ticket2) {create :ticket, reservation_id: res.id}
+  let!(:res2) { create :reservation}
+  let!(:res3) { create :reservation}
   let!(:employee) { create(:user, role: 1) }
 
   context 'when user is  admin/employee' do
@@ -32,11 +36,11 @@ RSpec.describe 'Offline Reservations requests' do
     describe 'POST /reservations' do
       let(:tickets) do
         [
-          { "price": 15, "ticket_type": 'normal', "seat": '2A' },
-          { "price": 15, "ticket_type": 'normal', "seat": '2B' },
-          { "price": 15, "ticket_type": 'normal', "seat": '2C' },
-          { "price": 15, "ticket_type": 'normal', "seat": '2D' },
-          { "price": 15, "ticket_type": 'normal', "seat": '2E' }
+          { "price": 15.99, "ticket_type": 'normal', "seat": '2A' },
+          { "price": 15.99, "ticket_type": 'normal', "seat": '2B' },
+          { "price": 15.99, "ticket_type": 'normal', "seat": '2C' },
+          { "price": 7.99, "ticket_type": 'student', "seat": '2D' },
+          { "price": 7.99, "ticket_type": 'student', "seat": '2E' }
         ]
       end
 

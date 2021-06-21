@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 class MoviesController < ApplicationController
+
+  api :GET, "/movies", "Shows all movies"
   def index
     @movies = Movies::Repository.new.find_all
     render json: Movies::Representer.new(@movies).basic
   end
 
+  api :GET, "/movies/:id", "Shows a detiled information about movie and its next 5 screenings"
   def show
     movie = Movies::Repository.new.find_by(params[:id])
     render json: Movies::Representer.new([movie]).extended

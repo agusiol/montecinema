@@ -1,0 +1,755 @@
+{
+  "docs": {
+    "name": "Montecinema",
+    "info": "\n<p>Another API description</p>\n",
+    "copyright": null,
+    "doc_url": "/apipie/1.0",
+    "api_url": "",
+    "resources": {
+      "movies": {
+        "doc_url": "/apipie/1.0/movies",
+        "id": "movies",
+        "api_url": "",
+        "name": "Movies",
+        "short_description": null,
+        "full_description": null,
+        "version": "1.0",
+        "formats": null,
+        "metadata": null,
+        "methods": [
+          {
+            "doc_url": "/apipie/1.0/movies/index",
+            "name": "index",
+            "apis": [
+              {
+                "api_url": "/movies",
+                "http_method": "GET",
+                "short_description": "Shows all movies",
+                "deprecated": null
+              }
+            ],
+            "formats": null,
+            "full_description": "",
+            "errors": [
+
+            ],
+            "params": [
+
+            ],
+            "returns": [
+
+            ],
+            "examples": [
+              "GET /movies\n200\n[\n  {\n    \"id\": 782,\n    \"title\": \"New title\",\n    \"genre\": \"example\",\n    \"age_allowed\": 16,\n    \"duration\": 120\n  }\n]"
+            ],
+            "metadata": null,
+            "see": [
+
+            ],
+            "headers": [
+
+            ],
+            "show": true
+          },
+          {
+            "doc_url": "/apipie/1.0/movies/show",
+            "name": "show",
+            "apis": [
+              {
+                "api_url": "/movies/:id",
+                "http_method": "GET",
+                "short_description": "Shows a detiled information about movie and its next 5 screenings",
+                "deprecated": null
+              }
+            ],
+            "formats": null,
+            "full_description": "",
+            "errors": [
+
+            ],
+            "params": [
+
+            ],
+            "returns": [
+
+            ],
+            "examples": [
+              "GET /movies/783\n200\n[\n  {\n    \"id\": 783,\n    \"title\": \"New title\",\n    \"genre\": \"example\",\n    \"age_allowed\": 16,\n    \"duration\": 120,\n    \"screenings\": []\n  }\n]"
+            ],
+            "metadata": null,
+            "see": [
+
+            ],
+            "headers": [
+
+            ],
+            "show": true
+          }
+        ],
+        "headers": null,
+        "deprecated": null
+      },
+      "offlinereservations": {
+        "doc_url": "/apipie/1.0/offlinereservations",
+        "id": "offlinereservations",
+        "api_url": "",
+        "name": "Offlinereservations",
+        "short_description": "Offline Reservations/ Only for staff members",
+        "full_description": "",
+        "version": "1.0",
+        "formats": [
+          "json"
+        ],
+        "metadata": null,
+        "methods": [
+          {
+            "doc_url": "/apipie/1.0/offlinereservations/index",
+            "name": "index",
+            "apis": [
+              {
+                "api_url": "/offline/reservations",
+                "http_method": "GET",
+                "short_description": "Display all reservations ",
+                "deprecated": null
+              }
+            ],
+            "formats": [
+              "json"
+            ],
+            "full_description": "",
+            "errors": [
+
+            ],
+            "params": [
+
+            ],
+            "returns": [
+
+            ],
+            "examples": [
+              "GET /offline/reservations\n200\n[\n  {\n    \"id\": 617,\n    \"status\": \"confirmed\",\n    \"screening_date\": \"2021-07-21T15:30:00.000Z\",\n    \"user_id\": 1036\n  },\n  {\n    \"id\": 618,\n    \"status\": \"confirmed\",\n    \"screening_date\": \"2021-07-21T15:30:00.000Z\",\n    \"user_id\": 1037\n  },\n  {\n    \"id\": 619,\n    \"status\": \"confirmed\",\n    \"screening_date\": \"2021-07-21T15:30:00.000Z\",\n    \"user_id\": 1038\n  }\n]"
+            ],
+            "metadata": null,
+            "see": [
+
+            ],
+            "headers": [
+
+            ],
+            "show": true
+          },
+          {
+            "doc_url": "/apipie/1.0/offlinereservations/show",
+            "name": "show",
+            "apis": [
+              {
+                "api_url": "/offline/reservations/:id",
+                "http_method": "GET",
+                "short_description": "Detailed info about reservation",
+                "deprecated": null
+              }
+            ],
+            "formats": [
+              "json"
+            ],
+            "full_description": "",
+            "errors": [
+
+            ],
+            "params": [
+
+            ],
+            "returns": [
+
+            ],
+            "examples": [
+              "GET /offline/reservations/620\n200\n[\n  {\n    \"id\": 620,\n    \"status\": \"confirmed\",\n    \"screening_date\": \"2021-07-21T15:30:00.000Z\",\n    \"movie_title\": \"Some Title\",\n    \"cinema_hall_name\": \"Some name\",\n    \"ticket_desk_id\": 232,\n    \"user_id\": 1041,\n    \"tickets\": [\n      {\n        \"id\": 301,\n        \"price\": 15.0,\n        \"ticket_type\": \"normal\",\n        \"seat\": \"3A\",\n        \"reservation_id\": 620\n      },\n      {\n        \"id\": 302,\n        \"price\": 15.0,\n        \"ticket_type\": \"normal\",\n        \"seat\": \"4A\",\n        \"reservation_id\": 620\n      }\n    ]\n  }\n]"
+            ],
+            "metadata": null,
+            "see": [
+
+            ],
+            "headers": [
+
+            ],
+            "show": true
+          },
+          {
+            "doc_url": "/apipie/1.0/offlinereservations/create",
+            "name": "create",
+            "apis": [
+              {
+                "api_url": "/offline/reservations",
+                "http_method": "POST",
+                "short_description": "Creates a reservation with tickets",
+                "deprecated": null
+              }
+            ],
+            "formats": [
+              "json"
+            ],
+            "full_description": "",
+            "errors": [
+
+            ],
+            "params": [
+              {
+                "name": "reservation",
+                "full_name": "reservation",
+                "description": "",
+                "required": false,
+                "allow_nil": false,
+                "allow_blank": false,
+                "validator": "Must be a Hash",
+                "expected_type": "hash",
+                "metadata": null,
+                "show": true,
+                "validations": [
+
+                ],
+                "params": [
+                  {
+                    "name": "screening_id",
+                    "full_name": "reservation[screening_id]",
+                    "description": "",
+                    "required": true,
+                    "allow_nil": false,
+                    "allow_blank": false,
+                    "validator": "Must be a Integer",
+                    "expected_type": "numeric",
+                    "metadata": null,
+                    "show": true,
+                    "validations": [
+
+                    ]
+                  },
+                  {
+                    "name": "ticket_desk_id",
+                    "full_name": "reservation[ticket_desk_id]",
+                    "description": "",
+                    "required": true,
+                    "allow_nil": false,
+                    "allow_blank": false,
+                    "validator": "Must be a Integer",
+                    "expected_type": "numeric",
+                    "metadata": null,
+                    "show": true,
+                    "validations": [
+
+                    ]
+                  },
+                  {
+                    "name": "status",
+                    "full_name": "reservation[status]",
+                    "description": "\n<p>confirmed or paid</p>\n",
+                    "required": true,
+                    "allow_nil": false,
+                    "allow_blank": false,
+                    "validator": "Must be a String",
+                    "expected_type": "string",
+                    "metadata": null,
+                    "show": true,
+                    "validations": [
+
+                    ]
+                  },
+                  {
+                    "name": "tickets",
+                    "full_name": "reservation[tickets]",
+                    "description": "\n<p>Array of tickets with {price ticket_type seat}</p>\n",
+                    "required": true,
+                    "allow_nil": false,
+                    "allow_blank": false,
+                    "validator": "Must be an Array of nested elements",
+                    "expected_type": "array",
+                    "metadata": null,
+                    "show": true,
+                    "validations": [
+
+                    ],
+                    "params": [
+                      {
+                        "name": "price",
+                        "full_name": "reservation[tickets][price]",
+                        "description": "",
+                        "required": true,
+                        "allow_nil": false,
+                        "allow_blank": false,
+                        "validator": "Must be a Float",
+                        "expected_type": "numeric",
+                        "metadata": null,
+                        "show": true,
+                        "validations": [
+
+                        ]
+                      },
+                      {
+                        "name": "seat",
+                        "full_name": "reservation[tickets][seat]",
+                        "description": "\n<p>ex. “1A” , 2E</p>\n",
+                        "required": true,
+                        "allow_nil": false,
+                        "allow_blank": false,
+                        "validator": "Must be a String",
+                        "expected_type": "string",
+                        "metadata": null,
+                        "show": true,
+                        "validations": [
+
+                        ]
+                      },
+                      {
+                        "name": "ticket_type",
+                        "full_name": "reservation[tickets][ticket_type]",
+                        "description": "",
+                        "required": true,
+                        "allow_nil": false,
+                        "allow_blank": false,
+                        "validator": "Must be a String",
+                        "expected_type": "string",
+                        "metadata": null,
+                        "show": true,
+                        "validations": [
+
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "returns": [
+
+            ],
+            "examples": [
+              "POST /offline/reservations\n{\n  \"reservation\": {\n    \"status\": \"paid\",\n    \"screening_id\": 745,\n    \"ticket_desk_id\": 233,\n    \"tickets\": [\n      {\n        \"price\": 15.99,\n        \"ticket_type\": \"normal\",\n        \"seat\": \"2A\"\n      },\n      {\n        \"price\": 15.99,\n        \"ticket_type\": \"normal\",\n        \"seat\": \"2B\"\n      },\n      {\n        \"price\": 15.99,\n        \"ticket_type\": \"normal\",\n        \"seat\": \"2C\"\n      },\n      {\n        \"price\": 7.99,\n        \"ticket_type\": \"student\",\n        \"seat\": \"2D\"\n      },\n      {\n        \"price\": 7.99,\n        \"ticket_type\": \"student\",\n        \"seat\": \"2E\"\n      }\n    ]\n  }\n}\n201\n[\n  {\n    \"id\": 626,\n    \"status\": \"paid\",\n    \"screening_date\": \"2021-07-21T15:30:00.000Z\",\n    \"movie_title\": \"Some Title\",\n    \"cinema_hall_name\": \"Some name\",\n    \"ticket_desk_id\": 233,\n    \"user_id\": 1045,\n    \"tickets\": [\n      {\n        \"id\": 305,\n        \"price\": 15.99,\n        \"ticket_type\": \"normal\",\n        \"seat\": \"2A\",\n        \"reservation_id\": 626\n      },\n      {\n        \"id\": 306,\n        \"price\": 15.99,\n        \"ticket_type\": \"normal\",\n        \"seat\": \"2B\",\n        \"reservation_id\": 626\n      },\n      {\n        \"id\": 307,\n        \"price\": 15.99,\n        \"ticket_type\": \"normal\",\n        \"seat\": \"2C\",\n        \"reservation_id\": 626\n      },\n      {\n        \"id\": 308,\n        \"price\": 7.99,\n        \"ticket_type\": \"student\",\n        \"seat\": \"2D\",\n        \"reservation_id\": 626\n      },\n      {\n        \"id\": 309,\n        \"price\": 7.99,\n        \"ticket_type\": \"student\",\n        \"seat\": \"2E\",\n        \"reservation_id\": 626\n      }\n    ]\n  }\n]"
+            ],
+            "metadata": null,
+            "see": [
+
+            ],
+            "headers": [
+
+            ],
+            "show": true
+          },
+          {
+            "doc_url": "/apipie/1.0/offlinereservations/update",
+            "name": "update",
+            "apis": [
+              {
+                "api_url": "/offline/reservations/:id",
+                "http_method": "PUT",
+                "short_description": "Changes reservation status from confirmed to paid ",
+                "deprecated": null
+              }
+            ],
+            "formats": [
+              "json"
+            ],
+            "full_description": "",
+            "errors": [
+
+            ],
+            "params": [
+
+            ],
+            "returns": [
+
+            ],
+            "examples": [
+              "PUT /offline/reservations/631\n{\n  \"id\": 631\n}\n200\n{\n  \"status\": \"paid\",\n  \"id\": 631,\n  \"screening_id\": 751,\n  \"created_at\": \"2021-06-21T11:06:30.165Z\",\n  \"updated_at\": \"2021-06-21T11:06:30.222Z\",\n  \"ticket_desk_id\": 235,\n  \"user_id\": 1056\n}"
+            ],
+            "metadata": null,
+            "see": [
+
+            ],
+            "headers": [
+
+            ],
+            "show": true
+          },
+          {
+            "doc_url": "/apipie/1.0/offlinereservations/destroy",
+            "name": "destroy",
+            "apis": [
+              {
+                "api_url": "/offline/reservations/:id",
+                "http_method": "DELETE",
+                "short_description": "Deletes reservation ",
+                "deprecated": null
+              }
+            ],
+            "formats": [
+              "json"
+            ],
+            "full_description": "",
+            "errors": [
+
+            ],
+            "params": [
+
+            ],
+            "returns": [
+
+            ],
+            "examples": [
+              "DELETE /offline/reservations/637\n200\n{\n  \"status\": \"deleted\"\n}"
+            ],
+            "metadata": null,
+            "see": [
+
+            ],
+            "headers": [
+
+            ],
+            "show": true
+          }
+        ],
+        "headers": [
+
+        ],
+        "deprecated": false
+      },
+      "onlinereservations": {
+        "doc_url": "/apipie/1.0/onlinereservations",
+        "id": "onlinereservations",
+        "api_url": "",
+        "name": "Onlinereservations",
+        "short_description": "ONLINE Reservations",
+        "full_description": "",
+        "version": "1.0",
+        "formats": [
+          "json"
+        ],
+        "metadata": null,
+        "methods": [
+          {
+            "doc_url": "/apipie/1.0/onlinereservations/index",
+            "name": "index",
+            "apis": [
+              {
+                "api_url": "/online/reservations",
+                "http_method": "GET",
+                "short_description": "Display logged in User's reservations ",
+                "deprecated": null
+              }
+            ],
+            "formats": [
+              "json"
+            ],
+            "full_description": "",
+            "errors": [
+
+            ],
+            "params": [
+
+            ],
+            "returns": [
+
+            ],
+            "examples": [
+              "GET /online/reservations\n200\n[\n  {\n    \"id\": 667,\n    \"status\": \"confirmed\",\n    \"screening_date\": \"2021-07-21T15:30:00.000Z\",\n    \"user_id\": 1123\n  },\n  {\n    \"id\": 669,\n    \"status\": \"confirmed\",\n    \"screening_date\": \"2021-07-21T15:30:00.000Z\",\n    \"user_id\": 1123\n  }\n]"
+            ],
+            "metadata": null,
+            "see": [
+
+            ],
+            "headers": [
+
+            ],
+            "show": true
+          },
+          {
+            "doc_url": "/apipie/1.0/onlinereservations/show",
+            "name": "show",
+            "apis": [
+              {
+                "api_url": "/online/reservations/:id",
+                "http_method": "GET",
+                "short_description": "Detailed info about reservation",
+                "deprecated": null
+              }
+            ],
+            "formats": [
+              "json"
+            ],
+            "full_description": "",
+            "errors": [
+
+            ],
+            "params": [
+
+            ],
+            "returns": [
+
+            ],
+            "examples": [
+              "GET /online/reservations/673\n200\n[\n  {\n    \"id\": 673,\n    \"status\": \"confirmed\",\n    \"screening_date\": \"2021-07-21T15:30:00.000Z\",\n    \"movie_title\": \"Some Title\",\n    \"cinema_hall_name\": \"Some name\",\n    \"ticket_desk_id\": null,\n    \"user_id\": 1127,\n    \"tickets\": [\n      {\n        \"id\": 343,\n        \"price\": 15.0,\n        \"ticket_type\": \"normal\",\n        \"seat\": \"35A\",\n        \"reservation_id\": 673\n      }\n    ]\n  }\n]"
+            ],
+            "metadata": null,
+            "see": [
+
+            ],
+            "headers": [
+
+            ],
+            "show": true
+          },
+          {
+            "doc_url": "/apipie/1.0/onlinereservations/create",
+            "name": "create",
+            "apis": [
+              {
+                "api_url": "/online/reservations",
+                "http_method": "POST",
+                "short_description": "Creates a reservation with tickets",
+                "deprecated": null
+              }
+            ],
+            "formats": [
+              "json"
+            ],
+            "full_description": "",
+            "errors": [
+
+            ],
+            "params": [
+              {
+                "name": "reservation",
+                "full_name": "reservation",
+                "description": "",
+                "required": false,
+                "allow_nil": false,
+                "allow_blank": false,
+                "validator": "Must be a Hash",
+                "expected_type": "hash",
+                "metadata": null,
+                "show": true,
+                "validations": [
+
+                ],
+                "params": [
+                  {
+                    "name": "screening_id",
+                    "full_name": "reservation[screening_id]",
+                    "description": "",
+                    "required": true,
+                    "allow_nil": false,
+                    "allow_blank": false,
+                    "validator": "Must be a Integer",
+                    "expected_type": "numeric",
+                    "metadata": null,
+                    "show": true,
+                    "validations": [
+
+                    ]
+                  },
+                  {
+                    "name": "tickets",
+                    "full_name": "reservation[tickets]",
+                    "description": "\n<p>Array of tickets with {price ticket_type seat}</p>\n",
+                    "required": true,
+                    "allow_nil": false,
+                    "allow_blank": false,
+                    "validator": "Must be an Array of nested elements",
+                    "expected_type": "array",
+                    "metadata": null,
+                    "show": true,
+                    "validations": [
+
+                    ],
+                    "params": [
+                      {
+                        "name": "price",
+                        "full_name": "reservation[tickets][price]",
+                        "description": "",
+                        "required": true,
+                        "allow_nil": false,
+                        "allow_blank": false,
+                        "validator": "Must be a Float",
+                        "expected_type": "numeric",
+                        "metadata": null,
+                        "show": true,
+                        "validations": [
+
+                        ]
+                      },
+                      {
+                        "name": "seat",
+                        "full_name": "reservation[tickets][seat]",
+                        "description": "\n<p>ex. “1A” , 2E</p>\n",
+                        "required": true,
+                        "allow_nil": false,
+                        "allow_blank": false,
+                        "validator": "Must be a String",
+                        "expected_type": "string",
+                        "metadata": null,
+                        "show": true,
+                        "validations": [
+
+                        ]
+                      },
+                      {
+                        "name": "ticket_type",
+                        "full_name": "reservation[tickets][ticket_type]",
+                        "description": "",
+                        "required": true,
+                        "allow_nil": false,
+                        "allow_blank": false,
+                        "validator": "Must be a String",
+                        "expected_type": "string",
+                        "metadata": null,
+                        "show": true,
+                        "validations": [
+
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "returns": [
+
+            ],
+            "examples": [
+              "POST /online/reservations\n{\n  \"reservation\": {\n    \"screening_id\": 807,\n    \"tickets\": [\n      {\n        \"price\": 15.99,\n        \"ticket_type\": \"normal\",\n        \"seat\": \"4A\"\n      },\n      {\n        \"price\": 15.99,\n        \"ticket_type\": \"normal\",\n        \"seat\": \"4B\"\n      },\n      {\n        \"price\": 7.99,\n        \"ticket_type\": \"normal\",\n        \"seat\": \"4C\"\n      }\n    ]\n  }\n}\n201\n[\n  {\n    \"id\": 685,\n    \"status\": \"confirmed\",\n    \"screening_date\": \"2021-07-21T15:30:00.000Z\",\n    \"movie_title\": \"Some Title\",\n    \"cinema_hall_name\": \"Some name\",\n    \"ticket_desk_id\": null,\n    \"user_id\": 1133,\n    \"tickets\": [\n      {\n        \"id\": 347,\n        \"price\": 15.99,\n        \"ticket_type\": \"normal\",\n        \"seat\": \"4A\",\n        \"reservation_id\": 685\n      },\n      {\n        \"id\": 348,\n        \"price\": 15.99,\n        \"ticket_type\": \"normal\",\n        \"seat\": \"4B\",\n        \"reservation_id\": 685\n      },\n      {\n        \"id\": 349,\n        \"price\": 7.99,\n        \"ticket_type\": \"normal\",\n        \"seat\": \"4C\",\n        \"reservation_id\": 685\n      }\n    ]\n  }\n]"
+            ],
+            "metadata": null,
+            "see": [
+
+            ],
+            "headers": [
+
+            ],
+            "show": true
+          },
+          {
+            "doc_url": "/apipie/1.0/onlinereservations/destroy",
+            "name": "destroy",
+            "apis": [
+              {
+                "api_url": "/online/reservations/:id",
+                "http_method": "DELETE",
+                "short_description": "Deletes reservation if it belongs to logged in User ",
+                "deprecated": null
+              }
+            ],
+            "formats": [
+              "json"
+            ],
+            "full_description": "",
+            "errors": [
+
+            ],
+            "params": [
+
+            ],
+            "returns": [
+
+            ],
+            "examples": [
+              "DELETE /online/reservations/694\n200\n{\n  \"status\": \"deleted\"\n}"
+            ],
+            "metadata": null,
+            "see": [
+
+            ],
+            "headers": [
+
+            ],
+            "show": true
+          }
+        ],
+        "headers": [
+
+        ],
+        "deprecated": false
+      },
+      "screenings": {
+        "doc_url": "/apipie/1.0/screenings",
+        "id": "screenings",
+        "api_url": "",
+        "name": "Screenings",
+        "short_description": null,
+        "full_description": null,
+        "version": "1.0",
+        "formats": null,
+        "metadata": null,
+        "methods": [
+          {
+            "doc_url": "/apipie/1.0/screenings/index",
+            "name": "index",
+            "apis": [
+              {
+                "api_url": "/movies/:id/screenings",
+                "http_method": "GET",
+                "short_description": "Shows all screenings for movie with given id",
+                "deprecated": null
+              }
+            ],
+            "formats": null,
+            "full_description": "",
+            "errors": [
+
+            ],
+            "params": [
+
+            ],
+            "returns": [
+
+            ],
+            "examples": [
+              "GET /movies/888/screenings\n200\n[\n  {\n    \"id\": 839,\n    \"date\": \"2021-07-21T15:30:00.000Z\",\n    \"cinema_hall_name\": \"Some name\"\n  }\n]"
+            ],
+            "metadata": null,
+            "see": [
+
+            ],
+            "headers": [
+
+            ],
+            "show": true
+          },
+          {
+            "doc_url": "/apipie/1.0/screenings/show",
+            "name": "show",
+            "apis": [
+              {
+                "api_url": "/movies/:id/screenings/:id",
+                "http_method": "GET",
+                "short_description": "Shows a deailed information about screening",
+                "deprecated": null
+              }
+            ],
+            "formats": null,
+            "full_description": "",
+            "errors": [
+
+            ],
+            "params": [
+
+            ],
+            "returns": [
+
+            ],
+            "examples": [
+              "GET /movies/889/screenings/840\n200\n[\n  {\n    \"id\": 840,\n    \"date\": \"2021-07-21T15:30:00.000Z\",\n    \"movie_title\": \"Some Title\",\n    \"cinema_hall_name\": \"Some name\",\n    \"available_seats\": [\n      \"1A\",\n      \"1B\",\n      \"1C\",\n      \"1D\",\n      \"1E\",\n      \"1F\",\n      \"1G\",\n      \"1H\",\n      \"1I\",\n      \"1J\",\n      \"2A\",\n      \"2B\",\n      \"2C\",\n      \"2D\",\n      \"2E\",\n      \"2F\",\n      \"2G\",\n      \"2H\",\n      \"2I\",\n      \"2J\",\n      \"3A\",\n      \"3B\",\n      \"3C\",\n      \"3D\",\n      \"3E\",\n      \"3F\",\n      \"3G\",\n      \"3H\",\n      \"3I\",\n      \"3J\",\n      \"4A\",\n      \"4B\",\n      \"4C\",\n      \"4D\",\n      \"4E\",\n      \"4F\",\n      \"4G\",\n      \"4H\",\n      \"4I\",\n      \"4J\",\n      \"5A\",\n      \"5B\",\n      \"5C\",\n      \"5D\",\n      \"5E\",\n      \"5F\",\n      \"5G\",\n      \"5H\",\n      \"5I\",\n      \"5J\"\n    ]\n  }\n]"
+            ],
+            "metadata": null,
+            "see": [
+
+            ],
+            "headers": [
+
+            ],
+            "show": true
+          }
+        ],
+        "headers": null,
+        "deprecated": null
+      }
+    }
+  }
+}
