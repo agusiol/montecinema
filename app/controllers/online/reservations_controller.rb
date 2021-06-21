@@ -11,16 +11,16 @@ module Online
 
     def_param_group :reservation do
       param :reservation, Hash do
-        param :screening_id , Integer, required: true
+        param :screening_id, Integer, required: true
         param :tickets, Array, ' Array of tickets with {price ticket_type seat}', required: true do
           param :price, Float, required: true
-          param :seat, String , 'ex. "1A" , 2E', required: true
+          param :seat, String, 'ex. "1A" , 2E', required: true
           param :ticket_type, String, required: true
         end
       end
     end
 
-    api :GET, "/online/reservations", "Display logged in User's reservations "
+    api :GET, '/online/reservations', "Display logged in User's reservations "
 
     def index
       authorize Reservation
@@ -28,16 +28,16 @@ module Online
       render json: Reservations::Representer.new(@reservations).basic
     end
 
-    api :GET, "/online/reservations/:id", "Detailed info about reservation"
+    api :GET, '/online/reservations/:id', 'Detailed info about reservation'
     def show
       @reservation = Reservations::Repository.new.find_by(params[:id])
       authorize @reservation
       render json: Reservations::Representer.new([@reservation]).extended
     end
 
-    api :POST, "/online/reservations", "Creates a reservation with tickets"
+    api :POST, '/online/reservations', 'Creates a reservation with tickets'
     param_group :reservation
-    # example   <<-EOS 
+    # example   <<-EOS
     # {
     #   "reservation":  {
     #       "screening_id": 1,
@@ -59,7 +59,7 @@ module Online
       render json: { error: e.message }.to_json
     end
 
-    api :DELETE, "/online/reservations/:id", "Deletes reservation if it belongs to logged in User "
+    api :DELETE, '/online/reservations/:id', 'Deletes reservation if it belongs to logged in User '
     def destroy
       @reservation = Reservations::Repository.new.find_by(params[:id])
       authorize @reservation

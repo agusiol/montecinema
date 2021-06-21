@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class ScreeningsController < ApplicationController
-
-  api :GET, "/movies/:id/screenings", "Shows all screenings for movie with given id"
+  api :GET, '/movies/:id/screenings', 'Shows all screenings for movie with given id'
   def index
     @screenings = Screenings::Repository.new.fetch(movie_id: params[:movie_id])
     render json: Screenings::Representer.new(@screenings).basic
