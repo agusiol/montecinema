@@ -1,24 +1,45 @@
 # README
+# Monte Cinema
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+API app for reservation/tickets management in Cinema. It enables ticket purchase or reservation at ticket desks or reservation online.
 
-Things you may want to cover:
+## Requirments
+ruby 3.0.1
+rails 6.x
+postgresql 13.x
+redis
+ 
+## Set Up
 
-* Ruby version
+To install the gems required by the application:
+```bash
+bundle install
+```
+Set up your PostgreSQL config, then run:
 
-* System dependencies
+```bash
+rails db:create
+rails db:migrate
+rails db:seed
+```
 
-* Configuration
+Run server
+Start the Rails app:
+```bash
+bundle exec rails s 
+bundle exec sidekiq 
 
-* Database creation
+```
 
-* Database initialization
+Now You can find your app by pointing your browser to http://localhost:3000/
 
-* How to run the test suite
+## Documentation
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* ...
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
