@@ -58,6 +58,7 @@ end
 gem 'apipie-rails'
 gem 'devise'
 gem 'devise-jwt'
+gem 'graphql'
 gem 'pundit'
 gem 'rubocop', require: false
 gem 'sentry-rails'

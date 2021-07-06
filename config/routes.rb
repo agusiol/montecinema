@@ -4,6 +4,7 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
+  post '/graphql', to: 'graphql#execute'
   apipie
   devise_for :users, defaults: { format: :json }, controllers: {
     sessions: 'users/sessions'
