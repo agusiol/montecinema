@@ -8,7 +8,6 @@ module Types
     field :genre, String, null: false
     field :age_allowed, Integer, null: false
     field :duration, Integer, null: false
-
-    # field :comments, [Types::CommentType], null: true,
+    field :screenings, [Types::ScreeningType], null: true
   end
 end

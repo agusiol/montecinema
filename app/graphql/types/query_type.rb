@@ -9,15 +9,9 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    # TODO: remove me
-    field :movie, MovieType, null: true do
-      description 'Find a movie by ID'
-      argument :id, ID, required: true
-    end
+    field :movie, resolver: ::Resolvers::Movie
+    field :movies, resolver: ::Resolvers::Movies
+    field :screening, resolver: ::Resolvers::Screening
 
-    # Then provide an implementation:
-    def movie(id:)
-      Movies::Repository.new.find_by(id)
-    end
   end
 end
