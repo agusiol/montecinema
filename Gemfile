@@ -58,6 +58,7 @@ end
 gem 'apipie-rails'
 gem 'devise'
 gem 'devise-jwt'
+gem 'dry-validation'
 gem 'pundit'
 gem 'rubocop', require: false
 gem 'sentry-rails'

@@ -14,12 +14,17 @@ class CinemaHallsController < ApplicationController
   end
 
   def create
-    cinema_hall = CinemaHalls::UseCases::Create.new.call(params: cinema_hall_params)
-    if cinema_hall.valid?
+    contract  = CinemaHalls::Validators::CinemaHallContract.new
+    result = contract.call(cinema_hall_params.to_h)
+
+    
+    if  result.success?
+      cinema_hall = CinemaHalls::UseCases::Create.new.call(params: cinema_hall_params)
       render json: cinema_hall, status: :created
     else
-      render json: cinema_hall.errors, status: :unprocessable_entity
+      render json: result.errors.to_h
     end
+    
   end
 
   def update
