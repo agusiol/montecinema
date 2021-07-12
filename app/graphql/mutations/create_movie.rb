@@ -9,6 +9,9 @@ module Mutations
     field :errors, [String], null: false
 
     def resolve(**attributes)
+      check_authentication!
+      staff_authorize!
+      
       movie = Movies::UseCases::Create.new.call(params: attributes)
       
       if movie.valid?
