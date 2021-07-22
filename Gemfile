@@ -63,3 +63,4 @@ gem 'rubocop', require: false
 gem 'sentry-rails'
 gem 'sentry-ruby'
 gem 'simplecov', require: false
+gem 'shrine'
