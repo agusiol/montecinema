@@ -6,5 +6,6 @@ FactoryBot.define do
     genre { 'example' }
     age_allowed { 16 }
     duration { 120 }
+    image { File.open("spec/fixtures/files/test_poster.jpeg", "rb") }
   end
 end

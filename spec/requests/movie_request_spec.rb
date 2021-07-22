@@ -28,8 +28,11 @@ RSpec.describe 'Movies requests' do
         { title: 'new title',
           genre: 'example',
           age_allowed: 12,
-          duration: 180 } }.to_json
+          duration: 180,
+          image: file } }.to_json
     end
+    let!(:file) { Rack::Test::UploadedFile.new("spec/fixtures/files/test_poster.jpeg", "img/jpeg") }
+   
     it 'works and return status 201' do
       post('/movies', headers: auth_headers, params: params)
       expect(response.status).to eq(201)
