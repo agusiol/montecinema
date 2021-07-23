@@ -56,6 +56,7 @@ group :test do
 end
 
 gem 'apipie-rails'
+gem 'aws-sdk-s3'
 gem 'devise'
 gem 'devise-jwt'
 gem 'pundit'
