@@ -25,6 +25,7 @@ module Movies
         {
           id: movie.id,
           title: movie.title,
+          poster_url: movie.image_url,
           genre: movie.genre,
           age_allowed: movie.age_allowed,
           duration: movie.duration,

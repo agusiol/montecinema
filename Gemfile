@@ -56,6 +56,7 @@ group :test do
 end
 
 gem 'apipie-rails'
+gem 'aws-sdk-s3'
 gem 'devise'
 gem 'devise-jwt'
 gem 'pundit'
@@ -63,3 +64,4 @@ gem 'rubocop', require: false
 gem 'sentry-rails'
 gem 'sentry-ruby'
 gem 'simplecov', require: false
+gem 'shrine'

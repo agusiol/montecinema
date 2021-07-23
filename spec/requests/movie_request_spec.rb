@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 RSpec.describe 'Movies requests' do
-  let!(:movie) { Movie.create(title: 'New title', genre: 'example', age_allowed: 16, duration: 120) }
+  let!(:movie) { create(:movie) }
   let!(:admin) { create(:user, role: 2) }
 
   headers = { 'Accept' => 'application/json', 'Content-Type' => 'application/json' }
@@ -19,6 +19,7 @@ RSpec.describe 'Movies requests' do
     it 'works and return status 200' do
       get("/movies/#{movie.id}")
       expect(response.status).to eq(200)
+      expect(JSON.parse(response.body)[0]["poster_url"]).to eq(movie.image_url)
     end
   end
 
@@ -28,10 +29,14 @@ RSpec.describe 'Movies requests' do
         { title: 'new title',
           genre: 'example',
           age_allowed: 12,
-          duration: 180 } }.to_json
+          duration: 180,
+          image: file } }.to_json
     end
+    let!(:file) { Rack::Test::UploadedFile.new("spec/fixtures/files/test_poster.jpeg", "img/jpeg") }
+   
     it 'works and return status 201' do
       post('/movies', headers: auth_headers, params: params)
+
       expect(response.status).to eq(201)
     end
   end
