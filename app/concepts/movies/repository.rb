@@ -5,5 +5,10 @@ module Movies
     def initialize(adapter: Movie)
       super
     end
+
+    def search_by_title(title)
+      @adapter.where("title ILIKE ?", "%#{title}%")
+    end
+
   end
 end

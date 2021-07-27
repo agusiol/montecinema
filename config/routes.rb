@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'movies/search/:text', to: 'search#index'
+
   # offline endpoint
   namespace :offline do
     resources :reservations
